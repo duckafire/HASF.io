@@ -24,7 +24,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
 	<link rel="stylesheet" type="text/css" href="./style/default.css"/>
+	<link rel="stylesheet" type="text/css" href="./style/icons.css"/>
 	<link rel="stylesheet" type="text/css" href="./style/nav.css"/>
+	<link rel="stylesheet" type="text/css" href="./style/converter.css"/>
 	<link rel="stylesheet" type="text/css" href="./style/footer.css"/>
 </head>
 <body>
@@ -35,11 +37,34 @@
 			</div>
 			<div class="dnt-area">
 				<span class="dnt-msg">Help this project!</span>
-				<button class="dnt-btn"></button>
+				<button class="i-heart dnt-btn"></button>
 			</div>
 		</header>
 	</nav>
-	<br/>
+
+	<main class="converter">
+		<section class="converter-input-container">
+			<nav class="converter-input-nav">
+				<select class="converter-input-type">
+					<option>foo</option>
+					<option>bar</option>
+				</select>
+				<button class="i-copy converter-output-copier"></button>
+			</nav>
+			<textarea class="converter-input"></textarea>
+		</section>
+		<section class="converter-input-container">
+			<nav class="converter-input-nav">
+				<select class="converter-input-type">
+					<option>foo</option>
+					<option>bar</option>
+				</select>
+				<button class="i-copy converter-output-copier"></button>
+			</nav>
+			<textarea class="converter-input"></textarea>
+		</section>
+	</main>
+
 	<footer class="footer">
 		<ul class="ghost">
 			<li>
