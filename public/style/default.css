@@ -1,0 +1,42 @@
+:root
+{
+	--fg: #c9c9c9;
+	--bg: #1f1f1f;
+}
+
+*
+{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	color: var(--fg);
+	background-color: var(--bg);
+	font-family: sans, sans-serif, arial;
+	width: 100vw;
+	font-size: 1rem;
+	height: max-content;
+}
+
+ol,
+ul
+{
+	list-style: none;
+}
+
+button
+{
+	color: inherit;
+	font-family: inherit;
+	background: none;
+	outline: none;
+	border: none;
+}
+
+button:hover
+{
+	cursor: pointer;
+}

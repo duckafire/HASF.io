@@ -1,0 +1,46 @@
+.nav
+{
+	top: 0;
+	left: 0;
+	width: 100vw;
+	position: sticky;
+}
+
+.header
+{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem;
+	background-color: #333;
+}
+
+.tmp-icon
+{
+	width: 3rem;
+	height: 3rem;
+	background-color: #833;
+}
+
+.dnt-area
+{
+	height: 100%;
+	display: flex;
+	gap: 1.5rem;
+	padding-right: 1rem;
+	align-items: center;
+}
+
+.dnt-msg
+{
+	font-size: 1.5rem;
+}
+
+.dnt-btn
+{
+	width: 2.5rem;
+	height: 2.5rem;
+	background-image: url("../assets/svg/heart.svg");
+	background-size: 2.5rem;
+}
