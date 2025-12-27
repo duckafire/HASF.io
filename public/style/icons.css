@@ -1,5 +1,6 @@
 .i-heart,
-.i-copy
+.i-copy,
+.i-trash
 {
 	background-size: 100%;
 }
@@ -12,4 +13,9 @@
 .i-copy
 {
 	background-image: url("../assets/svg/copy.svg");
+}
+
+.i-trash
+{
+	background-image: url("../assets/svg/trash.svg");
 }
