@@ -8,6 +8,7 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	place-items: center;
+	row-gap: 2rem;
 }
 
 .converter-man
@@ -15,10 +16,12 @@
 	width: 100%;
 	padding-inline: 20vw;
 	padding-block: 0.5rem;
-	text-align: center;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
 }
 
-.converter-runner
+.converter-man-btn
 {
 	background-color: #3a3;
 	padding: 0.5rem;
