@@ -1,11 +1,28 @@
 .converter
 {
 	padding-block: 5rem;
+}
+
+.converter-grid
+{
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	place-items: center;
 }
 
+.converter-man
+{
+	width: 100%;
+	padding-inline: 20vw;
+	padding-block: 0.5rem;
+	text-align: center;
+}
+
+.converter-runner
+{
+	background-color: #3a3;
+	padding: 0.5rem;
+}
 
 .converter-input-container
 {

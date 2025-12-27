@@ -1,11 +1,37 @@
 "use strict";
 
-const CONVERTER = document.getElementById("converter");
+const INPUT_BOXES = Object.freeze(new (class
+{
+	constructor()
+	{
+		this.__items__ = [];
+	}
+
+	push(item)
+	{
+		this.__items__.push(item);
+	}
+
+	get(id)
+	{
+		return this.__items__[id];
+	}
+
+	length()
+	{
+		return this.__items__.length;
+	}
+}));
+
+const CONVERTER = document.getElementById("converter-grid");
 const CONVERTER_INPUT_TYPES = Object.freeze([
-	"0foo",
-	"1foo",
-	"2foo",
-	"3foo",
+	// Update `../events/converter.js`
+	// after to change the content of
+	// this array.
+	"Binary",
+	"Octal",
+	"Decimal",
+	"Hexadecimal",
 ]);
 
 const inputBox = () =>
@@ -25,13 +51,14 @@ const inputBox = () =>
 	COPIER.className = "i-copy converter-output-copier";
 
 	let option;
-	for(const TEXT_CONTENT of CONVERTER_INPUT_TYPES)
+	CONVERTER_INPUT_TYPES.forEach((textContent, i) =>
 	{
 		option = document.createElement("option");
-		option.textContent = TEXT_CONTENT;
+		option.textContent = textContent
+		option.value = i.toString();
 
 		SELECT.appendChild( option );
-	}
+	});
 
 	COPIER.addEventListener("click", () =>
 	{
@@ -69,4 +96,5 @@ const inputBox = () =>
 	NAV.appendChild( COPIER );
 
 	CONVERTER.appendChild( CONTAINER );
+	INPUT_BOXES.push( CONTAINER );
 };
