@@ -44,7 +44,7 @@ const CONVERTER_INPUT_ENCODING = Object.freeze([
 	"ASCII / UTF-8",
 ]);
 
-const __navFirstLayer__ = (textArea) =>
+const __navSecondLayer__ = (textArea) =>
 {
 	const CONTAINER = document.createElement("div");
 	const SELECT    = document.createElement("select");
@@ -98,7 +98,7 @@ const __navFirstLayer__ = (textArea) =>
 	return CONTAINER;
 };
 
-const __navSecondLayer__ = (inputBox, inputBoxId) =>
+const __navFirstLayer__ = (inputBox, inputBoxId) =>
 {
 	const CONTAINER = document.createElement("div");
 	const SELECT    = document.createElement("select");
@@ -142,8 +142,8 @@ const inputBox = () =>
 	CONTAINER.appendChild( NAV );
 	CONTAINER.appendChild( TEXT_AREA );
 
-	NAV.appendChild( __navFirstLayer__(TEXT_AREA) );
-	NAV.appendChild( __navSecondLayer__( CONTAINER, INPUT_BOXES.length ) );
+	NAV.appendChild( __navFirstLayer__( CONTAINER, INPUT_BOXES.length ) );
+	NAV.appendChild( __navSecondLayer__(TEXT_AREA) );
 
 	CONVERTER.appendChild( CONTAINER );
 	INPUT_BOXES.push( CONTAINER );
