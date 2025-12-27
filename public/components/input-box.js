@@ -1,3 +1,5 @@
+"use strict";
+
 const CONVERTER = document.getElementById("converter");
 const CONVERTER_INPUT_TYPES = Object.freeze([
 	"0foo",

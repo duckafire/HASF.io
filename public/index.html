@@ -37,9 +37,22 @@
 			</div>
 			<div class="dnt-area">
 				<span class="dnt-msg">Help this project!</span>
-				<button class="i-heart dnt-btn"></button>
+				<button id="dnt-btn" class="i-heart dnt-btn"></button>
 			</div>
 		</header>
+		<div id="dnt-popup" class="popup" style="display:none" inert="inert">
+			<ul class="dnt-popup-content">
+				<li class="dnt-popup-item" role=button>
+					<img  class="dnt-popup-item-img" src="./assets/svg/github.svg"/>
+					<h1 class="dnt-popup-item-title" >foo bar</h1>
+				</li>
+				<li class="dnt-popup-item" role="button">
+					<img  class="dnt-popup-item-img" src="./assets/svg/github.svg"/>
+					<h1 class="dnt-popup-item-title" >foo bar</h1>
+				</li>
+			</ul>
+		</div>
+		<script src="./events/nav-popup.js"></script>
 	</nav>
 
 	<main id="converter" class="converter"></main>
