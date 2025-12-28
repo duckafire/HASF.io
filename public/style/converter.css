@@ -21,15 +21,28 @@
 
 .tboxes-container
 {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	place-items: center;
-	row-gap: 2rem;
+	width: 100%;
+	text-align: center;
+}
+
+.tbox + .tbox
+{
+	margin-top: 2rem;
 }
 
 .tbox
 {
+	display: inline-block;
+	text-align: initial;
+	width: min-content;
 	background-color: #2a2a2a;
+}
+
+.tbox,
+.tbox-btn,
+.tbox-slt
+{
+	border-radius: 0.25rem;
 }
 
 .tbox-nav
@@ -38,33 +51,26 @@
 	gap: 0.25rem;
 }
 
-.tbox,
-.tbox-fast-btn,
-.tbox-conf-man
-{
-	border-radius: 0.25rem;
-}
-
-.tbox-fast-btn,
-.tbox-conf-man
+.tbox-btn,
+.tbox-slt
 {
 	background-color: #444;
 	padding: 0.25rem;
 }
 
-.tbox-conf-man
+.tbox-slt
 {
 	display: flex;
 	align-items: center;
 	gap: 0.25rem;
 }
 
-.tbox-fast-btn
+.tbox-btn
 {
 	--dim: 2rem;
 }
 
-.tbox-conf-man
+.tbox-slt
 {
 	font-size: 1.25rem;
 	flex-grow: 1;
@@ -73,8 +79,11 @@
 
 .tbox-input
 {
-	width: 20rem;
-	height: 20rem;
-	resize: none;
+	width: 90vw;
+	height: 10rem;
+	resize: vertical;
 	padding: 0.5rem;
+
+	/* (paddingBlock * 2 + fontSize + complement) */
+	min-height: 2.25rem;
 }
