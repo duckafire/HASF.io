@@ -29,8 +29,8 @@
 
 	<link rel="stylesheet" type="text/css" href="./templates/tbox/style.css"/>
 </head>
-<body>
-	<nav class="nav">
+<body class="stc-pattern">
+	<nav class="stc-head nav">
 		<header class="header">
 			<div>
 				<div class="tmp-icon"></div>
@@ -53,46 +53,48 @@
 		<script src="./events/nav-popup.js"></script>
 	</nav>
 
-	<main class="converter">
-		<nav class="converter-man">
-			<button id="converter-runner" class="converter-man-btn">Run!</button>
-			<button id="create-input-box" class="converter-man-btn">New!</button>
-		</nav>
-		<section id="tboxes-container" class="tboxes-container">
+	<div class="stc-body">
+		<main class="converter">
+			<nav class="converter-man">
+				<button id="converter-runner" class="converter-man-btn">Run!</button>
+				<button id="create-input-box" class="converter-man-btn">New!</button>
+			</nav>
+			<section id="tboxes-container" class="tboxes-container">
 
-			<template id="tpt-tbox">
-				<section class="tbox" data-type="output" data-list-id=" ">
-					<nav class="tbox-nav">
-						<select class="tbox-slt">
-							<option value="dig" >Digits</option>
-							<option value="asc" >ASCII</option>
-							<option value="u8"  >UTF-8</option>
-							<option value="u16">UTF-16</option>
-							<option value="u32">UTF-32</option>
-						</select>
-						<select class="tbox-slt">
-							<option value="bin">Binary</option>
-							<option value="oct">Octal</option>
-							<option value="dec">Decimal</option>
-							<option value="hex">Hexadecimal</option>
-						</select>
-						<button class="tbox-btn-clone  tbox-btn" title="Clone text box" ><span class="i-plus" ></span></button>
-						<button class="tbox-btn-copy   tbox-btn" title="Copy content"   ><span class="i-copy" ></span></button>
-						<button class="tbox-btn-delete tbox-btn" title="Delete text box"><span class="i-trash"></span></button>
-					</nav>
-					<textarea class="tbox-input" placeholder="Result from past cell." readonly="readonly"></textarea>
-				</section>
-			</template>
+				<template id="tpt-tbox">
+					<section class="tbox" data-type="output" data-list-id=" ">
+						<nav class="tbox-nav">
+							<select class="tbox-slt">
+								<option value="dig" >Digits</option>
+								<option value="asc" >ASCII</option>
+								<option value="u8"  >UTF-8</option>
+								<option value="u16">UTF-16</option>
+								<option value="u32">UTF-32</option>
+							</select>
+							<select class="tbox-slt">
+								<option value="bin">Binary</option>
+								<option value="oct">Octal</option>
+								<option value="dec">Decimal</option>
+								<option value="hex">Hexadecimal</option>
+							</select>
+							<button class="tbox-btn-clone  tbox-btn" title="Clone text box" ><span class="i-plus" ></span></button>
+							<button class="tbox-btn-copy   tbox-btn" title="Copy content"   ><span class="i-copy" ></span></button>
+							<button class="tbox-btn-delete tbox-btn" title="Delete text box"><span class="i-trash"></span></button>
+						</nav>
+						<textarea class="tbox-input" placeholder="Result from past cell." readonly="readonly"></textarea>
+					</section>
+				</template>
 
-			<script src="./templates/tbox/dom.js"></script>
-			<script>newTBox();newTBox();</script>
+				<script src="./templates/tbox/dom.js"></script>
+				<script>newTBox();newTBox();</script>
 
-		</section>
-	</main>
-	<script src="./events/convert.js"></script>
-	<script src="./events/new-input-box.js"></script>
+			</section>
+		</main>
+		<script src="./events/convert.js"></script>
+		<script src="./events/new-input-box.js"></script>
+	</div>
 
-	<footer class="footer">
+	<footer class="stc-tail footer">
 		<ul class="ghost">
 			<li>
 				HASF.io Copyright (C) 2025

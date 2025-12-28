@@ -1,3 +1,20 @@
+.stc-pattern
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.stc-head,
+.stc-tail
+{
+	flex-grow: 0;
+}
+
+.stc-body
+{
+	flex-grow: 1;
+}
+
 .nav
 {
 	top: 0;
