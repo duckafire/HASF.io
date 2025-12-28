@@ -24,7 +24,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
 
 	<link rel="stylesheet" type="text/css" href="./style/default.css"/>
-	<link rel="stylesheet" type="text/css" href="./style/icons.css"/>
+	<link rel="stylesheet" type="text/css" href="./icons.css"/>
 	<link rel="stylesheet" type="text/css" href="./style/nav.css"/>
 	<link rel="stylesheet" type="text/css" href="./style/converter.css"/>
 	<link rel="stylesheet" type="text/css" href="./style/footer.css"/>
@@ -60,15 +60,35 @@
 			<button id="converter-runner" class="converter-man-btn">Run!</button>
 			<button id="create-input-box" class="converter-man-btn">New!</button>
 		</nav>
-		<section id="converter-grid" class="converter-grid"></section>
+		<section id="tboxes-container" class="tboxes-container">
+
+			<template id="tpt-tbox">
+				<div> <!-- to avoid DocumentFragment -->
+					<section class="tbox" data-type=" ">
+						<nav class="tbox-nav">
+							<button class="tbox-conf-man">
+								<span class="i-gear"></span>
+								Config.
+							</button>
+							<button class="tbox-fast-btn"><span class="i-plus" ></span></button>
+							<button class="tbox-fast-btn"><span class="i-copy" ></span></button>
+							<button class="tbox-fast-btn"><span class="i-trash"></span></button>
+						</nav>
+						<textarea class="tbox-input" placeholder=" "></textarea>
+					</section>
+				</div>
+			</template>
+
+			<script src="./templates/tbox.js"></script>
+			<script>
+				newTBox();
+				newTBox();
+			</script>
+
+		</section>
 	</main>
-	<script src="./components/input-box.js"></script>
 	<script src="./events/convert.js"></script>
 	<script src="./events/new-input-box.js"></script>
-	<script>
-		inputBox()
-		inputBox()
-	</script>
 
 	<footer class="footer">
 		<ul class="ghost">
