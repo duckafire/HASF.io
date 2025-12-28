@@ -71,3 +71,36 @@
 {
 	font-size: 1.25rem;
 }
+
+.converter
+{
+	padding-block: 5rem;
+}
+
+.converter-man
+{
+	width: 100%;
+	padding-inline: 20vw;
+	padding-block: 0.5rem;
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+}
+
+.converter-man-btn
+{
+	background-color: #3a3;
+	padding: 0.5rem;
+}
+
+.footer
+{
+	width: 100%;
+	padding: 1rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	font-size: 0.9rem;
+	background-color: #333;
+}
