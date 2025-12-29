@@ -45,6 +45,7 @@ a
 {
 	color: inherit;
 	text-decoration: none;
+	outline: none;
 }
 
 button:hover,
@@ -63,9 +64,19 @@ select:hover
 	color: #00afaf;
 }
 
+.url:focus-visible
+{
+	text-decoration: underline;
+}
+
 .nearest-rendering
 {
 	-ms-interpolation-mode: nearest-neighbor;
 	image-rendering: crisp-edges;
 	image-rendering: pixelated;
+}
+
+.when-focused:focus-visible
+{
+	outline: 0.0625rem solid #c9c9c9;
 }
