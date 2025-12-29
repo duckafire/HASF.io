@@ -62,3 +62,10 @@ select:hover
 {
 	color: #00afaf;
 }
+
+.nearest-rendering
+{
+	-ms-interpolation-mode: nearest-neighbor;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+}
