@@ -22,6 +22,11 @@
 	text-align: center;
 }
 
+.tbox:last-child[data-list-id="1"] .tbox-btn-delete
+{
+	display: none;
+}
+
 .tbox + .tbox
 {
 	margin-top: 2rem;
