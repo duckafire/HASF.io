@@ -28,7 +28,6 @@ document.getElementById("converter-runner").addEventListener("click", () =>
 (function()
 {
 	const POPUP = document.getElementById("dnt-popup");
-	const CONT  = POPUP.querySelector(".dnt-pu-content");
 	const MAN   = document.getElementById("dnt-btn");
 
 	MAN.addEventListener("click", () =>
@@ -37,15 +36,13 @@ document.getElementById("converter-runner").addEventListener("click", () =>
 		{
 			// closing
 			POPUP.style.display = "none";
-			POPUP.setAttribute("aria-expanded", "false");
-			CONT.setAttribute("inert", "inert");
+			POPUP.setAttribute("inert", "inert");
 			return;
 		}
 
 		// opening
 		POPUP.style.display = "";
-		POPUP.setAttribute("aria-expanded", "true");
-		CONT.removeAttribute("inert");
+		POPUP.removeAttribute("inert");
 	});
 })();
 
