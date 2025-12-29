@@ -28,19 +28,24 @@ document.getElementById("converter-runner").addEventListener("click", () =>
 (function()
 {
 	const POPUP = document.getElementById("dnt-popup");
+	const CONT  = POPUP.querySelector(".dnt-pu-content");
 	const MAN   = document.getElementById("dnt-btn");
 
 	MAN.addEventListener("click", () =>
 	{
 		if(POPUP.style.display === "")
 		{
+			// closing
 			POPUP.style.display = "none";
-			POPUP.setAttribute("inert", "inert");
+			POPUP.setAttribute("aria-expanded", "false");
+			CONT.setAttribute("inert", "inert");
 			return;
 		}
 
+		// opening
 		POPUP.style.display = "";
-		POPUP.removeAttribute("inert");
+		POPUP.setAttribute("aria-expanded", "true");
+		CONT.removeAttribute("inert");
 	});
 })();
 

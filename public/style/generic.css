@@ -39,7 +39,7 @@
 	width: 8rem;
 }
 
-.dnt-area
+.header-group
 {
 	height: 100%;
 	display: flex;
@@ -48,7 +48,7 @@
 	align-items: center;
 }
 
-.dnt-msg
+.slide-msg
 {
 	font-size: 1.5rem;
 }
@@ -59,31 +59,16 @@
 	height: 2.5rem;
 }
 
-.dnt-popup-content
+.dnt-pu-content
 {
 	background-color: #2a2a2a;
 	display: flex;
 	padding: 1rem;
 	justify-content: space-around;
-}
-
-.dnt-popup-item
-{
 	text-align: center;
 }
 
-.dnt-popup-item:hover
-{
-	cursor: pointer;
-}
-
-.dnt-popup-item-img
-{
-	width: 4rem;
-	height: 4rem;
-}
-
-.dnt-popup-item-title
+.dnt-pu-title
 {
 	font-size: 1.25rem;
 }
