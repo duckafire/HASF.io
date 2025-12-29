@@ -49,46 +49,40 @@
 				</li>
 			</ul>
 		</div>
+		<nav class="tboxes-manager" aria-label="Managing options of text boxes">
+			<button id="converter-runner" class="tboxes-man-btn" aria-label="Run converting algorithm from first to last text last">Run!</button>
+			<button id="create-input-box" class="tboxes-man-btn" aria-label="Create a new text box with default configuration">New!</button>
+		</nav>
 	</nav>
 
-	<div class="stc-body">
-		<main class="converter">
-			<nav class="converter-man">
-				<button id="converter-runner" class="converter-man-btn">Run!</button>
-				<button id="create-input-box" class="converter-man-btn">New!</button>
-			</nav>
-			<section id="tboxes-container" class="tboxes-container">
-
-				<template id="tpt-tbox">
-					<section class="tbox" data-type="output" data-list-id=" " aria-label="Text box unit">
-						<nav class="tbox-nav">
-							<select class="tbox-slt" title="Characters type" aria-label="Select characters type">
-								<option value="dig" >Digits</option>
-								<option value="asc" >ASCII</option>
-								<option value="u8"  >UTF-8</option>
-								<option value="u16">UTF-16</option>
-								<option value="u32">UTF-32</option>
-							</select>
-							<select class="tbox-slt" title="Characters format" aria-label="Select characters format">
-								<option value="bin">Binary</option>
-								<option value="oct">Octal</option>
-								<option value="dec">Decimal</option>
-								<option value="hex">Hexadecimal</option>
-							</select>
-							<button class="tbox-btn-clone  tbox-btn" title="Clone text box"  aria-label="Clone text box" ><span class="i-plus"  aria-hidden="true"></span></button>
-							<button class="tbox-btn-copy   tbox-btn" title="Copy content"    aria-label="Copy content"   ><span class="i-copy"  aria-hidden="true"></span></button>
-							<button class="tbox-btn-delete tbox-btn" title="Delete text box" aria-label="Delete text box"><span class="i-trash" aria-hidden="true"></span></button>
-						</nav>
-						<textarea class="tbox-input" placeholder="Result from past cell." readonly="readonly" aria-live="off"></textarea>
-					</section>
-				</template>
-
-				<script src="./templates/tbox/dom.js"></script>
-				<script>newTBox();newTBox();</script>
-
+	<main id="tboxes-container" class="stc-body playground tboxes-container">
+		<template id="tpt-tbox">
+			<section class="tbox" data-type="output" data-list-id=" " aria-label="Text box unit">
+				<nav class="tbox-nav">
+					<select class="tbox-slt" title="Characters type" aria-label="Select characters type">
+						<option value="dig" >Digits</option>
+						<option value="asc" >ASCII</option>
+						<option value="u8"  >UTF-8</option>
+						<option value="u16">UTF-16</option>
+						<option value="u32">UTF-32</option>
+					</select>
+					<select class="tbox-slt" title="Characters format" aria-label="Select characters format">
+						<option value="bin">Binary</option>
+						<option value="oct">Octal</option>
+						<option value="dec">Decimal</option>
+						<option value="hex">Hexadecimal</option>
+					</select>
+					<button class="tbox-btn-clone  tbox-btn" title="Clone text box"  aria-label="Clone text box" ><span class="i-plus"  aria-hidden="true"></span></button>
+					<button class="tbox-btn-copy   tbox-btn" title="Copy content"    aria-label="Copy content"   ><span class="i-copy"  aria-hidden="true"></span></button>
+					<button class="tbox-btn-delete tbox-btn" title="Delete text box" aria-label="Delete text box"><span class="i-trash" aria-hidden="true"></span></button>
+				</nav>
+				<textarea class="tbox-input" placeholder="Result from past cell." readonly="readonly" aria-live="off"></textarea>
 			</section>
-		</main>
-	</div>
+		</template>
+
+		<script src="./templates/tbox/dom.js"></script>
+		<script>newTBox();newTBox();</script>
+	</main>
 
 	<footer class="stc-tail footer">
 		<p class="ghost">

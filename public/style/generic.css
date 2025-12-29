@@ -88,25 +88,10 @@
 	font-size: 1.25rem;
 }
 
-.converter
+.playground
 {
-	padding-block: 5rem;
-}
-
-.converter-man
-{
-	width: 100%;
-	padding-inline: 20vw;
-	padding-block: 0.5rem;
-	display: flex;
-	gap: 1rem;
-	justify-content: center;
-}
-
-.converter-man-btn
-{
-	background-color: #3a3;
-	padding: 0.5rem;
+	/* TBoxes have 90vw of width. */
+	padding-block: 5vw;
 }
 
 .footer
