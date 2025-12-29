@@ -2,14 +2,15 @@
 
 document.getElementById("converter-runner").addEventListener("click", () =>
 {
-	const MAX = INPUT_BOXES.length() - 1;
+	const MAX = TBOXES.len() - 1;
+	const INPUT_CLASS = ".tbox-input";
 	let cur, input, output;
 
 	for(let i = 0; i < MAX; i++)
 	{
-		cur = INPUT_BOXES.get(i);
-		input  = cur.querySelector(".converter-input");
-		output = INPUT_BOXES.get( i + 1 ).querySelector(".converter-input");
+		cur = TBOXES.get(i);
+		input  = cur.querySelector( INPUT_CLASS );
+		output = TBOXES.get( i + 1 ).querySelector( INPUT_CLASS );
 
 		output.value = input.value; // TMP
 

@@ -21,6 +21,7 @@
 	left: 0;
 	width: 100vw;
 	position: sticky;
+	z-index: 1;
 }
 
 .header
@@ -33,11 +34,13 @@
 	background-color: #333;
 }
 
-.tmp-icon
+.tmp-brand
 {
-	width: 3rem;
-	height: 3rem;
-	background-color: #833;
+	font-size: 2rem;
+	font-weight: bold;
+	display: flex;
+	height: 100%;
+	align-items: center;
 }
 
 .dnt-area

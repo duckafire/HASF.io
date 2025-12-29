@@ -4,11 +4,6 @@
 	--bg: #1f1f1f;
 }
 
-.ghost
-{
-	display: contents;
-}
-
 *
 {
 	padding: 0;
@@ -56,4 +51,14 @@ button:hover,
 select:hover
 {
 	cursor: pointer;
+}
+
+.ghost
+{
+	display: contents;
+}
+
+.url
+{
+	color: #00afaf;
 }
