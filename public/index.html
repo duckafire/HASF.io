@@ -59,18 +59,12 @@
 		<template id="tpt-tbox">
 			<section class="tbox" data-type="output" data-list-id=" " aria-label="Text box unit">
 				<nav class="tbox-nav">
-					<select class="btn when-focused tbox-slt" title="Characters type" aria-label="Select characters type">
-						<option value="dig" >Digits</option>
-						<option value="asc" >ASCII</option>
-						<option value="u8"  >UTF-8</option>
-						<option value="u16">UTF-16</option>
-						<option value="u32">UTF-32</option>
-					</select>
-					<select class="btn when-focused tbox-slt" title="Characters format" aria-label="Select characters format">
+					<select class="btn when-focused tbox-slt tbox-char-format-js" title="Characters format" aria-label="Select characters format">
 						<option value="bin">Binary</option>
-						<option value="oct">Octal</option>
 						<option value="dec">Decimal</option>
 						<option value="hex">Hexadecimal</option>
+						<option value="oct">Octal</option>
+						<option value="uni">Unicode (TEXT)</option>
 					</select>
 					<button class="btn when-focused tbox-btn-clone  tbox-btn" title="Clone text box"  aria-label="Clone text box" ><span class="i-plus"  aria-hidden="true"></span></button>
 					<button class="btn when-focused tbox-btn-copy   tbox-btn" title="Copy content"    aria-label="Copy content"   ><span class="i-copy"  aria-hidden="true"></span></button>
