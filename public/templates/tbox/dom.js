@@ -94,33 +94,15 @@ const __evCloneTBox__ = (comp) =>
 	TBOXES_CONTAINER.appendChild(CLONE);
 };
 
-const __evCopyFallbackTBox__ = (input) =>
-{
-	INPUT_AREA.focus();
-	INPUT_AREA.select();
-	INPUT_AREA.setSelectionRange(0, INPUT_AREA.value.length);
-
-	if(document.execCommand === undefined || !document.execCommand("copy"))
-		return; // failure notification
-
-	// success notification
-};
-
 const __evCopyTBox__ = (comp, inputArea) =>
 {
 	// TODO: apply notifications
-	if(navigator.clipboard === undefined || navigator.clipboard.writeText === undefined)
-		return __evCopyFallbackTBox__(inputArea);
-
-	navigator.clipboard.writeText( inputArea.value )
-		.then(() =>
-		{
-			// success notification
-		})
-		.catch(()=>
-		{
-			__evCopyFallbackTBox__(inputArea);
-		});
+	copyTextFromInputElem(comp.querySelector(".tbox-input"),
+	{
+		success(){},
+		failure(){},
+		fallbackFailure(){},
+	});
 };
 
 const __evDeleteTBox__ = (comp) =>
