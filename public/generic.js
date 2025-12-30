@@ -2,9 +2,12 @@
 
 const valArrowFun = (arrowFun) => (typeof arrowFun === "function" && arrowFun());
 
-const __copyTextFromInputElemFallback__ = (elem, behaviors) =>
+const __copyTextFromInputElemFallback__ = (elem, isString, behaviors) =>
 {
 	valArrowFun( behaviors.failure );
+
+	if(isString)
+		return;
 
 	elem.focus();
 	elem.select();
@@ -19,18 +22,20 @@ const __copyTextFromInputElemFallback__ = (elem, behaviors) =>
 	valArrowFun( behaviors.success );
 };
 
-const copyTextFromInputElem = (elem, behaviors = {}) =>
+const copyTextFromInputElem = (input, behaviors = {}) =>
 {
-	if(navigator.clipboard === undefined || navigator.clipboard.writeText === undefined)
-		return __copyTextFromInputElemFallback__(elem);
+	const IS_STRING = (typeof input === "string");
 
-	navigator.clipboard.writeText( elem.value )
+	if(navigator.clipboard === undefined || navigator.clipboard.writeText === undefined)
+		return __copyTextFromInputElemFallback__(input, IS_STRING, behaviors);
+
+	navigator.clipboard.writeText( IS_STRING ? input : input.value )
 		.then(() =>
 		{
 			valArrowFun( behaviors.success );
 		})
 		.catch(()=>
 		{
-			__copyTextFromInputElemFallback__(elem);
+			__copyTextFromInputElemFallback__(input, IS_STRING, behaviors);
 		});
 };
