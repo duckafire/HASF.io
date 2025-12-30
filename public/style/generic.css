@@ -53,6 +53,7 @@
 .tmp-brand
 {
 	width: 8rem;
+	flex-shrink: 0;
 }
 
 .header-group
@@ -67,6 +68,8 @@
 .slide-msg
 {
 	font-size: 1.5rem;
+	text-align: right;
+	white-space: nowrap;
 }
 
 .dnt-btn
