@@ -5,15 +5,14 @@
 	gap: 1rem;
 	display: flex;
 	justify-content: center;
-	background-color: #292929;
 }
 
 .tboxes-man-btn
 {
-	background-color: #3a3;
 	padding: 0.5rem;
 	font-weight: bold;
-	color: #030;
+	background-color: var(--bg);
+	color: var(--fg);
 }
 
 .tboxes-container
@@ -45,6 +44,8 @@
 	width: min-content;
 	background-color: #2a2a2a;
 	animation: new-tbox 1.5s linear;
+	background-color: var(--BG);
+	border: 0.0625rem solid var(--FG);
 }
 
 .tbox,
@@ -63,8 +64,21 @@
 .tbox-btn,
 .tbox-slt
 {
-	background-color: #444;
 	padding: 0.25rem;
+	background-color: var(--BG);
+	border: 0.0625rem solid var(--FG);
+	border-top: none;
+}
+
+.tbox-nav > :first-child
+{
+	border-left: none;
+}
+
+
+.tbox-nav > :last-child
+{
+	border-right: none;
 }
 
 .tbox-slt

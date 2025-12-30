@@ -30,7 +30,7 @@
 </head>
 <body class="stc-pattern">
 	<nav class="stc-head nav">
-		<header class="header">
+		<header class="nav-bg header">
 			<img class="nearest-rendering tmp-brand" src="./assets/images/pixel-art/hasf-io-full-brand.png" alt="HASF.io full brand" aria-hidden="true"/>
 			<div class="header-group">
 				<span class="slide-msg">Help this project!</span>
@@ -38,7 +38,7 @@
 			</div>
 		</header>
 		<div id="dnt-popup" style="display:none" inert="inert">
-			<ul class="dnt-pu-content">
+			<ul class="nav-bg dnt-pu-content">
 				<li class="ghost" role=button>
 					<a role="button" class="when-focused" href="https://github.com/sponsors/duckafire/" aria-label="Link to GitHub Sponsors">
 						<svg class="svg" style="--dim:4rem" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
@@ -49,9 +49,9 @@
 				</li>
 			</ul>
 		</div>
-		<nav class="tboxes-manager" aria-label="Managing options of text boxes">
-			<button id="converter-runner" class="when-focused tboxes-man-btn" aria-label="Run converting algorithm from first to last text last">Run!</button>
-			<button id="create-input-box" class="when-focused tboxes-man-btn" aria-label="Create a new text box with default configuration">New!</button>
+		<nav class="nav-bg tboxes-manager" aria-label="Managing options of text boxes">
+			<button id="converter-runner" class="btn when-focused tboxes-man-btn" style="--fg:#030;--bg:#3a3"      aria-label="Run converting algorithm from first to last text last">Run!</button>
+			<button id="create-input-box" class="btn when-focused tboxes-man-btn" style="--fg:#00080;--bg:#0080ff" aria-label="Create a new text box with default configuration">New!</button>
 		</nav>
 	</nav>
 
@@ -59,22 +59,22 @@
 		<template id="tpt-tbox">
 			<section class="tbox" data-type="output" data-list-id=" " aria-label="Text box unit">
 				<nav class="tbox-nav">
-					<select class="when-focused tbox-slt" title="Characters type" aria-label="Select characters type">
+					<select class="btn when-focused tbox-slt" title="Characters type" aria-label="Select characters type">
 						<option value="dig" >Digits</option>
 						<option value="asc" >ASCII</option>
 						<option value="u8"  >UTF-8</option>
 						<option value="u16">UTF-16</option>
 						<option value="u32">UTF-32</option>
 					</select>
-					<select class="when-focused tbox-slt" title="Characters format" aria-label="Select characters format">
+					<select class="btn when-focused tbox-slt" title="Characters format" aria-label="Select characters format">
 						<option value="bin">Binary</option>
 						<option value="oct">Octal</option>
 						<option value="dec">Decimal</option>
 						<option value="hex">Hexadecimal</option>
 					</select>
-					<button class="when-focused tbox-btn-clone  tbox-btn" title="Clone text box"  aria-label="Clone text box" ><span class="i-plus"  aria-hidden="true"></span></button>
-					<button class="when-focused tbox-btn-copy   tbox-btn" title="Copy content"    aria-label="Copy content"   ><span class="i-copy"  aria-hidden="true"></span></button>
-					<button class="when-focused tbox-btn-delete tbox-btn" title="Delete text box" aria-label="Delete text box"><span class="i-trash" aria-hidden="true"></span></button>
+					<button class="btn when-focused tbox-btn-clone  tbox-btn" title="Clone text box"  aria-label="Clone text box" ><span class="i-plus"  aria-hidden="true"></span></button>
+					<button class="btn when-focused tbox-btn-copy   tbox-btn" title="Copy content"    aria-label="Copy content"   ><span class="i-copy"  aria-hidden="true"></span></button>
+					<button class="btn when-focused tbox-btn-delete tbox-btn" title="Delete text box" aria-label="Delete text box"><span class="i-trash" aria-hidden="true"></span></button>
 				</nav>
 				<textarea class="tbox-input" placeholder="Result from past cell." readonly="readonly" aria-live="off"></textarea>
 			</section>
@@ -84,7 +84,7 @@
 		<script>newTBox();newTBox();</script>
 	</main>
 
-	<footer class="stc-tail footer">
+	<footer class="footer-bg stc-tail footer">
 		<p class="ghost">
 			<span>
 				HASF.io Copyright (C) 2025

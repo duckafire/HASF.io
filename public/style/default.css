@@ -1,7 +1,7 @@
 :root
 {
-	--fg: #c9c9c9;
-	--bg: #1f1f1f;
+	--BG: #e0e0e0;
+	--FG: #292929;
 }
 
 *
@@ -13,8 +13,8 @@
 
 body
 {
-	color: var(--fg);
-	background-color: var(--bg);
+	color: var(--FG);
+	background-color: var(--BG);
 	font-family: sans, sans-serif, arial;
 	width: 100vw;
 	font-size: 1rem;
@@ -61,7 +61,8 @@ select:hover
 
 .url
 {
-	color: #00afaf;
+	color: #036f2d;
+	font-style: italic;
 }
 
 .url:focus-visible
@@ -79,4 +80,14 @@ select:hover
 .when-focused:focus-visible
 {
 	outline: 0.0625rem solid #c9c9c9;
+}
+
+.btn:hover
+{
+	filter: brightness(1.1);
+}
+
+.btn:active
+{
+	filter: brightness(0.75);
 }
