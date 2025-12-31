@@ -81,6 +81,9 @@ const __evCloneTBox__ = (comp) =>
 		CLONE.querySelector(".tbox-nav").appendChild( BTN_DEL );
 	}
 
+	const SLT_CLASS = ".tbox-char-format-js";
+	CLONE.querySelector( SLT_CLASS ).value = TBOXES.get( ID ).querySelector( SLT_CLASS ).value;
+
 	__applyTBoxEvents__(CLONE);
 
 	if(POSITION_REFERENCE !== null)
