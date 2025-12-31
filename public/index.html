@@ -63,11 +63,11 @@
 			<section class="tbox" data-type="output" data-list-id=" " aria-label="Text box unit">
 				<nav class="tbox-nav">
 					<select class="btn when-focused tbox-slt tbox-char-format-js" title="Characters format" aria-label="Select characters format">
-						<option value="bin">Binary</option>
-						<option value="dec">Decimal</option>
-						<option value="hex">Hexadecimal</option>
-						<option value="oct">Octal</option>
-						<option value="uni">Unicode (TEXT)</option>
+						<option value="2"  >Binary</option>
+						<option value="10" >Decimal</option>
+						<option value="16" >Hexadecimal</option>
+						<option value="8"  >Octal</option>
+						<option value="NaN">Unicode (TEXT)</option>
 					</select>
 					<button class="btn when-focused tbox-btn-clone  tbox-btn" title="Clone text box"  aria-label="Clone text box" ><span class="i-plus"  aria-hidden="true"></span></button>
 					<button class="btn when-focused tbox-btn-copy   tbox-btn" title="Copy content"    aria-label="Copy content"   ><span class="i-copy"  aria-hidden="true"></span></button>
@@ -98,6 +98,7 @@
 			</span>
 		</p>
 	</footer>
-	<script src="./events.js"></script>
+	<script src="./events/core.js"></script>
+	<script src="./events/generic.js"></script>
 </body>
 </html>
