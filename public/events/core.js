@@ -70,18 +70,26 @@ const CORE = () =>
 	const INPUT_CLASS = ".tbox-input";
 	const CHARF_CLASS = ".tbox-char-format-js";
 
+	// It stores elements catched from `nextTbox`,
+	// via DOM query, to use them as elements
+	// catched from `curTbox` in the next loop
+	// cycle.
+	const NEXT_CYCLE = {};
+
 	for(let i = 0; i < MAX; i++)
 	{
 		curTbox  = TBOXES.get(i);
 		nextTbox = TBOXES.get(i + 1);
 
-		nextTbox.querySelector( INPUT_CLASS ).value = __coreParser__(
-			curTbox.querySelector( INPUT_CLASS ).value,
-			__isUnicode__(curTbox, CHARF_CLASS),
-			__isUnicode__(nextTbox, CHARF_CLASS),
-			curTbox.querySelector( CHARF_CLASS ).value,
-			nextTbox.querySelector( CHARF_CLASS ).value,
+		NEXT_CYCLE.result = __coreParser__(
+			NEXT_CYCLE.result ?? curTbox.querySelector( INPUT_CLASS ).value,
+			NEXT_CYCLE.fromUn ?? __isUnicode__(curTbox, CHARF_CLASS),
+			(NEXT_CYCLE.fromUn = __isUnicode__(nextTbox, CHARF_CLASS)),
+			NEXT_CYCLE.curBase ?? curTbox.querySelector( CHARF_CLASS ).value,
+			(NEXT_CYCLE.curBase = nextTbox.querySelector( CHARF_CLASS ).value),
 		);
+
+		nextTbox.querySelector( INPUT_CLASS ).value = NEXT_CYCLE.result;
 	}
 };
 
