@@ -34,3 +34,31 @@ document.getElementById("copy-all-content").addEventListener("click", () =>
 document.getElementById("converter-runner").addEventListener("click", CORE);
 
 document.getElementById("create-input-box").addEventListener("click", newTBox);
+
+(function()
+{
+	// Values based `#TBOXES-OPT`,
+	// from `style.css`.
+	const WIDTH = 672;
+
+	const TBOXES_NAV     = document.getElementById("tboxes-nav");
+	const TBOXES_ASIDE   = document.getElementById("tboxes-aside");
+	const TBOXES_MAN_OPT = document.getElementById("tboxes-man-opt");
+
+	const EV = () =>
+	{
+		if(window.innerWidth < WIDTH && TBOXES_MAN_OPT.parentNode !== TBOXES_NAV)
+		{
+			TBOXES_NAV.style.display = "";
+			TBOXES_NAV.appendChild( TBOXES_MAN_OPT );
+		}
+		else if(TBOXES_MAN_OPT.parentNOde !== TBOXES_ASIDE)
+		{
+			TBOXES_NAV.style.display = "none";
+			TBOXES_ASIDE.appendChild( TBOXES_MAN_OPT );
+		}
+	}
+
+	window.addEventListener("resize", EV);
+	window.addEventListener("DOMContentLoaded", EV);
+})();

@@ -51,34 +51,43 @@
 				</li>
 			</ul>
 		</div>
-		<nav class="nav-bg tboxes-manager" aria-label="Managing options of text boxes">
-			<button id="copy-all-content" class="btn when-focused tboxes-man-btn" style="--fg:#48480c;--bg:#ddb51a" aria-label="Copy all content from text boxes, separated by an empty line">Copy!</button>
-			<button id="converter-runner" class="btn when-focused tboxes-man-btn" style="--fg:#030;--bg:#3a3"       aria-label="Run converting algorithm from first to last text last">Run!</button>
-			<button id="create-input-box" class="btn when-focused tboxes-man-btn" style="--fg:#01016a;--bg:#0080ff" aria-label="Create a new text box with default configuration">New!</button>
+		<nav id="tboxes-nav" class="nav-bg tboxes-manager" aria-label="Managing options of text boxes">
+			<div id="tboxes-man-opt" class="ghost">
+				<button id="copy-all-content" class="btn when-focused tboxes-man-btn" style="--fg:#48480c;--bg:#ddb51a" aria-label="Copy all content from text boxes, separated by an empty line">Copy!</button>
+				<button id="converter-runner" class="btn when-focused tboxes-man-btn" style="--fg:#030;--bg:#3a3"       aria-label="Run converting algorithm from first to last text last">Run!</button>
+				<button id="create-input-box" class="btn when-focused tboxes-man-btn" style="--fg:#01016a;--bg:#0080ff" aria-label="Create a new text box with default configuration">New!</button>
+			</div>
 		</nav>
 	</nav>
 
-	<main id="tboxes-container" class="stc-body playground tboxes-container">
-		<template id="tpt-tbox">
-			<section class="tbox" data-type="output" data-list-id=" " aria-label="Text box unit">
-				<nav class="tbox-nav">
-					<select class="btn when-focused tbox-slt tbox-char-format-js" title="Characters format" aria-label="Select characters format">
-						<option value="2"  >Binary</option>
-						<option value="10" >Decimal</option>
-						<option value="16" >Hexadecimal</option>
-						<option value="8"  >Octal</option>
-						<option value="NaN">Unicode (TEXT)</option>
-					</select>
-					<button class="btn when-focused tbox-btn-clone  tbox-btn" title="Clone text box"  aria-label="Clone text box" ><span class="i-plus"  aria-hidden="true"></span></button>
-					<button class="btn when-focused tbox-btn-copy   tbox-btn" title="Copy content"    aria-label="Copy content"   ><span class="i-copy"  aria-hidden="true"></span></button>
-					<button class="btn when-focused tbox-btn-delete tbox-btn" title="Delete text box" aria-label="Delete text box"><span class="i-trash" aria-hidden="true"></span></button>
-				</nav>
-				<textarea class="tbox-input" placeholder="Result from past cell." readonly="readonly" aria-live="off"></textarea>
-			</section>
-		</template>
+	<main class="stc-body playground">
+		<div id="tboxes-container" class="tboxes-container">
+			<template id="tpt-tbox">
+				<section class="tbox" data-type="output" data-list-id=" " aria-label="Text box unit">
+					<nav class="tbox-nav">
+						<select class="btn when-focused tbox-slt tbox-char-format-js" title="Characters format" aria-label="Select characters format">
+							<option value="2"  >Binary</option>
+							<option value="10" >Decimal</option>
+							<option value="16" >Hexadecimal</option>
+							<option value="8"  >Octal</option>
+							<option value="NaN">Unicode (TEXT)</option>
+						</select>
+						<button class="btn when-focused tbox-btn-clone  tbox-btn" title="Clone text box"  aria-label="Clone text box" ><span class="i-plus"  aria-hidden="true"></span></button>
+						<button class="btn when-focused tbox-btn-copy   tbox-btn" title="Copy content"    aria-label="Copy content"   ><span class="i-copy"  aria-hidden="true"></span></button>
+						<button class="btn when-focused tbox-btn-delete tbox-btn" title="Delete text box" aria-label="Delete text box"><span class="i-trash" aria-hidden="true"></span></button>
+					</nav>
+					<textarea class="tbox-input" placeholder="Result from past cell." readonly="readonly" aria-live="off"></textarea>
+				</section>
+			</template>
+		</div>
 
 		<script src="./templates/tbox/dom.js"></script>
 		<script>newTBox();newTBox();</script>
+
+		<aside class="aside">
+			<div id="tboxes-aside" class="aside-tboxes-man">
+			</div>
+		</aside>
 	</main>
 
 	<footer class="footer-bg stc-tail footer">

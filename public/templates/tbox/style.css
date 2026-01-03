@@ -7,6 +7,37 @@
 	justify-content: center;
 }
 
+.aside-tboxes-man
+{
+	top: 0;
+	left: 0;
+	width: 16rem;
+	height: max-content;
+	padding: 0.5rem !important;
+	position: sticky;
+}
+
+/* #TBOXES-OPT */
+@media only screen
+{
+	@media (max-width: 42rem)
+	{
+		/* Parent of .aside-tboxes-man */
+		.aside
+		{
+			display: none;
+		}
+	}
+
+	@media (min-width: 64rem)
+	{
+		.aside-tboxes-man
+		{
+			width: 24rem;
+		}
+	}
+}
+
 .tboxes-man-btn
 {
 	padding: 0.5rem;
@@ -17,7 +48,7 @@
 
 .tboxes-container
 {
-	width: 100%;
+	flex-grow: 1;
 	text-align: center;
 }
 
@@ -46,13 +77,14 @@
 	animation: new-tbox 1.5s linear;
 	background-color: var(--BG);
 	border: 0.0625rem solid var(--FG);
-	width: 90vw;
+	width: 100%;
 	min-width: min-content;
 }
 
 .tbox,
 .tbox-btn,
-.tbox-slt
+.tbox-slt,
+.aside-tboxes-man
 {
 	border-radius: 0.25rem;
 }
@@ -64,11 +96,17 @@
 }
 
 .tbox-btn,
-.tbox-slt
+.tbox-slt,
+.aside-tboxes-man
 {
 	padding: 0.25rem;
 	background-color: var(--BG);
 	border: 0.0625rem solid var(--FG);
+}
+
+.tbox-btn,
+.tbox-slt
+{
 	border-top: none;
 }
 

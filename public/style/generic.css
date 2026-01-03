@@ -93,8 +93,15 @@
 
 .playground
 {
-	/* TBoxes have 90vw of width. */
-	padding-block: 5vw;
+	padding: 5vw;
+	gap: 2.5vw;
+	display: flex;
+}
+
+.aside
+{
+	flex: 0;
+	height: inherit;
 }
 
 .footer
