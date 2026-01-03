@@ -46,6 +46,21 @@
 	color: var(--fg);
 }
 
+/* .nav .tboxes-man-btn
+{
+} */
+
+.aside .tboxes-man-btn + .tboxes-man-btn
+{
+	margin-top: 2.5%;
+}
+
+.aside .tboxes-man-btn
+{
+	width: 95%;
+	margin-inline: 2.5%;
+}
+
 .tboxes-container
 {
 	flex-grow: 1;
