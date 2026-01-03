@@ -47,13 +47,15 @@ document.getElementById("create-input-box").addEventListener("click", newTBox);
 
 	const EV = () =>
 	{
-		if(window.innerWidth < WIDTH && TBOXES_MAN_OPT.parentNode !== TBOXES_NAV)
+		if(window.innerWidth < WIDTH && TBOXES_MAN_OPT.dataset.parent !== "nav")
 		{
+			TBOXES_MAN_OPT.dataset.parent = "nav"
 			TBOXES_NAV.style.display = "";
 			TBOXES_NAV.appendChild( TBOXES_MAN_OPT );
 		}
-		else if(TBOXES_MAN_OPT.parentNOde !== TBOXES_ASIDE)
+		else if(window.innerWidth >= WIDTH && TBOXES_MAN_OPT.dataset.parent !== "aside")
 		{
+			TBOXES_MAN_OPT.dataset.parent = "aside";
 			TBOXES_NAV.style.display = "none";
 			TBOXES_ASIDE.appendChild( TBOXES_MAN_OPT );
 		}
