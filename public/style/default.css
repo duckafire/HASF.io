@@ -79,7 +79,7 @@ select:hover
 
 .when-focused:focus-visible
 {
-	outline: 0.0625rem solid #c9c9c9;
+	outline: 0.25rem solid red;
 }
 
 .btn:hover

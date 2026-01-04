@@ -133,6 +133,7 @@ const newTBox = () =>
 		const INPUT = TBOX.querySelector(".tbox-input");
 
 		INPUT.placeholder = "Write here.";
+		INPUT.removeAttribute("tabindex");
 		INPUT.removeAttribute("readOnly");
 	}
 
