@@ -57,9 +57,9 @@
 		</div>
 		<nav id="tboxes-nav" class="nav-bg tboxes-manager" aria-label="Managing options of text boxes">
 			<div id="tboxes-man-opt" class="ghost" data-parent="nav">
-				<button id="copy-all-content" class="btn when-focused tboxes-man-btn" style="--fg:#48480c;--bg:#ddb51a" aria-label="Copy all content from text boxes, separated by an empty line">Copy!</button>
-				<button id="converter-runner" class="btn when-focused tboxes-man-btn" style="--fg:#030;--bg:#3a3"       aria-label="Run converting algorithm from first to last text last">Run!</button>
-				<button id="create-input-box" class="btn when-focused tboxes-man-btn" style="--fg:#01016a;--bg:#0080ff" aria-label="Create a new text box with default configuration">New!</button>
+				<button id="copy-all-content" class="notranslate btn when-focused tboxes-man-btn" style="--fg:#48480c;--bg:#ddb51a" translate="off" aria-label="Copy all content from text boxes, separated by an empty line">Copy!</button>
+				<button id="converter-runner" class="notranslate btn when-focused tboxes-man-btn" style="--fg:#030;--bg:#3a3"       translate="off" aria-label="Run converting algorithm from first to last text last">Run!</button>
+				<button id="create-input-box" class="notranslate btn when-focused tboxes-man-btn" style="--fg:#01016a;--bg:#0080ff" translate="off" aria-label="Create a new text box with default configuration">New!</button>
 			</div>
 		</nav>
 	</nav>
@@ -92,7 +92,7 @@
 							</svg>
 						</button>
 					</nav>
-					<textarea class="tbox-input" placeholder="Result from past cell." tabindex="-1" readonly="readonly" aria-live="off"></textarea>
+					<textarea class="notranslate tbox-input" translate="off" placeholder="Result from past cell." tabindex="-1" readonly="readonly" aria-live="off"></textarea>
 				</section>
 			</template>
 		</div>
@@ -108,18 +108,18 @@
 
 	<footer class="footer-bg stc-tail footer">
 		<p class="ghost">
-			<span>
+			<span class="notranslate" translate="off">
 				HASF.io Copyright (C) 2025
-				<a class="url" href="https://duckafire.gitlab.io/pages/home" title="DuckAfire's Nest">DuckAfire</a>
+				<a class="notranslate url" href="https://duckafire.gitlab.io/pages/home" title="DuckAfire's Nest" translate="off">DuckAfire</a>
 			</span>
 			<span>
 				Source code:
-				<a class="url" href="https://github.com/duckafire/HASF.io">GitHub</a>;
-				<a class="url" href="https://gitlab.com/duckafire/HASF.io">GitLab</a>.
+				<a class="notranslate url" href="https://github.com/duckafire/HASF.io" translate="off">GitHub</a>;
+				<a class="notranslate url" href="https://gitlab.com/duckafire/HASF.io" translate="off">GitLab</a>.
 			</span>
 			<span>
 				License:
-				<a class="url" href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL3</a>.
+				<a class="notranslate url" href="https://www.gnu.org/licenses/agpl-3.0.en.html" translate="off">AGPL3</a>.
 			</span>
 		</p>
 	</footer>
