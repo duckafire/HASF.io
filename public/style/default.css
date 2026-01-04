@@ -4,6 +4,12 @@
 	--FG: #292929;
 }
 
+:root[data-color-scheme="dark"]
+{
+	--BG: #292929;
+	--FG: #e0e0e0;
+}
+
 *
 {
 	padding: 0;

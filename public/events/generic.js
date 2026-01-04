@@ -64,3 +64,20 @@ document.getElementById("create-input-box").addEventListener("click", newTBox);
 	window.addEventListener("resize", EV);
 	window.addEventListener("DOMContentLoaded", EV);
 })();
+
+const __colorSchemeEvBehavior__ = (ev) =>
+{
+	if(ev.matches)
+	{
+		if(document.documentElement.dataset.colorScheme !== "dark")
+			document.documentElement.dataset.colorScheme = "dark";
+
+		return;
+	}
+
+	if(document.documentElement.dataset.colorScheme !== "light")
+		document.documentElement.dataset.colorScheme = "light";
+};
+
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", __colorSchemeEvBehavior__);
+window.addEventListener("DOMContentLoaded", () => __colorSchemeEvBehavior__(matchMedia("(prefers-color-scheme: dark)")));
