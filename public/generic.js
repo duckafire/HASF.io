@@ -26,6 +26,12 @@ const copyTextFromInputElem = (input, behaviors = {}) =>
 {
 	const IS_STRING = (typeof input === "string");
 
+	if((IS_STRING && input === "") || (!IS_STRING && input.value === ""))
+	{
+		valArrowFun( behaviors.ifEmpty );
+		return;
+	}
+
 	if(navigator.clipboard === undefined || navigator.clipboard.writeText === undefined)
 		return __copyTextFromInputElemFallback__(input, IS_STRING, behaviors);
 
