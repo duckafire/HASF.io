@@ -10,16 +10,18 @@
 	padding-left: 1.5rem;
 	padding-bottom: 4rem;
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
+	justify-content: end;
 	gap: 0.5rem;
 	font-size: 1.5rem;
+	z-index: 9999;
 }
 
 .global-notif-item
 {
 	--time-of-live: 10s;
 	display: block;
-	width: min-content;
+	width: max-content;
 	padding: 0.25rem;
 	color: var(--BG);
 	background-color: var(--FG);
