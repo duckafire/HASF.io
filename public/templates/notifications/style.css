@@ -1,0 +1,37 @@
+.global-notif-container
+{
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	height: 100dvh;
+	position: fixed;
+	pointer-events: none;
+	padding-left: 1.5rem;
+	padding-bottom: 4rem;
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 0.5rem;
+	font-size: 1.5rem;
+}
+
+.global-notif-item
+{
+	--time-of-live: 10s;
+	display: block;
+	width: min-content;
+	padding: 0.25rem;
+	color: var(--BG);
+	background-color: var(--FG);
+	animation: global-notif-item-live-cycle var(--time-of-live) linear;
+	transform-origin: left;
+	border-radius: 0.25rem;
+}
+
+@keyframes global-notif-item-live-cycle
+{
+	0%    { transform: scaleX(0%);   }
+	2.5%  { transform: scaleX(100%); }
+	97.5% { transform: scaleX(100%); }
+	100%  { transform: scaleX(0%);   }
+}
