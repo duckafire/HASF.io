@@ -1,5 +1,21 @@
 "use strict";
 
+const __COPY_TEXT_FROM_DEF_BEHAVIORS__ = Object.freeze({
+	success(){
+		newNotif("Copied!");
+	},
+	ifEmpty()
+	{
+		newNotif("None text found.");
+	},
+	failure(){
+		newNotif("Impossible copy...!", 1);
+	},
+	fallbackFailure(){
+		newNotif("Window Clipboard API not found.", -1);
+	},
+});
+
 const valArrowFun = (arrowFun) => (typeof arrowFun === "function" && arrowFun());
 
 const __copyTextFromInputElemFallback__ = (elem, isString, behaviors) =>
@@ -22,7 +38,7 @@ const __copyTextFromInputElemFallback__ = (elem, isString, behaviors) =>
 	valArrowFun( behaviors.success );
 };
 
-const copyTextFromInputElem = (input, behaviors = {}) =>
+const copyTextFromInputElem = (input, behaviors = __COPY_TEXT_FROM_DEF_BEHAVIORS__) =>
 {
 	const IS_STRING = (typeof input === "string");
 

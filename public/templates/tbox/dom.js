@@ -99,13 +99,7 @@ const __evCloneTBox__ = (comp) =>
 
 const __evCopyTBox__ = (comp, inputArea) =>
 {
-	// TODO: apply notifications
-	copyTextFromInputElem(comp.querySelector(".tbox-input"),
-	{
-		success(){},
-		failure(){},
-		fallbackFailure(){},
-	});
+	copyTextFromInputElem(comp.querySelector(".tbox-input"));
 };
 
 const __evDeleteTBox__ = (comp) =>
