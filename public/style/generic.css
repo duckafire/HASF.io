@@ -65,11 +65,39 @@
 	align-items: center;
 }
 
-.slide-msg
+.slide-msg-container
 {
 	font-size: 1.5rem;
 	text-align: right;
 	white-space: nowrap;
+}
+
+.slice-msg
+{
+	display: block;
+	animation: slide-msg 15s linear;
+}
+
+@keyframes slide-msg
+{
+	0%
+	{
+		opacity: 0;
+		transform: translateY(100%);
+	}
+
+	10%,
+	90%
+	{
+		opacity: 1;
+		transform: translateY(0%);
+	}
+
+	100%
+	{
+		opacity: 0;
+		transform: translateY(-100%);
+	}
 }
 
 .dnt-btn

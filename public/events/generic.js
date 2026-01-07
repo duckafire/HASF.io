@@ -81,3 +81,72 @@ const __colorSchemeEvBehavior__ = (ev) =>
 
 window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", __colorSchemeEvBehavior__);
 window.addEventListener("DOMContentLoaded", () => __colorSchemeEvBehavior__(matchMedia("(prefers-color-scheme: dark)")));
+
+(function()
+{
+	const CONTAINER = document.getElementById("slide-msg-container");
+
+	const MESSAGES = {
+		cache: [],
+		source: [
+			"Help this project \u2192", // arrow to right
+			"THANKS to InifnityFree!",
+			"\"H\" of ligHt.",
+			"\"A\" of privAte.",
+			"\"S\" of faSt.",
+			"\"F\" of Free.",
+			"Light, private, fast, and FREE!",
+			"Forever!",
+			"Is this really useful?",
+			"We do not catch cookies!",
+			"Please, do a donate :D",
+		],
+	};
+
+	const newSlideMsg = () =>
+	{
+		let isInCache, msg;
+		const MAX = 10;
+
+		for(let i = 0; i < MAX; i++)
+		{
+			isInCache = false;
+			msg = MESSAGES.source[ Math.floor( Math.random() * MESSAGES.source.length ) ];
+
+			for(const ITEM of MESSAGES.cache)
+			{
+				if(msg === ITEM)
+				{
+					isInCache = true;
+					break;
+				}
+			}
+
+			if(!isInCache || i === MAX - 1)
+			{
+				MESSAGES.cache.push( msg );
+
+				if(MESSAGES.cache.length > Math.ceil(MESSAGES.source.length / 2))
+					MESSAGES.cache.splice(0, 1);
+
+				break;
+			}
+		}
+
+		const ELEM = document.createElement("span");
+
+		ELEM.className   = "slice-msg";
+		ELEM.textContent = msg;
+
+		ELEM.addEventListener("animationend", () =>
+		{
+			CONTAINER.removeChild( ELEM );
+			newSlideMsg();
+		});
+
+		CONTAINER.appendChild( ELEM );
+	};
+
+	// boot
+	newSlideMsg();
+})();
