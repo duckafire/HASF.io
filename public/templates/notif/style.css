@@ -19,13 +19,12 @@
 
 .global-notif-item
 {
-	--time-of-live: 10s;
 	display: block;
 	width: max-content;
 	padding: 0.25rem;
 	color: var(--BG);
 	background-color: var(--FG);
-	animation: global-notif-item-live-cycle var(--time-of-live) linear;
+	animation: global-notif-item-live-cycle 10s linear;
 	transform-origin: left;
 	border-radius: 0.25rem;
 }
