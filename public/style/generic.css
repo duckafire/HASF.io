@@ -104,6 +104,36 @@
 {
 	width: 2.5rem;
 	height: 2.5rem;
+	animation: vibrate 60s linear infinite;
+}
+
+@keyframes vibrate
+{
+	0%,
+	59.99%,
+	52%,
+	100%
+	{
+		transform: translateX(0);
+	}
+
+	50.0%,
+	50.2%,
+	50.4%,
+	50.6%,
+	50.8%
+	{
+		transform: translateX(-0.125rem);
+	}
+
+	50.1%,
+	50.3%,
+	50.5%,
+	50.7%,
+	50.9%
+	{
+		transform: translateX(0.125rem);
+	}
 }
 
 .dnt-pu-content
