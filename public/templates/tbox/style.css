@@ -166,6 +166,7 @@ select.tboxes-man-btn
 	height: 10rem;
 	resize: vertical;
 	padding: 0.5rem;
+	white-space: break-spaces;
 
 	/* (paddingBlock * 2 + fontSize + complement) */
 	min-height: 2.25rem;
