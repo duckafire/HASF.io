@@ -46,6 +46,11 @@
 	color: var(--fg);
 }
 
+select.tboxes-man-btn
+{
+	text-align: center;
+}
+
 /* .nav .tboxes-man-btn
 {
 } */
