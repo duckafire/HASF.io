@@ -150,3 +150,23 @@ window.addEventListener("DOMContentLoaded", () => __colorSchemeEvBehavior__(matc
 	// boot
 	newSlideMsg();
 })();
+
+(function()
+{
+	const SELECT  = document.getElementById("tboxes-dir-slt");
+	let lastAlignment = "left";
+
+	const behavior = () =>
+	{
+		if(SELECT.value === lastAlignment)
+			return;
+
+		lastAlignment = SELECT.value;
+
+		for(let i = 0; i < TBOXES.len(); i++)
+			TBOXES.get(i).querySelector(".tbox-input").style.textAlign = SELECT.value;
+	};
+
+	SELECT.addEventListener("change", behavior);
+	window.addEventListener("DOMContentLoaded", behavior);
+})();
