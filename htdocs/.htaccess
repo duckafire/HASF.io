@@ -1,0 +1,33 @@
+RewriteEngine On
+
+DirectoryIndex index.php
+
+Options -Indexes
+
+# Client cache of 30 minutes.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 30 minutes"
+</IfModule>
+
+# Temporary
+ErrorDocument 404 "https://errors.infinityfree.net/errors/404/"
+
+# This is a PRIORITY rule.
+# Convert `http` to `https`.
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect to `./public`, instead `./`.
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [QSA,L]
+
+# Protection against malformed.
+# InfinityFree ONLY allows GET and POST.
+RewriteCond %{THE_REQUEST} !^(GET|POST) [a-zA-Z0-9\.\+_/\-\?\=\&]+\ HTTP/ [NC]
+RewriteRule .? - [F,NS,L]
+
+# Remove `.php` from files.
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteRule ^([^.]+)$ $1.php [NC,QSA,L]
+
