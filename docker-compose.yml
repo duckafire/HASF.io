@@ -15,7 +15,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
+          cpus: '0.34'
           memory: 50M
     depends_on:
       - db
@@ -29,7 +29,7 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.1'
+          cpus: '0.34'
           memory: 50M
     environment:
       MYSQL_DATABASE: hasf-test-db
