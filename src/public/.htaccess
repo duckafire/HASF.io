@@ -1,0 +1,49 @@
+Options -Indexes
+
+ErrorDocument 404 /
+
+ServerSignature off
+
+# Cache of 30 minutes
+ExpiresActive On
+ExpiresDefault "access plus 30 minutes"
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	### CLIENT ###
+
+	# Malformed requests
+	RewriteCond %{THE_REQUEST} !^(GET|POST) [a-zA-Z0-9\.\+_/\-\?\=\&]+\ HTTP/ [NC]
+	RewriteRule ^ - [F,NS,L]
+
+	# http -> https
+	# Remove www.
+	RewriteCond %{HTTPS} off
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+	RewriteRule ^ https://%1%{REQUEST_URI} [QSA,L,R=301]
+
+	# http -> https
+	RewriteCond %{HTTPS} off
+	RewriteRule ^ https://%{HTTP_HOST}/%{REQUEST_URI} [QSA,L,R=301]
+
+	# Remove www.
+	RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+	RewriteRule ^ %{REQUEST_SCHEME}://%1%{REQUEST_URI} [QSA,L,R=301]
+
+	### SERVER ###
+
+	# Redirect to "front controller"
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<IfModule !mod_write.c>
+	# Simple fallback; if Module Write is
+	# disabled and the file requested does
+	# not exists redirect to "front
+	# "controller".
+	ErrorDocument 404 /index.php
+</IfModule>
+
