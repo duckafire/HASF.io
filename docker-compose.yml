@@ -19,6 +19,8 @@ services:
           memory: 50M
     depends_on:
       - db
+    environment:
+      APP_PATH: /var/www/html/public
 
   db:
     image: yobasystems/alpine-mariadb:10.6.12
