@@ -1,5 +1,20 @@
+# Just a barrier of security;
+# it (still) is not used here.
 .env
 
+# Use to store backup of `.env.server`.
+.env.backup
+
+# Server uses this (deployed application);
+# it must be renamed to `.env` before deploy
+# (but this change does not be commited).
+.env.server
+
+# NOTE: tests use "environment" of Docker
+# Compose.
+
+
+# Miscellanous
 todo
 TODO
 foo
