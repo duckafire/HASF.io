@@ -10,7 +10,10 @@ if(getcwd()."/" !== FCPATH)
 	chdir(FCPATH);
 
 require FCPATH."../app/Config/Paths.php";
-require FCPATH."../system/Boot.php";
 
-exit(Boot::bootWeb( new Paths() ));
+$paths = new Paths();
+
+require paths->systemDirectory."/Boot.php";
+
+exit(Boot::bootWeb( paths ));
 
