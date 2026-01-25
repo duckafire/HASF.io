@@ -13,7 +13,7 @@ require FCPATH."../app/Config/Paths.php";
 
 $paths = new Paths();
 
-require paths->systemDirectory."/Boot.php";
+require $paths->systemDirectory."/Boot.php";
 
-exit(Boot::bootWeb( paths ));
+exit(Boot::bootWeb( $paths ));
 
