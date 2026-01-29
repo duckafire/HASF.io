@@ -17,6 +17,7 @@ php_value date.timezone America/Sao_Paulo
 	#
 	## http -> https
 	#RewriteCond %{HTTPS} off
+	#RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 	#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L,R=301]
 
 	# Move all requests to ./public
@@ -26,4 +27,10 @@ php_value date.timezone America/Sao_Paulo
 <IfModule !mod_rewrite>
 	# Simple fallback
 	ErrorDocument 404 /public/index.php
+</IfModule>
+
+<IfModule mod_headers.c>
+	# It says to browser use only
+	# HTTPS in future visits.
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 </IfModule>
