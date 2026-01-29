@@ -18,26 +18,26 @@ services:
         limits:
           cpus: '0.15'
           memory: 100M
-    depends_on:
-      - db
+#    depends_on:
+#      - db
     environment:
       APP_PATH: /var/www/html/public
       CI_ENVIRONMENT: development
 
-  db:
-    image: yobasystems/alpine-mariadb:10.6.12
-    container_name: hasf-io-test-db
-    hostname: hasf-io-test-db
-    networks:
-      - db-net
-    deploy:
-      resources:
-        limits:
-          cpus: '0.15'
-          memory: 250M
-    environment:
-      MYSQL_DATABASE: hasf-test-db
-      MYSQL_USER: hasf-test-user
-      MYSQL_PASSWORD: hasf-test-user-password
-      MYSQL_ROOT_PASSWORD: hasf-test-root-password
+#  db:
+#    image: yobasystems/alpine-mariadb:10.6.12
+#    container_name: hasf-io-test-db
+#    hostname: hasf-io-test-db
+#    networks:
+#      - db-net
+#    deploy:
+#      resources:
+#        limits:
+#          cpus: '0.15'
+#          memory: 250M
+#    environment:
+#      MYSQL_DATABASE: hasf-test-db
+#      MYSQL_USER: hasf-test-user
+#      MYSQL_PASSWORD: hasf-test-user-password
+#      MYSQL_ROOT_PASSWORD: hasf-test-root-password
 
