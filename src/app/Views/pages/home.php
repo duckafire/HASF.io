@@ -1,6 +1,6 @@
-<?php echo view("components/head.html"); ?>
+<?php include_component("head.html"); ?>
 <body class="stc-pattern">
-	<?php echo view("components/nav.html"); ?>
+	<?php include_component("nav.html"); ?>
 
 	<main class="stc-body playground">
 		<div id="tboxes-container" class="tboxes-container">
@@ -44,7 +44,7 @@
 		</aside>
 	</main>
 
-	<?php echo view("components/footer.html"); ?>
+	<?php include_component("footer.html"); ?>
 
 	<div id="global-notif-container" class="global-notif-container"></div>
 	<script src="./templates/notif/dom.js"></script>
