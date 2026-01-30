@@ -24,6 +24,8 @@
 	<link rel="stylesheet" type="text/css" href="./style/default.css"/>
 	<link rel="stylesheet" type="text/css" href="./style/generic.css"/>
 
+	<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
+
 <?php
 
 if(!isset($head_tags))
