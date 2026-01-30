@@ -24,8 +24,34 @@
 	<link rel="stylesheet" type="text/css" href="./style/default.css"/>
 	<link rel="stylesheet" type="text/css" href="./style/generic.css"/>
 
-	<link rel="stylesheet" type="text/css" href="./templates/tbox/style.css"/>
-	<link rel="stylesheet" type="text/css" href="./templates/notif/style.css"/>
+<?php
 
-	<script src="./generic.js"></script>
+if(!isset($head_tags))
+	goto END_OF_TAG;
+
+helper("html");
+
+function insert_requirer_tags($dt, $field)
+{
+	if(!isset($dt[$field]))
+		return;
+
+	$ref = $dt[$field];
+	$FIELDS = ["css", "js"];
+
+	foreach($FIELDS as $field)
+		if(isset($ref[$field]))
+			foreach($ref[$field] as $stuff) // $stuff === $href || $src
+				echo ($field == $FIELDS[0]
+					? link_tag($stuff.".css")
+					: script_tag($stuff.".js"));
+}
+
+insert_requirer_tags($head_tags, "extern");
+insert_requirer_tags($head_tags, "intern");
+
+END_OF_TAG:
+
+?>
+
 </head>

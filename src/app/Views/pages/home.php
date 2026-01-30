@@ -1,4 +1,20 @@
-<?php include_component("head.html"); ?>
+<?php
+
+include_component("head.php", [
+	"head_tags" => [
+		"intern" => [
+			"css" => [
+				"templates/tbox/style",
+				"templates/notif/style",
+			],
+			"js" => [
+				"generic"
+			],
+		]
+	],
+]);
+
+?>
 <body class="stc-pattern">
 	<?php include_component("nav.html"); ?>
 
