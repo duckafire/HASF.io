@@ -31,26 +31,24 @@
 if(!isset($head_tags))
 	goto END_OF_TAG;
 
-helper("html");
+const ORIGIN_FIELDS = ["extern", "intern"];
+const TYPE_FIELDS   = ["css", "js"];
+$ref = null;
 
-function insert_requirer_tags($dt, $field)
+foreach(ORIGIN_FIELDS as $origin)
 {
-	if(!isset($dt[$field]))
-		return;
+	if(!isset($head_tags[$origin]))
+		continue;
 
-	$ref = $dt[$field];
-	$FIELDS = ["css", "js"];
+	$ref = $head_tags[$origin];
 
-	foreach($FIELDS as $field)
+	foreach(TYPE_FIELDS as $field)
 		if(isset($ref[$field]))
 			foreach($ref[$field] as $stuff) // $stuff === $href || $src
-				echo ($field == $FIELDS[0]
+				echo ($field === TYPE_FIELDS[0]
 					? link_tag($stuff.".css")
 					: script_tag($stuff.".js"));
 }
-
-insert_requirer_tags($head_tags, "extern");
-insert_requirer_tags($head_tags, "intern");
 
 END_OF_TAG:
 

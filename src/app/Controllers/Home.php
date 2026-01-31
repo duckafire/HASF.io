@@ -6,6 +6,8 @@ class Home extends BaseController
 {
 	public function index(): string
 	{
+		helper("html");
+
 		return view("pages/home.php");
 	}
 }
