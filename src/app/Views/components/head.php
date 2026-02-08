@@ -15,42 +15,45 @@
 	<link rel="icon" href="./assets/images/pixel-art/hasf-io-short-brand.png"/>
 
 	<meta property="og:title"       content="HASF.io"/>
-	<!-- <meta property="og:image"       content=""/> -->
+	<!-- TODO <meta property="og:image"       content=""/> -->
 	<meta property="og:description" content="Light, private, fast, and FREE (forever)!"/>
 
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
-
-	<link rel="stylesheet" type="text/css" href="./style/default.css"/>
-	<link rel="stylesheet" type="text/css" href="./style/generic.css"/>
 
 	<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 
 <?php
 
 if(!isset($head_tags))
-	goto END_OF_TAG;
+	goto END_OF_THIS_TAG;
 
 const ORIGIN_FIELDS = ["extern", "intern"];
 const TYPE_FIELDS   = ["css", "js"];
-$ref = null;
 
-foreach(ORIGIN_FIELDS as $origin)
+foreach(ORIGIN_FIELDS as &$origin)
 {
 	if(!isset($head_tags[$origin]))
 		continue;
 
-	$ref = $head_tags[$origin];
+	$ref =& $head_tags[$origin];
 
-	foreach(TYPE_FIELDS as $field)
-		if(isset($ref[$field]))
-			foreach($ref[$field] as $stuff) // $stuff === $href || $src
-				echo ($field === TYPE_FIELDS[0]
-					? link_tag($stuff.".css")
-					: script_tag($stuff.".js"));
+	foreach(TYPE_FIELDS as &$field)
+	{
+		if(!isset($ref[$field]))
+			continue;
+
+		foreach($ref[$field] as &$fileName)
+		{
+			if($field === TYPE_FIELDS[0])
+				echo link_tag($fileName.".css");
+			else
+				echo script_tag($fileName.".js");
+		}
+	}
 }
 
-END_OF_TAG:
+END_OF_THIS_TAG:
 
 ?>
 
