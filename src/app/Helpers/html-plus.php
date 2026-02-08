@@ -28,3 +28,11 @@ if(!function_exists("inc_attr_titles"))
 	}
 }
 
+if(!function_exists("set_no_translate"))
+{
+	function set_no_translate(?string $classes = "")
+	{
+		echo "translate='off' class='notranslate $classes'";
+	}
+}
+
