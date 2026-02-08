@@ -20,3 +20,11 @@ if(!function_exists("inc_icon"))
 	}
 }
 
+if(!function_exists("inc_attr_titles"))
+{
+	function inc_attr_titles(string $text)
+	{
+		echo "title='$text' aria-label='$text'";
+	}
+}
+
