@@ -4,7 +4,7 @@
 		<div>
 			<div></div>
 			<button aria-label="Open donate Popup" aria-haspopup="true">
-				<?php include_icon(); ?>
+				<?php inc_icon(); ?>
 			</button>
 		</div>
 	</header>

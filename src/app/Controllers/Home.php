@@ -6,7 +6,7 @@ class Home extends BaseController
 {
 	public function index(): string
 	{
-		helper(["html", "html-plus"]);
+		helper(["html", "html_plus"]);
 
 		return view("pages/home.php");
 	}

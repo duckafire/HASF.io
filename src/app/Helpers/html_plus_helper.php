@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 if(!function_exists("inc_icon"))
 {
-	function include_icon(?string $name = null): void
+	function inc_icon(?string $name = null): void
 	{
 		try {
 			$content = file_get_contents("../public/assets/lucide-icons-v0.265.0/$name.svg");
