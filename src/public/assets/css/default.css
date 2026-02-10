@@ -1,0 +1,118 @@
+/* COLOR SCHEME */
+
+:root
+{
+	/* light */
+	--FG: #e0e0e0;
+	--BG: #1f1f1f;
+
+	--TAG_FOCUS: black;
+}
+
+:root[data-color-scheme=dark]
+{
+	/* dark */
+	--FG: #1f1f1f;
+	--BG: #e0e0e0;
+
+	--TAG_FOCUS: white;
+}
+
+
+/* HTML ELEMENTS */
+
+*
+{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body
+{
+	color: var(--FG);
+	background-color: var(--BG);
+
+	width: 100vw;
+	min-height: 100vh;
+	min-height: 100dvh;
+
+	font-family: sans, helverica, roboto, trebuchet ms, tahoma, verdana, arial;
+}
+
+button,
+input
+{
+	color: inherit;
+	font-size: 1em;
+	font-family: inherit;
+
+	border: none;
+	outline: none;
+	background: none;
+}
+
+ul
+{
+	list-style: none;
+}
+
+i
+{
+	font-style: normal;
+	text-align: center;
+	vertical-align: sub;
+}
+
+i,
+svg
+{
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	color: inherit;
+}
+
+
+/* ACCESSIBILITY */
+
+.access-outline:focus-visible
+{
+	outline: 0.0625rem solid var(--TAB_FOCUS);
+}
+
+
+/* TEXT FORMATATION (span) */
+
+.code
+{
+	font-family: courier new, monospace;
+	background-color: rgba(0, 0, 0, 0.35);
+	border-radius: 0.0625rem;
+}
+
+
+/* OTHER ONES */
+
+/* .body-content* is used to guarantee
+ * footer is always fixed in page
+ * bottom (0px). This is done through
+ * of the expading of the container of
+ * the main content. */
+
+.body-contents
+{
+	display: flex;
+	flex-direction: column;
+}
+
+.body-content-main
+{
+	flex-grow: 1;
+}
+
+.body-content-nav,
+.body-content-footer
+{
+	flex-grow: 0;
+}
