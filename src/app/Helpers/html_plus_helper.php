@@ -7,7 +7,7 @@ if(!function_exists("inc_icon"))
 	function inc_icon(?string $name = null): void
 	{
 		try {
-			$content = file_get_contents("../public/assets/lucide-icons-v0.265.0/$name.svg");
+			$content = file_get_contents("../public/assets/icons/lucide-v0.265.0/$name.svg");
 
 		} catch(\Throwable $ex) {
 			$content = false;
