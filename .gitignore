@@ -14,12 +14,6 @@
 # Compose.
 
 
-# These are included in server, and are read
-# only, because of this they have to be ignored
-# by Git, but their names have to be "reserved".
-src/public/assets/lucide-icons-v0.265.0/
-
-
 # Miscellanous
 todo
 TODO
