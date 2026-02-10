@@ -2,12 +2,27 @@
 
 declare(strict_types=1);
 
+if(!enum_exists("EIcons"))
+{
+	enum EIcons
+	{
+		case LUCIDE;
+		case BOOTSTRAP;
+	}
+}
+
 if(!function_exists("inc_icon"))
 {
-	function inc_icon(?string $name = null): void
+	function inc_icon(?string $name = null, ?EIcon $origin = EIcon::LUCIDE): void
 	{
+		$dir = match($origin)
+		{
+			EIcon::LUCIDE    => "lucide-v0.265.0",
+			EIcon::BOOTSTRAP => "bootstrap-v1.13.1",
+		};
+
 		try {
-			$content = file_get_contents("../public/assets/icons/lucide-v0.265.0/$name.svg");
+			$content = file_get_contents("../public/assets/icons/$dir/$name.svg");
 
 		} catch(\Throwable $ex) {
 			$content = false;
