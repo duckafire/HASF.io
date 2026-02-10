@@ -1,0 +1,58 @@
+.notif-container-toast
+{
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 1rem;
+	align-items: center;
+	padding-bottom: 3rem;
+
+	width: 100vw;
+	height: 100vh;
+	height: 100dvh;
+	position: fixed;
+}
+
+.notif-toast
+{
+	/* Time To Transition */
+	--ttt: 0.5s;
+
+	display: grid;
+	grid-template-rows: 0fr;
+	transition:
+		grid-template-rows var(--ttt) ease,
+		padding            var(--ttt) ease,
+		border-width       var(--ttt) ease;
+
+	color: var(--FG, black);
+	background-color: var(--BG, white);
+
+	border-style: solid;
+	border-color: var(--FG, black);
+	border-radius: 0.35rem;
+}
+
+.notif-toast.notif-anim-enter
+{
+	grid-template-rows: 1fr;
+	padding: 0.5rem;
+	border-width: 0.125rem;
+}
+
+.notif-toast .notif-content
+{
+	overflow: hidden;
+}
+
+.notif-toast .notif-icon
+{
+	font-size: 1.5rem;
+	padding-right: 0.5rem;
+}
+
+.notif-toast .notif-text
+{
+	font-size: 1.25rem;
+	vertical-align: text-bottom;
+}
+
