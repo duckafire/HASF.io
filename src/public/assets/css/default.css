@@ -100,19 +100,153 @@ i svg
  * of the expading of the container of
  * the main content. */
 
-.body-contents
+.page-content,
+.pf-copyleft
 {
 	display: flex;
 	flex-direction: column;
 }
 
-.body-content-main
+.page-main,
+.animated-comments
 {
-	flex-grow: 1;
+	flex: 1 0 auto;
 }
 
-.body-content-nav,
-.body-content-footer
+.page-nav,
+.page-footer,
+.pseudo-image,
+.btn-donate
 {
-	flex-grow: 0;
+	flex: 0 0 auto;
 }
+
+.page-nav
+{
+	position: sticky;
+}
+
+.pn-menu
+{
+	display: flex;
+	gap: 1.75rem;
+	align-items: center;
+	border-bottom: 0.125rem solid #1f1f1f;
+	padding-inline: 1.5rem;
+	padding-block: 0.5rem;
+	overflow-y: hidden;
+}
+
+.pseudo-image
+{
+	width: 12rem;
+	height: 5rem;
+	border: 0.125rem solid #e0e0e0;
+}
+
+.animated-comments
+{
+	flex-shrink: 1;
+	text-align: end;
+	white-space: nowrap;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	font-size: 1.75rem;
+	min-width: 2em;
+	animation: animated-comments-fade 30s ease infinite;
+}
+
+@keyframes animated-comments-fade
+{
+	0%
+	{
+		transform: translateY(100%);
+		opacity: 0;
+	}
+
+	10%,
+	90%
+	{
+		transform: translateY(0);
+		opacity: 1;
+	}
+
+	100%
+	{
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+}
+
+.btn-donate
+{
+	font-size: 3.5rem;
+	animation: btn-donate-vibration 45s ease infinite;
+}
+
+@keyframes btn-donate-vibration
+{
+	99.0%,
+	99.2%,
+	99.4%,
+	99.6%,
+	99.8%
+	{
+		transform: translateX(-0.125rem);
+	}
+
+	99.1%,
+	99.3%,
+	99.5%,
+	99.7%,
+	99.9%
+	{
+		transform: translateX(0.125rem);
+	}
+
+	10%
+	{
+		transform: translateX(0);
+	}
+}
+
+.pn-details-container
+{
+	display: grid;
+	grid-template-rows: 0;
+	transition:
+		grid-template-rows  1s ease,
+		padding             1s ease,
+		border-bottom-width 1s ease;
+	overflow-y: hidden;
+	padding-inline: 1rem;
+	border-bottom-width: 0;
+	border-bottom-style: solid;
+	border-bottom-color: #1f1f1f;
+}
+
+.pn-details-container[aria-hidden=false]
+{
+	grid-template-rows: 1fr;
+	padding-block: 1rem;
+	border-bottom-width: 0.125rem;
+}
+
+.pn-details
+{
+	overflow: hidden;
+}
+
+.page-footer
+{
+	border-top: 0.125rem solid #1f1f1f;
+}
+
+.pf-copyleft
+{
+	text-align: center;
+	font-size: 1rem;
+	gap: 0.35rem;
+	padding: 1rem;
+}
+
