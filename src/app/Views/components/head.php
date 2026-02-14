@@ -12,10 +12,10 @@
 	<!--| https://gitlab.com/duckafire/HASF.io ~~~~~~~~ |-->
 	<!--+===================================================-->
 	<title class="notranslate" translate="no">HASF.io</title>
-	<link rel="icon" href="./assets/images/pixel-art/hasf-io-short-brand.png"/>
+	<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 
 	<meta property="og:title"       content="HASF.io"/>
-	<!-- TODO <meta property="og:image"       content=""/> -->
+	<meta property="og:image"       content="https://hasf.io/favicon.svg"/>
 	<meta property="og:description" content="Light, private, fast, and FREE (forever)!"/>
 
 	<meta charset="utf-8"/>
