@@ -4,6 +4,7 @@ networks:
 
 services:
   app:
+    #entrypoint: ./wait-for-it.sh hasf-io-test-db:3306 -t 0 -- docker-php-entrypoint 
     build:
       context: ./src
       dockerfile: ../Dockerfile

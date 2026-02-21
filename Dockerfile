@@ -1,15 +1,27 @@
+FROM alpine:3.23.3 AS download_deps
+
+WORKDIR /repos
+
+RUN wget -qO ./lucide.zip     https://github.com/lucide-icons/lucide/archive/refs/tags/v0.265.0.zip \
+ && wget -qO ./bootstrap.zip  https://github.com/twbs/icons/archive/refs/tags/v1.13.1.zip \
+ && unzip -q ./lucide.zip \
+ && unzip -q ./bootstrap.zip
+
+
 FROM shinsenter/phpfpm-apache:dev-php8.3-alpine
 
-WORKDIR /var/www/html
+# Default WORKDIR: /var/www/html
+# Default host context: ./src/
 
-RUN composer create-project 'codeigniter4/framework:^4.6.3' ../html \
-	&& find . -user root -exec chown www-data:www-data {} \; \
-	&& wget -O ./wait-for-it.sh https://raw.githubusercontent.com/vishnubob/wait-for-it/refs/heads/master/wait-for-it.sh \
-	&& chmod 700 ./wait-for-it.sh
+RUN composer create-project 'codeigniter4/framework:4.6.3' ../html \
+ && find . -user root -exec chown www-data:www-data {} \;
 
-#ENTRYPOINT [ "./wait-for-it.sh", "hasf-io-test-db:3306", "-t", "0", "--", "docker-php-entrypoint" ]
+ADD --link --chmod=744 --chown=www-data https://raw.githubusercontent.com/vishnubob/wait-for-it/81b1373f17855a4dc21156cfe1694c31d7d1792e/wait-for-it.sh ./
 
-COPY --chown=www-data ./tests ./tests
-COPY --chown=www-data ./app ./app
+COPY --from=download_deps --chown=www-data /repos/lucide-0.265.0/icons ./public/assets/images/icons/lucide-v0.265.0
+COPY --from=download_deps --chown=www-data /repos/icons-1.13.1/icons   ./public/assets/images/icons/bootstrap-v1.13.1
+
+COPY --chown=www-data ./tests  ./tests
+COPY --chown=www-data ./app    ./app
 COPY --chown=www-data ./public ./public
 
