@@ -131,7 +131,7 @@ i svg
 	display: flex;
 	gap: 1.75rem;
 	align-items: center;
-	border-bottom: 0.125rem solid #1f1f1f;
+	border-bottom: 0.125rem solid var(--FG);
 	padding-inline: 1.5rem;
 	padding-block: 0.5rem;
 	overflow-y: hidden;
@@ -141,7 +141,7 @@ i svg
 {
 	width: 12rem;
 	height: 5rem;
-	border: 0.125rem solid #e0e0e0;
+	border: 0.125rem solid var(--FG);
 }
 
 .animated-comments
@@ -222,7 +222,7 @@ i svg
 	padding-inline: 1rem;
 	border-bottom-width: 0;
 	border-bottom-style: solid;
-	border-bottom-color: #1f1f1f;
+	border-bottom-color: var(--FG);
 }
 
 .pn-details-container[aria-hidden=false]
@@ -239,7 +239,7 @@ i svg
 
 .page-footer
 {
-	border-top: 0.125rem solid #1f1f1f;
+	border-top: 0.125rem solid var(--FG);
 }
 
 .pf-copyleft
