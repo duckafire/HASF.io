@@ -25,6 +25,8 @@
 
 	<link rel="stylesheet" type="text/css" href="./assets/css/default.css"/>
 
+	<script src="./assets/js/default.js"></script>
+
 <?php
 
 if(!isset($head_tags))
