@@ -23,6 +23,8 @@
 
 	<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 
+	<link rel="stylesheet" type="text/css" href="./assets/css/default.css"/>
+
 <?php
 
 if(!isset($head_tags))

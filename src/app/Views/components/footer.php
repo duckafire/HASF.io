@@ -1,5 +1,5 @@
-<footer>
-	<p>
+<footer class="page-footer">
+	<div class="pf-copyleft">
 		<span <?php set_no_translate(); ?>>
 			HASF.io Copyright (C) 2025-2026
 			<a <?php
@@ -16,5 +16,5 @@
 			License:
 			<a <?php set_no_translate(); ?> href="https://www.gnu.org/licenses/agpl-3.0.en.html">AGPL3</a>.
 		</span>
-	</p>
+	</div>
 </footer>

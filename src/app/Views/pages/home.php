@@ -1,9 +1,9 @@
 <?php echo view("components/head"); ?>
-<body>
+<body class="page-content">
 	<?php echo view("components/nav"); ?>
 
-	<main class="content">
-		<?php echo "<h1>Lorem ipsum odor amet, consectetuer adipiscing elit.</h1>"; ?>
+	<main class="page-main">
+		<!-- TODO -->
 	</main>
 
 	<?php echo view("components/footer"); ?>
