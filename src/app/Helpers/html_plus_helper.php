@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-if(!enum_exists("EIcons"))
+if(!enum_exists("SVGIconOrigin"))
 {
-	enum EIcons
+	enum SVGIconOrigin
 	{
 		case LUCIDE;
 		case BOOTSTRAP;
@@ -13,16 +13,16 @@ if(!enum_exists("EIcons"))
 
 if(!function_exists("inc_icon"))
 {
-	function inc_icon(?string $name = null, ?EIcon $origin = EIcon::LUCIDE): void
+	function inc_icon(?string $name = null, ?SVGIconOrigin $origin = SVGIconOrigin::LUCIDE): void
 	{
 		$dir = match($origin)
 		{
-			EIcon::LUCIDE    => "lucide-v0.265.0",
-			EIcon::BOOTSTRAP => "bootstrap-v1.13.1",
+			SVGIconOrigin::LUCIDE    => "lucide-v0.265.0",
+			SVGIconOrigin::BOOTSTRAP => "bootstrap-v1.13.1",
 		};
 
 		try {
-			$content = file_get_contents("../public/assets/icons/$dir/$name.svg");
+			$content = \file_get_contents("../public/assets/icons/$dir/$name.svg");
 
 		} catch(\Throwable $ex) {
 			$content = false;
