@@ -1,3 +1,8 @@
+# TODO: at server:
+# [1] Uncomment lines linked.
+# [2] Comment lines linked.
+# [3] Update VERSION (placeholder).
+
 php_value display_errors Off
 php_value mbstring.http_input auto
 php_value date.timezone America/Sao_Paulo
@@ -22,8 +27,7 @@ php_value date.timezone America/Sao_Paulo
 	RewriteCond %{THE_REQUEST} !^(GET|POST)\ [a-zA-Z0-9\.\+_/\-\?\=\&]+\ HTTP/ [NC]
 	RewriteRule ^ - [F,NS,L]
 
-	# UNCOMMENT IN SERVER ENVIRONMENT
-	#
+	# [1]
 	## Remove www.
 	#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 	#RewriteRule ^ https://%1%{REQUEST_URI} [QSA,L,R=301]
@@ -33,11 +37,23 @@ php_value date.timezone America/Sao_Paulo
 	#RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 	#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L,R=301]
 
+	# Avoid reread loops;
 	# Move all requests to ./public
+	RewriteCond %{REQUEST_URI} !^/public/
+
+	# [2]
 	RewriteRule (.*) /public/$1 [QSA,L]
+
+	# [1, 3]
+	#RewriteRule (.*) /public/VERSION/$1 [QSA,L]
 </IfModule>
 
 <IfModule !mod_rewrite>
-	# Simple fallback
-	ErrorDocument 404 /public/index.php
+	# Simple fallback;
+
+	# [2]
+	ErrorDocument 404 /public/index.php [QSA,L]
+
+	# [1, 3]
+	#ErrorDocument 404 /public/VERSION/index.php [QSA, L]
 </IfModule>
