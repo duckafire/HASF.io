@@ -47,7 +47,9 @@ body
 }
 
 button,
-input
+input,
+select,
+textarea
 {
 	color: inherit;
 	font-size: 1em;
@@ -67,7 +69,6 @@ i
 {
 	font-style: normal;
 	text-align: center;
-	vertical-align: sub;
 }
 
 i,

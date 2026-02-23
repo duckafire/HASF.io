@@ -1,11 +1,70 @@
-<?php echo view("components/head"); ?>
+<?php
+echo view("components/head", [
+		"head_tags" => [
+			"intern" => [
+				"css" => [
+					"css/home"
+				],
+			],
+		],
+	]);
+?>
+
 <body class="page-content">
 	<?php echo view("components/nav"); ?>
 
 	<main class="page-main">
-		<!-- TODO -->
+		<ul class="tbox-list">
+
+			<li class="tbox">
+				<select class="tbox-tmode">
+					<?php
+						inc_slt_opt("Binary",         "0");
+						inc_slt_opt("Octal",          "1");
+						inc_slt_opt("Decimal",        "2");
+						inc_slt_opt("Hexadecimal",    "3");
+						inc_slt_opt("Unicode (TEXT)", "4", true);
+					?>
+				</select>
+				<div class="tbox-ctt">
+					<textarea <?php set_no_translate("tbox-txt"); ?> placeholder="Insert the text here..."></textarea>
+					<aside class="tbox-opts">
+						<?php
+							inc_btn("tbox-btn", "x",         "Delete written content");
+							inc_btn("tbox-btn", "clipboard", "Copy written contetn to clipboard");
+							inc_btn("tbox-btn", "play",      "Run converting process");
+						?>
+					</aside>
+				</div>
+			</li>
+
+			<li class="tbox">
+				<select class="tbox-tmode">
+					<?php
+						inc_slt_opt("Binary",         "0");
+						inc_slt_opt("Octal",          "1");
+						inc_slt_opt("Decimal",        "2", true);
+						inc_slt_opt("Hexadecimal",    "3");
+						inc_slt_opt("Unicode (TEXT)", "4");
+					?>
+				</select>
+				<div class="tbox-ctt">
+					<textarea <?php set_no_translate("tbox-txt"); ?> placeholder="Output from last text box..." readonly="readonly"></textarea>
+					<aside class="tbox-opts">
+						<?php
+							inc_btn("tbox-btn", "x",         "Delete written content");
+							inc_btn("tbox-btn", "clipboard", "Copy written contetn to clipboard");
+							inc_btn("tbox-btn", "copy",      "Copy text box");
+							inc_btn("tbox-btn", "trash-2",   "Delete text box");
+						?>
+					</aside>
+				</div>
+			</li>
+
+		</ul>
 	</main>
 
 	<?php echo view("components/footer"); ?>
 </body>
 </html>
+
