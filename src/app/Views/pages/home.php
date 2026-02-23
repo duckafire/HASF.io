@@ -3,7 +3,8 @@ echo view("components/head", [
 		"head_tags" => [
 			"intern" => [
 				"css" => [
-					"css/home"
+					"css/home",
+					"css/tboxes/unit",
 				],
 			],
 		],
@@ -69,6 +70,8 @@ echo view("components/head", [
 	</main>
 
 	<?php echo view("components/footer"); ?>
+
+	<script src="./assets/js/tboxes/core.js"></script>
 </body>
 </html>
 
