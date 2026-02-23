@@ -17,15 +17,17 @@ echo view("components/head", [
 		<ul class="tbox-list">
 
 			<li class="tbox">
-				<select class="tbox-tmode">
-					<?php
-						inc_slt_opt("Binary",         "0");
-						inc_slt_opt("Octal",          "1");
-						inc_slt_opt("Decimal",        "2");
-						inc_slt_opt("Hexadecimal",    "3");
-						inc_slt_opt("Unicode (TEXT)", "4", true);
-					?>
-				</select>
+				<div class="slt-container tbox-tmode-container">
+					<select class="tbox-tmode">
+						<?php
+							inc_slt_opt("Binary",         "2");
+							inc_slt_opt("Octal",          "8");
+							inc_slt_opt("Decimal",        "10");
+							inc_slt_opt("Hexadecimal",    "16");
+							inc_slt_opt("Unicode (TEXT)", "0", true);
+						?>
+					</select>
+				</div>
 				<div class="tbox-ctt">
 					<textarea <?php set_no_translate("tbox-txt"); ?> placeholder="Insert the text here..."></textarea>
 					<aside class="tbox-opts">
@@ -39,15 +41,17 @@ echo view("components/head", [
 			</li>
 
 			<li class="tbox">
-				<select class="tbox-tmode">
-					<?php
-						inc_slt_opt("Binary",         "0");
-						inc_slt_opt("Octal",          "1");
-						inc_slt_opt("Decimal",        "2", true);
-						inc_slt_opt("Hexadecimal",    "3");
-						inc_slt_opt("Unicode (TEXT)", "4");
-					?>
-				</select>
+				<div class="slt-container tbox-tmode-container">
+					<select class="tbox-tmode">
+						<?php
+							inc_slt_opt("Binary",         "2");
+							inc_slt_opt("Octal",          "8");
+							inc_slt_opt("Decimal",        "10", true);
+							inc_slt_opt("Hexadecimal",    "16");
+							inc_slt_opt("Unicode (TEXT)", "0");
+						?>
+					</select>
+				</div>
 				<div class="tbox-ctt">
 					<textarea <?php set_no_translate("tbox-txt"); ?> placeholder="Output from last text box..." readonly="readonly"></textarea>
 					<aside class="tbox-opts">

@@ -13,12 +13,17 @@
 	border-radius: 0.25rem;
 }
 
+.tbox-tmode-container
+{
+	--arrow-size: 0.6rem;
+	width: 100%;
+	border-bottom: 0.125rem solid var(--FG);
+}
+
 .tbox-tmode
 {
 	padding: 0.5rem;
-	width: 100%;
 	font-size: 1.3rem;
-	border-bottom: 0.125rem solid var(--FG);
 }
 
 .tbox-ctt
