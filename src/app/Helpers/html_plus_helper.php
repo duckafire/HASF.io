@@ -31,7 +31,7 @@ if(!function_exists("inc_icon"))
 		if(!$content) // Replacement Character
 			$content = "&#xfffd;";
 
-		echo "<i class='lucide-icon' aria-hidden='true'>$content</i>";
+		echo "<i class='svg-icon' aria-hidden='true'>$content</i>";
 	}
 }
 
