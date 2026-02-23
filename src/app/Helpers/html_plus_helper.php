@@ -37,7 +37,7 @@ if(!function_exists("inc_icon"))
 
 if(!function_exists("inc_attr_titles"))
 {
-	function inc_attr_titles(string $text)
+	function inc_attr_titles(string $text): void
 	{
 		echo "title='$text' aria-label='$text'";
 	}
@@ -45,9 +45,31 @@ if(!function_exists("inc_attr_titles"))
 
 if(!function_exists("set_no_translate"))
 {
-	function set_no_translate(?string $classes = "")
+	function set_no_translate(?string $classes = ""): void
 	{
 		echo "translate='off' class='notranslate $classes'";
 	}
 }
 
+
+if(!function_exists("inc_btn"))
+{
+	function inc_btn(string $classes, string | array $icon, ?string $title = null, ?string $url = null): void
+	{
+		$allTitles = ($titles == null ? "" : "title='$title' aria-label='$title'");
+
+		echo ($url == null
+			? "<button          class='$classes' $allTitles>"
+			: "<a role='button' class='$classes' $allTitles href='$url'>");
+
+		if($icon != null)
+		{
+			if(gettype($icon) == "string")
+				inc_icon( $icon );
+			else
+				inc_icon(icon[0], icon[1]);
+		}
+
+		echo ($url == null ? "</button>" : "</a>");
+	}
+}
