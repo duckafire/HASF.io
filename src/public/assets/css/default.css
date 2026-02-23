@@ -6,6 +6,9 @@
 	--FG: #e0e0e0;
 	--BG: #1f1f1f;
 
+	--FG-RGB: 224, 224, 224;
+	--FG-RGB:  31,  31,  31;
+
 	--TAG_FOCUS: black;
 }
 
@@ -14,6 +17,9 @@
 	/* dark */
 	--FG: #1f1f1f;
 	--BG: #e0e0e0;
+
+	--FG-RGB:  31,  31,  31;
+	--FG-RGB: 224, 224, 224;
 
 	--TAG_FOCUS: white;
 }
