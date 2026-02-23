@@ -73,3 +73,11 @@ if(!function_exists("inc_btn"))
 		echo ($url == null ? "</button>" : "</a>");
 	}
 }
+
+if(!function_exists("inc_slt_opt"))
+{
+	function inc_slt_opt(string $textContent, string value, bool isSelected = false)
+	{
+		echo "<option value='$value'".($isSelected ? "selected='selected'" : "").">$textContent</option>";
+	}
+}
