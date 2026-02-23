@@ -22,7 +22,7 @@ if(!function_exists("inc_icon"))
 		};
 
 		try {
-			$content = \file_get_contents("../public/assets/icons/$dir/$name.svg");
+			$content = \file_get_contents("../public/assets/images/icons/$dir/$name.svg");
 
 		} catch(\Throwable $ex) {
 			$content = false;
