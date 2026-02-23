@@ -56,7 +56,7 @@ if(!function_exists("inc_btn"))
 {
 	function inc_btn(string $classes, string | array $icon, ?string $title = null, ?string $url = null): void
 	{
-		$allTitles = ($titles == null ? "" : "title='$title' aria-label='$title'");
+		$allTitles = ($title == null ? "" : "title='$title' aria-label='$title'");
 
 		echo ($url == null
 			? "<button          class='$classes' $allTitles>"
@@ -76,7 +76,7 @@ if(!function_exists("inc_btn"))
 
 if(!function_exists("inc_slt_opt"))
 {
-	function inc_slt_opt(string $textContent, string value, bool isSelected = false)
+	function inc_slt_opt(string $textContent, string $value, bool $isSelected = false)
 	{
 		echo "<option value='$value'".($isSelected ? "selected='selected'" : "").">$textContent</option>";
 	}
