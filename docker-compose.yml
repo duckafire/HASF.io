@@ -1,6 +1,6 @@
-networks:
-  db-net:
-    name: hasf-io-test-db-net
+#networks:
+#  db-net:
+#    name: hasf-io-test-db-net
 
 services:
   app:
@@ -12,8 +12,8 @@ services:
     hostname: hasf-io-test-app
     ports:
       - 8080:80
-    networks:
-      - db-net
+    #networks:
+    #  - db-net
     deploy:
       resources:
         limits:
