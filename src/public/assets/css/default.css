@@ -80,6 +80,35 @@ i svg
 	color: inherit;
 }
 
+.slt-container
+{
+	--asize: var(--arrow-size, 0.325em);
+	position: relative;
+	width: min-content;
+	padding-right: calc(var(--asize) * 3);
+}
+
+.slt-container select
+{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.slt-container::before
+{
+	content: " ";
+	top: calc(50% - (var(--asize) / 2));
+	right: var(--asize);
+	position: absolute;
+	pointer-events: none;
+
+	/* Draw an arrow pointing to down: */
+	border-top:   var(--asize) solid var(--FG);
+	border-left:  var(--asize) solid transparent;
+	border-right: var(--asize) solid transparent;
+}
+
 
 /* ACCESSIBILITY */
 
