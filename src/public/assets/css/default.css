@@ -191,6 +191,11 @@ i svg
 	animation: btn-donate-vibration 45s ease infinite;
 }
 
+.btn-donate i
+{
+	vertical-align: sub;
+}
+
 @keyframes btn-donate-vibration
 {
 	99.0%,
