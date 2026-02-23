@@ -50,9 +50,9 @@ foreach(ORIGIN_FIELDS as &$origin)
 		foreach($ref[$field] as &$fileName)
 		{
 			if($field === TYPE_FIELDS[0])
-				echo link_tag($fileName.".css");
+				echo link_tag("./assets/$fileName.css");
 			else
-				echo script_tag($fileName.".js");
+				echo link_tag("./assets/$fileName.js");
 		}
 	}
 }
