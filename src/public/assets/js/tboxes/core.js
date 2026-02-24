@@ -9,7 +9,7 @@ $(function()
 	{
 		for(const c of input)
 			for(const u of validUnits)
-				if(c == u)
+				if(c === u)
 					return;
 
 		throw new InvalidEncodingError();
@@ -50,7 +50,7 @@ $(function()
 			default: code = parseInt( input, inputType );
 		}
 
-		if(outputType == 0)
+		if(outputType === 0)
 			OUTPUT.textContent = String.fromCodePoint( code );
 		else
 			OUTPUT.textContent = code.toString( outputType );
