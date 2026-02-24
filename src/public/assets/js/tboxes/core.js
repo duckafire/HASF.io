@@ -78,4 +78,62 @@ $(function()
 			OUTPUT_TXT.appendChild( convertCharTo( c, INPUT_TYPE, OUTPUT_TYPE ) );
 	};
 
+	window.TBOXES_API = {
+		TBOXES_API.__container__: $(".tbox-list"),
+	};
+
+	TBOXES_API.__items__: [
+		TBOXES_API.__container__.find(".tbox"),
+		TBOXES_API.__container__.find(".tbox + .tbox"),
+	];
+
+	TBOXES_API.__template__ = TBOXES_API.__items__[1];
+
+	TBOXES_API.get = (id) =>
+	{
+		validType(id, "number");
+		return TBOXES_API.__items__[id];
+	};
+
+	TBOXES_API.insert = (target, id = null) =>
+	{
+		validType(target, "JQuery");
+
+		if(id === null)
+		{
+			TBOXES_API.__items__.push(target);
+			TBOXES_API.__container__.append(target);
+			return;
+		}
+
+		validType(id, "number");
+
+		TBOXES_API.__items__.splice(id, 0, target);
+		TBOXES_API.get(id).before( target );
+	};
+
+	TBOXES_API.clone = (original, id = null) =>
+	{
+		validType(origin);
+		TBOXES_API.insert( original.clone(true, true), id );
+	};
+
+	TBOXES_API.add = () =>
+	{
+		TBOXES_API.clone( TBOXES_API.__template__ );
+	};
+
+	TBOXES_API.copy = (source = null) =>
+	{
+		// TODO
+		// (source or ALL)
+	};
+
+	TBOXES_API.run = () =>
+	{
+		// TODO
+	};
+
+	window.TBOXES_API = Object.freeze( window.TBOXES_API );
 });
+
