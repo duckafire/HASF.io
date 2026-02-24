@@ -1,5 +1,22 @@
 "use strict";
 
+const validType = (value, expectedType) =>
+{
+	let receivedType;
+
+	if(value === null)
+		receivedType = "null";
+
+	else if(value.constructor && value.constructor.name)
+		receivedType = value.constructor.name;
+
+	else
+		receivedType = typeof value;
+
+	if(expectedType !== receivedType)
+		throw new TypeError(`Expecting ${expectedType} element, instead of "${value}".`);
+};
+
 $(function()
 {
 	$(".btn-donate").on("click", {detailsElement: $(".pn-details-container")}, (ev) =>
