@@ -60,18 +60,19 @@ const convertCharTo = (input, inputType, outputType) =>
 
 const navInTBoxContent = (inputTBox, outputTBox, isFormated = false) =>
 {
-	const INPUT_TYPE  = inputTBox.querySelector(".tbox-mode").value;
-	const OUTPUT_TYPE = inputTBox.querySelector(".tbox-mode").value;
+	const INPUT_TYPE  =  inputTBox.querySelector(".tbox-tmode").value;
+	const OUTPUT_TYPE =  inputTBox.querySelector(".tbox-tmode").value;
+	const OUTPUT_TXT  = outputTBox.querySelector(".tbox-txt");
 
 	if(isFormated)
 	{
 		for(const span of inputTBox.childNodes)
-			outputTBox.appendChild( convertCharTo( span.textContent, INPUT_TYPE, OUTPUT_TYPE ) );
+			OUTPUT_TEXT.appendChild( convertCharTo( span.textContent, INPUT_TYPE, OUTPUT_TYPE ) );
 
 		return;
 	}
 
 	for(const c of inputTBox.textContent)
-		outputTBox.appendChild( convertCharTo( c, INPUT_TYPE, OUTPUT_TYPE ) );
+		OUTPUT_TXT.appendChild( convertCharTo( c, INPUT_TYPE, OUTPUT_TYPE ) );
 };
 
