@@ -21,7 +21,8 @@ ADD --link --chmod=744 --chown=www-data https://raw.githubusercontent.com/vishnu
 COPY --from=download_deps --chown=www-data /repos/lucide-0.265.0/icons ./public/assets/images/icons/lucide-v0.265.0
 COPY --from=download_deps --chown=www-data /repos/icons-1.13.1/icons   ./public/assets/images/icons/bootstrap-v1.13.1
 
-COPY --chown=www-data ./tests  ./tests
-COPY --chown=www-data ./app    ./app
-COPY --chown=www-data ./public ./public
+COPY --chown=www-data ./.htaccess  ./
+COPY --chown=www-data ./wip/tests  ./wip/tests
+COPY --chown=www-data ./wip/app    ./wip/app
+COPY --chown=www-data ./wip/public ./wip/public
 

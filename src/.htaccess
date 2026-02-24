@@ -42,18 +42,18 @@ php_value date.timezone America/Sao_Paulo
 	RewriteCond %{REQUEST_URI} !^/public/
 
 	# [2]
-	RewriteRule (.*) /public/$1 [QSA,L]
+	RewriteRule (.*) /wip/public/$1 [QSA,L]
 
 	# [1, 3]
-	#RewriteRule (.*) /public/VERSION/$1 [QSA,L]
+	#RewriteRule (.*) /VERSION/public/$1 [QSA,L]
 </IfModule>
 
 <IfModule !mod_rewrite>
 	# Simple fallback;
 
 	# [2]
-	ErrorDocument 404 /public/index.php [QSA,L]
+	ErrorDocument 404 /wip/public/index.php [QSA,L]
 
 	# [1, 3]
-	#ErrorDocument 404 /public/VERSION/index.php [QSA, L]
+	#ErrorDocument 404 /VERSION/public/index.php [QSA, L]
 </IfModule>
