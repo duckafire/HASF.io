@@ -86,7 +86,6 @@ i svg
 	--asize: var(--arrow-size, 0.325em);
 	position: relative;
 	width: min-content;
-	padding-right: calc(var(--asize) * 3);
 }
 
 .slt-container select
@@ -94,6 +93,8 @@ i svg
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
+	width: 100%;
+	padding-right: calc(var(--asize) * 3) !important;
 }
 
 .slt-container::before
