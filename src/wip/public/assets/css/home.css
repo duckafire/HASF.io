@@ -40,6 +40,12 @@
 	resize: none;
 }
 
+pre.tbox-txt:empty:before
+{
+	content: "Output from previous text box...";
+	opacity: 0.5;
+}
+
 .tbox-opts
 {
 	font-size: 1.75rem;
