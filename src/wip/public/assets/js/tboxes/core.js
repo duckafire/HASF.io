@@ -82,7 +82,7 @@ $(function()
 		__container__: $(".tbox-list"),
 	};
 
-	TBOXES_API.__items__: [
+	TBOXES_API.__items__ = [
 		TBOXES_API.__container__.find(".tbox"),
 		TBOXES_API.__container__.find(".tbox + .tbox"),
 	];
