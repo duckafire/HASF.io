@@ -79,7 +79,7 @@ $(function()
 	};
 
 	window.TBOXES_API = {
-		TBOXES_API.__container__: $(".tbox-list"),
+		__container__: $(".tbox-list"),
 	};
 
 	TBOXES_API.__items__: [
