@@ -4,7 +4,6 @@ echo view("components/head", [
 			"intern" => [
 				"css" => [
 					"css/home",
-					"css/tboxes/unit",
 				],
 			],
 		],

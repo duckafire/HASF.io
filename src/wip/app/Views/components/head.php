@@ -10,7 +10,7 @@
 	<!--| Its source code is available in: ~~~~~~~~~~~~~|-->
 	<!--| https://github.com/duckafire/HASF.io ~~~~~~~~ |-->
 	<!--| https://gitlab.com/duckafire/HASF.io ~~~~~~~~ |-->
-	<!--+===================================================-->
+	<!--+===============================================+-->
 	<title class="notranslate" translate="no">HASF.io</title>
 	<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 
