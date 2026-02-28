@@ -1,27 +1,55 @@
 /* COLOR SCHEME */
 
-:root
+.color-scheme-light
 {
-	/* light */
-	--FG: #e0e0e0;
-	--BG: #1f1f1f;
-
-	--FG-RGB: 224, 224, 224;
-	--FG-RGB:  31,  31,  31;
-
-	--TAG_FOCUS: black;
-}
-
-:root[data-color-scheme=dark]
-{
-	/* dark */
+	/* NOTE: update .color-scheme-dark/auto
+	 * after to update this class. */
 	--FG: #1f1f1f;
 	--BG: #e0e0e0;
 
 	--FG-RGB:  31,  31,  31;
-	--FG-RGB: 224, 224, 224;
+	--BG-RGB: 224, 224, 224;
 
 	--TAG_FOCUS: white;
+}
+
+@media (prefers-color-scheme: light)
+{
+	.color-scheme-auto
+	{
+		--FG: #1f1f1f;
+		--BG: #e0e0e0;
+
+		--FG-RGB:  31,  31,  31;
+		--BG-RGB: 224, 224, 224;
+
+		--TAG_FOCUS: white;
+	}
+}
+
+.color-scheme-dark
+{
+	--FG: #e0e0e0;
+	--BG: #1f1f1f;
+
+	--FG-RGB: 224, 224, 224;
+	--BG-RGB:  31,  31,  31;
+
+	--TAG_FOCUS: black;
+}
+
+@media (prefers-color-scheme: dark)
+{
+	.color-scheme-auto
+	{
+		--FG: #e0e0e0;
+		--BG: #1f1f1f;
+
+		--FG-RGB: 224, 224, 224;
+		--BG-RGB:  31,  31,  31;
+
+		--TAG_FOCUS: black;
+	}
 }
 
 
