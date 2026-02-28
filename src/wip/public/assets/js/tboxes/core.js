@@ -132,10 +132,40 @@ $(function()
 		TBOXES_API.clone( TBOXES_API.__template__ );
 	};
 
-	TBOXES_API.copy = (source = null) =>
+	TBOXES_API.copy = (tbox = null) =>
 	{
-		// TODO
-		// (source or ALL)
+		if(source !== null)
+		{
+			if(tbox.data("type") === "input")
+			{
+				window.copyText( TBOXES_API.get(0).find(".tbox-txt").value );
+				return;
+			}
+
+			let source = "";
+
+			tbox.childNodes.forEach((snippet) =>
+			{
+				source += snippet.textContent + " ";
+			});
+
+			window.copyText( source );
+			return;
+		}
+
+		let allSource = TBOXES_API.get(0).find(".tbox-txt").value;
+
+		TBOXES_API.forEach((tbox) =>
+		{
+			allSource += "\n\n";
+
+			tbox.childNodes.forEach((snippet) =>
+			{
+				allSource += snippet.textContent + " ";
+			});
+		}, true);
+
+		window.copyText( allSource );
 	};
 
 	TBOXES_API.run = () =>
