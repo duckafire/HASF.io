@@ -48,20 +48,15 @@ window.addEventListener("DOMContentLoaded", () =>
 
 	window.createNotifToast = (type, textContent) =>
 	{
-		let typeClass, typeIcon;
-		switch(type)
-		{
-			case "error": typeClass = "notif-error"; typeIcon = ICONS.error; break;
-			case "info":  typeClass = "notif-info";  typeIcon = ICONS.info;  break;
-			case "ok":    typeClass = "notif-ok";    typeIcon = ICONS.ok;    break;
-			case "warn":  typeClass = "notif-warn";  typeIcon = ICONS.warn;  break;
-			default: throw new Error(`Invalid type: ${type}.`);
-		}
+		const TYPE_ICON = ICONS[ type ];
+
+		if(TYPE_ICON === undefined)
+			throw new Error(`Invalid type: ${type}.`);
 
 		const TPT = TEMPLATE.cloneNode(true);
-		TPT.classList.add( typeClass );
+		TPT.classList.add( "notif-" + type );
 
-		TPT.querySelector(".notif-icon").appendChild( typeIcon.cloneNode(true) );
+		TPT.querySelector(".notif-icon").appendChild( TYPE_ICON.cloneNode(true) );
 		TPT.querySelector(".notif-text").textContent = " " + textContent;
 
 		if(CONTAINER.children.length === 0)
