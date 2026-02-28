@@ -61,6 +61,23 @@ pre
 	background: none;
 }
 
+button:hover,
+select:hover
+{
+	cursor: pointer;
+}
+
+input[type=text]:hover,
+textarea:hover
+{
+	cursor: text;
+}
+
+input[readonly]:hover
+{
+	cursor: default;
+}
+
 ul
 {
 	list-style: none;
