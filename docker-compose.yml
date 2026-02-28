@@ -4,7 +4,7 @@
 
 services:
   app:
-    #entrypoint: ./wait-for-it.sh hasf-io-test-db:3306 -t 0 -- docker-php-entrypoint 
+    #entrypoint: ./wait-for-it.sh hasf-io-test-db:3306 -t 0 -- docker-php-entrypoint
     build:
       context: ./src
       dockerfile: ../Dockerfile
@@ -22,7 +22,7 @@ services:
 #    depends_on:
 #      - db
     environment:
-      APP_PATH: /var/www/html/public
+      APP_PATH: /var/www/html/wip/public
       CI_ENVIRONMENT: development
 
 #  db:
