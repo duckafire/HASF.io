@@ -17,7 +17,7 @@ echo view("components/head", [
 	<main class="page-main">
 		<ul class="tbox-list">
 
-			<li class="tbox">
+			<li class="tbox" data-type="input">
 				<div class="slt-container tbox-tmode-container">
 					<select class="tbox-tmode">
 						<?php
@@ -41,7 +41,7 @@ echo view("components/head", [
 				</div>
 			</li>
 
-			<li class="tbox">
+			<li class="tbox" data-type="output">
 				<div class="slt-container tbox-tmode-container">
 					<select class="tbox-tmode">
 						<?php
@@ -54,7 +54,7 @@ echo view("components/head", [
 					</select>
 				</div>
 				<div class="tbox-ctt">
-					<textarea <?php set_no_translate("tbox-txt"); ?> placeholder="Output from last text box..." readonly="readonly"></textarea>
+					<pre <?php set_no_translate("tbox-txt"); ?> placeholder="Output from last text box..." readonly="readonly"></pre>
 					<aside class="tbox-opts">
 						<?php
 							inc_btn("tbox-btn", "x",         "Delete written content");

@@ -49,7 +49,8 @@ body
 button,
 input,
 select,
-textarea
+textarea,
+pre
 {
 	color: inherit;
 	font-size: 1em;
