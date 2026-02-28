@@ -95,6 +95,15 @@ $(function()
 		return TBOXES_API.__items__[id];
 	};
 
+	TBOXES_API.forEach = (arrowFunc, jumpFirst = false) =>
+	{
+		// arrowFunc parameters:
+		// * tbox:  JQuery
+		// * index: number
+		for(let i = (jumpFirst ? 1 : 0); i < TBOXES_API.__items__.length; i++)
+			arrowFunc( TBOXES_API.__items__[i], i );
+	};
+
 	TBOXES_API.insert = (target, id = null) =>
 	{
 		validType(target, "JQuery");
