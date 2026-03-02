@@ -51,7 +51,6 @@ if(!function_exists("set_no_translate"))
 	}
 }
 
-
 if(!function_exists("inc_btn"))
 {
 	function inc_btn(string $classes, string | array $icon, ?string $title = null, ?string $url = null): void
@@ -64,7 +63,7 @@ if(!function_exists("inc_btn"))
 
 		if($icon != null)
 		{
-			if(gettype($icon) == "string")
+			if(\gettype($icon) == "string")
 				inc_icon( $icon );
 			else
 				inc_icon(icon[0], icon[1]);
@@ -76,7 +75,7 @@ if(!function_exists("inc_btn"))
 
 if(!function_exists("inc_slt_opt"))
 {
-	function inc_slt_opt(string $textContent, string $value, bool $isSelected = false)
+	function inc_slt_opt(string $textContent, string $value, bool $isSelected = false): void
 	{
 		echo "<option value='$value'".($isSelected ? "selected='selected'" : "").">$textContent</option>";
 	}
