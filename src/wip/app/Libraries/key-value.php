@@ -26,8 +26,9 @@ function kv_decode(string $filePath): ?array
 
 	$data = [];
 
-	foreach(\explode( KV_LINE_SEPARATOR, \trim($content) ) as &$pair)
-		$data[ \strtok($pair, KV_PAIR_SEPARATOR) ] = \strtok(KV_PAIR_SEPARATOR);
+	if(!\empty( ($content = \trim($content)) ))
+		foreach(\explode( KV_LINE_SEPARATOR, $content ) as &$pair)
+			$data[ \strtok($pair, KV_PAIR_SEPARATOR) ] = \strtok(KV_PAIR_SEPARATOR);
 
 	return $data;
 }
