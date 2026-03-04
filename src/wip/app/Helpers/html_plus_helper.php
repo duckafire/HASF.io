@@ -15,7 +15,7 @@ if(!enum_exists("SVGIconOrigin"))
 
 if(!function_exists("inc_icon"))
 {
-	function inc_icon(?string $name = null, ?SVGIconOrigin $origin = SVGIconOrigin::LUCIDE): void
+	function inc_icon(?string $name = null, ?SVGIconOrigin $origin = SVGIconOrigin::LUCIDE): string
 	{
 		$dir = match($origin)
 		{
@@ -33,59 +33,61 @@ if(!function_exists("inc_icon"))
 		if(!$content) // Replacement Character
 			$content = "&#xfffd;";
 
-		echo "<i class='svg-icon' aria-hidden='true'>$content</i>";
+		return "<i class='svg-icon' aria-hidden='true'>$content</i>";
 	}
 }
 
 if(!function_exists("inc_attr_titles"))
 {
-	function inc_attr_titles(string $text): void
+	function inc_attr_titles(string $text): string
 	{
-		echo "title='$text' aria-label='$text'";
+		return "title='$text' aria-label='$text'";
 	}
 }
 
 if(!function_exists("set_no_translate"))
 {
-	function set_no_translate(?string $classes = ""): void
+	function set_no_translate(?string $classes = ""): string
 	{
-		echo "translate='off' class='notranslate $classes'";
+		return "translate='off' class='notranslate $classes'";
 	}
 }
 
 if(!function_exists("inc_btn"))
 {
-	function inc_btn(string $classes, string | array $icon, ?string $title = null, ?string $url = null): void
+	function inc_btn(string $classes, string | array $icon, ?string $title = null, ?string $url = null): string
 	{
 		$allTitles = ($title == null ? "" : "title='$title' aria-label='$title'");
 
-		echo ($url == null
-			? "<button          class='$classes' $allTitles>"
-			: "<a role='button' class='$classes' $allTitles href='$url'>");
+		$icon = "";
 
 		if($icon != null)
 		{
 			if(\gettype($icon) == "string")
-				inc_icon( $icon );
+				$icon = inc_icon( $icon );
 			else
-				inc_icon(icon[0], icon[1]);
+				$icon = inc_icon(icon[0], icon[1]);
 		}
 
-		echo ($url == null ? "</button>" : "</a>");
+		return ($url == null
+			? "<button          class='$classes' $allTitles>"
+			: "<a role='button' class='$classes' $allTitles href='$url'>") .
+			$icon .
+			($url == null ? "</button>" : "</a>");
 	}
 }
 
 if(!function_exists("inc_slt_opt"))
 {
-	function inc_slt_opt(string $textContent, string $value, bool $isSelected = false): void
+	function inc_slt_opt(string $textContent, string $value, bool $isSelected = false): string
 	{
-		echo "<option value='$value'".($isSelected ? "selected='selected'" : "").">$textContent</option>";
+		return "<option value='$value'".($isSelected ? "selected='selected'" : "").">$textContent</option>";
 	}
 }
 
 if(!function_exists("inc_asset"))
 {
-	function inc_asset(string $path, string $name, string $ext): void
+	function inc_asset(string $path, string $name, string $ext): string
 	{
 		static $filePath = WRITEPATH."/custom/files-hash.kv";
 		static $data = null;
@@ -97,18 +99,12 @@ if(!function_exists("inc_asset"))
 		if($data === null)
 		{
 			if(!create_file($filePath))
-			{
-				echo $clientFilePath;
-				return;
-			}
+				return $clientFilePath;
 
 			$data = kv_decore( $filePath );
 
 			if($data === null)
-			{
-				echo $clientFilePath;
-				return;
-			}
+				return $clientFilePath;
 		}
 
 		if(!isset($data[ $serverFilePath ])
@@ -118,8 +114,7 @@ if(!function_exists("inc_asset"))
 			if($content === false)
 			{
 				log_message("warning", "Impossible get content (file): $serverFilePath";
-				echo $clientFilePath;
-				return;
+				return $clientFilePath;
 			}
 
 			try
@@ -130,21 +125,19 @@ if(!function_exists("inc_asset"))
 			{
 				log_message("error",   "ValueError (from `hash`): {ex}", ["ex" => $ex]);
 				log_message("warning", "Impossible to hash the content of (file): $serverFilePath");
-				echo $clientFilePath;
-				return;
+				return $clientFilePath;
 			}
 
 			if(file_put_contents($hashedContent) === false)
 			{
 				log_message("warning", "Impossible to update (file): $serverFilePath");
-				echo $clientFilePath;
-				return;
+				return $clientFilePath;
 			}
 
 			$data[ $serverFilePath ] = $hashedContent;
 		}
 
-		echo "$clientFilePath?h={$data[ $serverFilePath ] }";
+		return "$clientFilePath?h={$data[ $serverFilePath ] }";
 	}
 }
 
