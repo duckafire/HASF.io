@@ -1,0 +1,98 @@
+Commit conventions (started on 5th March 2026)
+
+
+
+SYNOPSIS
+
+<context>(<subcontext>)[!]: <SHORT_description> [=>
+
+[ <list_of_changes|explanation> [\n\n <NOTE: <short_explanation>>] ]
+
+]
+
+
+
+NOTES:
+* SHORT_description, list_of_changes, and short_explanation must
+  written at imperative mood.
+
+
+
+CONTEXT
+  SUBCONTEXT
+
+pub => ./public
+  ass  :: all files from ./public/assets, except *.css; *.js
+  css  => ./public/assets/**/*.css
+  fc   => ./public/*
+  js   => ./public/assets/**/*.js
+  set  => ./public/assets/sets/**/*.css
+       +> ./public/assets/sets/**/*.js
+
+app => ./app
+  3p   => ./app/ThirdParty
+  comm => ./app/Common.php
+  conf => ./app/Config
+  cont => ./app/Controllers
+  db   => ./app/Database
+  filt => ./app/Filters
+  help => ./app/Helpers
+  lang => ./app/Language
+  mod  => ./app/Models
+  view => ./app/Views
+
+doc => ./docs
+  arch :: architecture documentation
+  caps :: changes at UPPERCASE files
+  code :: code documentation
+  misc :: no-subcontext documentation changes
+
+test => ./tests
+  cust :: ./tests/custom
+  db   :: ./tests/database
+  ses  :: ./tests/session
+  unit :: ./tests/unit
+
+writ => ./writable.
+  cach => ./writable/cache
+  cust => ./writable/custom
+  dbar => ./writable/debugbar
+  logs => ./writable/logs
+  up   => ./writable/uploads
+  ses  => ./writable/session
+
+misc :: no-context changes
+  conf :: changes at miscellaneous configurations
+  dir  :: changes at directory structure
+  env  :: changes related with ENV files
+  host :: host service files
+  misc :: no-subcontext changes
+
+
+
+LISTS
+
+1 - Lorem ipsum odor amet, consectetuer adipiscing elit. Potenti ultricies inceptos, quam
+    facilisis aliquam vehicula quis. Laoreet proin magna inceptos senectus lorem:
+  1.1 - Pellentesque mattis ligula habitasse sed eleifend massa hendrerit accumsan. Venenatis
+        sed penatibus justo sagittis laoreet malesuada elementum.
+  1.N - aptent habitasse accumsan:
+    1.1.N - Lorem ipsum.
+N - Penatibus etiam metus quam sodales nisi.
+
+
+
+EXAMPLES
+
+-m 'doc(caps): Update main README.md'
+
+-m 'misc(host): Add header rule to htaccess =>' -m '
+This changes improve request speed because they
+order to client...'
+
+-m 'app(help): Create foobar_helpers =>' -m '
+1 - foo_tag: creates <foo></foo>.
+2 - bar_tag: creates <bar/>.
+
+NOTE: only development environment.'
+
