@@ -1,0 +1,15 @@
+# All they are GET, and return 501.
+views:
+  "/": .
+
+  "/encoding": .
+  "/number":   .
+  "/base":     .
+  "/cipher":   .
+  "/hash":     .
+
+  "/error/(:num)": .
+
+api:
+  "GET /api 501": .
+
