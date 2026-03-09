@@ -2,11 +2,11 @@
 views:
   "/": .
 
-  "/conv/encoding": .
-  "/conv/number":   .
   "/conv/base":     .
   "/conv/cipher":   .
+  "/conv/encoding": .
   "/conv/hash":     .
+  "/conv/number":   .
 
   "/licenses": .
 
