@@ -4,7 +4,7 @@ Commit conventions (started on 5th March 2026)
 
 SYNOPSIS
 
-<context>(<subcontext>)[!]: <SHORT_description> [=>
+<context>(<subcontext>): <SHORT_description> [=>
 
 [ <list_of_changes|explanation> [\n\n <NOTE: <short_explanation>>] ]
 
@@ -62,6 +62,7 @@ writ => ./writable.
   ses  => ./writable/session
 
 misc :: no-context changes
+  arch :: changes at project architecture.
   conf :: changes at miscellaneous configurations
   dir  :: changes at directory structure
   env  :: changes related with ENV files
