@@ -8,8 +8,5 @@ views:
   "/cipher":   .
   "/hash":     .
 
-  "/error/(:num)": .
-
-api:
-  "GET /api 501": .
+  "/licenses": .
 
