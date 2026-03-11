@@ -80,7 +80,9 @@ LISTS
   1.N - aptent habitasse accumsan:
     1.1.N - Lorem ipsum.
 N - Penatibus etiam metus quam sodales nisi.
-
+  * Lorem ipsum odor amet, consectetuer adipiscing elit.
+  * Potenti ultricies incepto facilisis aliquam vehicula quis.
+  * ...
 
 
 EXAMPLES
