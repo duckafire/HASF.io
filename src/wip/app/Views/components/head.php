@@ -30,6 +30,8 @@
 
 <?php
 
+helper("html");
+
 if(!isset($head_tags))
 	goto END_OF_THIS_TAG;
 
