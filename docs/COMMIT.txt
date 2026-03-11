@@ -55,7 +55,6 @@ test => ./tests
 
 writ => ./writable.
   cach => ./writable/cache
-  cust => ./writable/custom
   dbar => ./writable/debugbar
   logs => ./writable/logs
   up   => ./writable/uploads
