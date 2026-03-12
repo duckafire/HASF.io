@@ -48,10 +48,10 @@ doc => ./docs
   misc :: no-subcontext documentation changes
 
 test => ./tests
-  cust :: ./tests/custom
-  db   :: ./tests/database
-  ses  :: ./tests/session
-  unit :: ./tests/unit
+  db   => ./tests/database
+  ses  => ./tests/session
+  unit => ./tests/unit
+  misc :: no-subcontext tests changes
 
 writ => ./writable.
   cach => ./writable/cache
