@@ -5,9 +5,7 @@
 services:
   app:
     #entrypoint: ./wait-for-it.sh hasf-io-test-db:3306 -t 0 -- docker-php-entrypoint
-    build:
-      context: ./src
-      dockerfile: ../Dockerfile
+    build: .
     container_name: hasf-io-test-app
     hostname: hasf-io-test-app
     ports:
