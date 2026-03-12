@@ -75,9 +75,9 @@ assetsManifestJSONContent="{"
 for originalAbsFilePath in $(find "$PROD_ASSETS_DIR" -type f \( -name '*.css' -o -name '*.js' -o -name '*.svg' \))
 do
 	# /home/foo/hasf.io/src/wip/public/assets/js/bar.js
-	# /app/src/wip/public/assets/js -> ./assets/js
+	# /app/src/wip/public/assets/js -> assets/js
 	originalAbsDirPath="$(dirname "$originalAbsFilePath")"
-	originalRelDirPath="./assets/${originalAbsDirPath##*/public/assets/}"
+	originalRelDirPath="assets/${originalAbsDirPath##*/public/assets/}"
 
 	originalFileBaseName="$(basename "$originalAbsFilePath")"
 	bufFileName="${originalFileBaseName%.*}"
