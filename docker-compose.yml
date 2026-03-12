@@ -20,7 +20,7 @@ services:
 #    depends_on:
 #      - db
     environment:
-      APP_PATH: /var/www/html/wip/public
+      APP_PATH: /var/www/html/prod/public
       CI_ENVIRONMENT: development
 
 #  db:
