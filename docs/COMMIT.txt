@@ -51,7 +51,7 @@ test => ./tests
   db   => ./tests/database
   ses  => ./tests/session
   unit => ./tests/unit
-  misc :: no-subcontext tests changes
+  misc :: no-subcontext changes
 
 writ => ./writable.
   cach => ./writable/cache
@@ -59,6 +59,11 @@ writ => ./writable.
   logs => ./writable/logs
   up   => ./writable/uploads
   ses  => ./writable/session
+
+cicd :: build process and related
+  dock :: changes related with Docker things
+  sh   :: changes related with SH scripts
+  misc :: no-subcontent changes
 
 misc :: no-context changes
   arch :: changes at project architecture.
