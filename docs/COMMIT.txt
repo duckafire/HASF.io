@@ -22,23 +22,23 @@ CONTEXT
   SUBCONTEXT
 
 publ => ./public
-  ass  :: all files from ./public/assets, except *.css; *.js
-  css  => ./public/assets/**/*.css
-  fc   => ./public/*
-  js   => ./public/assets/**/*.js
-  set  => ./public/assets/sets/**/*.css
+  ass_ :: all files from ./public/assets, except *.css; *.js
+  css_ => ./public/assets/**/*.css
+  fc__ => ./public/*
+  js__ => ./public/assets/**/*.js
+  set_ => ./public/assets/sets/**/*.css
        +> ./public/assets/sets/**/*.js
 
 appl => ./app
-  3p   => ./app/ThirdParty
+  3p__ => ./app/ThirdParty
   comm => ./app/Common.php
   conf => ./app/Config
   cont => ./app/Controllers
-  db   => ./app/Database
+  db__ => ./app/Database
   filt => ./app/Filters
   help => ./app/Helpers
   lang => ./app/Language
-  mod  => ./app/Models
+  mod_ => ./app/Models
   view => ./app/Views
 
 docs => ./docs
@@ -48,8 +48,8 @@ docs => ./docs
   misc :: no-subcontext documentation changes
 
 test => ./tests
-  db   => ./tests/database
-  ses  => ./tests/session
+  db__ => ./tests/database
+  ses_ => ./tests/session
   unit => ./tests/unit
   misc :: no-subcontext changes
 
@@ -57,20 +57,20 @@ writ => ./writable.
   cach => ./writable/cache
   dbar => ./writable/debugbar
   logs => ./writable/logs
-  up   => ./writable/uploads
-  ses  => ./writable/session
+  up__ => ./writable/uploads
+  ses_ => ./writable/session
 
 cicd :: build process and related
   dock :: changes related with Docker things
-  sh   :: changes related with SH scripts
+  sh__ :: changes related with SH scripts
   misc :: no-subcontent changes
 
 misc :: no-context changes
   arch :: changes at project architecture
   code :: changes at code general structure
   conf :: changes at miscellaneous configurations
-  dir  :: changes at directory structure
-  env  :: changes related with ENV files
+  dir_ :: changes at directory structure
+  env_ :: changes related with ENV files
   host :: host service files
   misc :: no-subcontext changes
 
