@@ -5,7 +5,7 @@
 			Light, private, fast, and free!
 		</span>
 		<button class="btn-donate" aria-haspopup="true">
-			<?= inc_icon("suit-heart", SVGIconOrigin::BOOTSTRAP); ?>
+			<?= svg_icon("suit-heart", COLL_BOOSTRAP); ?>
 		</button>
 	</header>
 	<div class="pn-details-container" aria-hidden="true" inert="inert">
