@@ -4,7 +4,7 @@
 
 # Generic Programming Conventions
 
-###### Last changes: 07 March 2026
+###### Last changes: 14 March 2026
 
 ### Concepts
 
@@ -12,11 +12,18 @@
 * [KISS: Keep It Simple, Stupid.][kiss]
 * [YAGNI: You Aren't Gonna Need It.][yagni]
 
-### Language
+### File/script composition
 
 * Use English for everything (content meant for the end-user is an exception): mainly because
   most popular programming languages use it (in keywords; standard functions; ...); which
   improves the *fluidity* of the "language".
+
+* Use **only** no-control ASCII characters (use Unicode codes to include other ones): it expands
+  the compatibility of the files/scripts in different code editors, IDEs, preprocessors, and similar
+  things, from more simple to more complex.
+
+* Use Unix line break pattern (**L**ine **F**eed or just `LF`): because it is short, simple, and very
+  common in Linux context.
 
 ### Tabulation
 

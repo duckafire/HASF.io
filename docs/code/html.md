@@ -2,7 +2,7 @@
 
 ### HTML
 
-###### Last changes: 07 March 2026
+###### Last changes: 14 March 2026
 
 #### Compatibility with XML
 
@@ -32,7 +32,6 @@
 * `<html>` must always include the attributes `lang` and `dir`.
 * Do not use deprecated tags and attributes.
 * Follow [content models][cm-html] of each HTML tag.
-* Do not use literal characters outside of Extended-ASCII, use their respective *entities*.
 * Do not accumulate multiple tags on the same line.
 * Align horizontally both tags of an empty *block tag*.
 * Add one level of indentation inside non-empty *block tags*.
