@@ -7,8 +7,8 @@ if(defined("HTML_HELPER_EXTENDED"))
 
 define("HTML_HELPER_EXTENDED", true);
 
-const COLL_LUCIDE    = 0;
-const COLL_BOOTSTRAP = 1;
+define("COLL_LUCIDE",    0);
+define("COLL_BOOTSTRAP", 1);
 
 function svg_icon(string $name, string $collection = COLL_LUCIDE): string
 {
