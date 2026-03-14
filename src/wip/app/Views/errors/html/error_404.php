@@ -144,8 +144,8 @@ function err_comm_attr(?string $title = null)
 		<header>
 			<h1>Page not found</h1>
 			<?php
-				if(defined("ENVIRONMENT") && ENVIRONMENT !== "production")
-					echo nl2br(esc($message));
+				if(\defined("ENVIRONMENT") && \ENVIRONMENT !== "production")
+					echo \nl2br(\esc($message));
 			?>
 		</header>
 

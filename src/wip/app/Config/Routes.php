@@ -1,6 +1,6 @@
 <?php
 
-use CodeIgniter\Router\RouteCollection;
+use \CodeIgniter\Router\RouteCollection;
 
 $routes->view("/conv/base",     "conv/base");
 $routes->view("/conv/cipher",   "conv/cipher");

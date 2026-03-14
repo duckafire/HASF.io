@@ -30,7 +30,7 @@
 
 <?php
 
-helper("html");
+\helper("html");
 
 if(!isset($head_tags))
 	goto END_OF_THIS_TAG;
@@ -53,9 +53,9 @@ foreach(ORIGIN_FIELDS as &$origin)
 		foreach($ref[$field] as &$fileName)
 		{
 			if($field === TYPE_FIELDS[0])
-				echo link_tag("./assets/$fileName.css");
+				echo \link_tag("./assets/$fileName.css");
 			else
-				echo link_tag("./assets/$fileName.js");
+				echo \link_tag("./assets/$fileName.js");
 		}
 	}
 }

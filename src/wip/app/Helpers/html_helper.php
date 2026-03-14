@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-if(defined("HTML_HELPER_EXTENDED"))
+if(\defined("HTML_HELPER_EXTENDED"))
 	return;
 
-define("HTML_HELPER_EXTENDED", true);
+\define("HTML_HELPER_EXTENDED", true);
 
 define("COLL_LUCIDE",    0);
 define("COLL_BOOTSTRAP", 1);
 
-function svg_icon(string $name, int $collection = COLL_LUCIDE): string
+function svg_icon(string $name, int $collection = \COLL_LUCIDE): string
 {
 	$dir = match($collection)
 	{
-		COLL_LUCIDE    => "lucide-v0.265.0",
-		COLL_BOOTSTRAP => "bootstrap-v1.13.1",
+		\COLL_LUCIDE    => "lucide-v0.265.0",
+		\COLL_BOOTSTRAP => "bootstrap-v1.13.1",
 	};
 
 	$content  = \file_get_contents("../public/assets/images/icons/$dir/$name.svg");
@@ -44,12 +44,12 @@ function simple_btn(string $classes, string | array $iconData, ?string $title = 
 	// string $iconData: iconName
 	// array  $iconData: [ iconName, iconCollection ]
 
-	$allTitles = ($titles === null ? "" : attr_titles($title));
+	$allTitles = ($titles === null ? "" : \attr_titles($title));
 
 	if(\is_string($iconData))
-		$icon = svg_icon($iconData);
+		$icon = \svg_icon($iconData);
 	else
-		$icon = svg_icon($iconData[0], $iconData[1]);
+		$icon = \svg_icon($iconData[0], $iconData[1]);
 
 	if($url === null)
 	{
@@ -77,12 +77,12 @@ function asset(string $relativeFilePath): string
 		if($absoluteFilePath === false)
 		{
 			$errorMessage = "Impossible to get real path of: $relativeFilePath";
-			log_message("critical", $errorMessage);
+			\log_message("critical", $errorMessage);
 			throw new \RuntimeException($errorMessage); // invoke error page 500
 		}
 
-		$filename = \pathinfo($relativeFilePath, PATHINFO_FILENAME);
-		$extname  = \pathinfo($relativeFilePath, PATHINFO_EXTENSION);
+		$filename = \pathinfo($relativeFilePath, \PATHINFO_FILENAME);
+		$extname  = \pathinfo($relativeFilePath, \PATHINFO_EXTENSION);
 
 		$hashedAbsoluteFilePath = \dirname($absoluteFilePath)."/$filename.*.$extname");
 		$globedFilePath         = \glob($hashedAbsoluteFilePath);
@@ -90,22 +90,22 @@ function asset(string $relativeFilePath): string
 		if($globedFilePath === false || \count($globedFilePath) === 0)
 		{
 			$errorMessage = "Impossible to apply GLOB algorithm to: $hashedAbsoluteFilePath";
-			log_message("critical", $errorMessage);
+			\log_message("critical", $errorMessage);
 			throw new \RuntimeException($errorMessage); // invoke error page 500
 		}
 
-		return base_url("{$globedFilePath[0]}");
+		return \base_url("{$globedFilePath[0]}");
 	}
 
 	// start manifest variable
 	if($manifest === null)
 	{
-		$manifest = \file_get_contents(ROOTPATH."/assets-manifest.json");
+		$manifest = \file_get_contents(\ROOTPATH."/assets-manifest.json");
 
 		if($manifest === false)
 		{
-			log_message("error", "Impossible to read assets-manifest.json");
-			return asset($relativeFilePath);
+			\log_message("error", "Impossible to read assets-manifest.json");
+			return \asset($relativeFilePath);
 		}
 
 		$manifest = \json_decode($manifest);
@@ -113,12 +113,12 @@ function asset(string $relativeFilePath): string
 		if($manifest === null)
 		{
 			$manifest = false; // enable fallback
-			log_message("error", "Impossible to decode assets-manifest.json");
-			return asset($relativeFilePath);
+			\log_message("error", "Impossible to decode assets-manifest.json");
+			return \asset($relativeFilePath);
 		}
 	}
 
 	// normal return
-	return base_url($manifest[$relativeFilePath]);
+	return \base_url($manifest[$relativeFilePath]);
 }
 
