@@ -66,7 +66,8 @@ cicd :: build process and related
   misc :: no-subcontent changes
 
 misc :: no-context changes
-  arch :: changes at project architecture.
+  arch :: changes at project architecture
+  code :: changes at code general structure
   conf :: changes at miscellaneous configurations
   dir  :: changes at directory structure
   env  :: changes related with ENV files
