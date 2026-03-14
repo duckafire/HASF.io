@@ -21,7 +21,7 @@ NOTES:
 CONTEXT
   SUBCONTEXT
 
-pub => ./public
+publ => ./public
   ass  :: all files from ./public/assets, except *.css; *.js
   css  => ./public/assets/**/*.css
   fc   => ./public/*
@@ -29,7 +29,7 @@ pub => ./public
   set  => ./public/assets/sets/**/*.css
        +> ./public/assets/sets/**/*.js
 
-app => ./app
+appl => ./app
   3p   => ./app/ThirdParty
   comm => ./app/Common.php
   conf => ./app/Config
@@ -41,7 +41,7 @@ app => ./app
   mod  => ./app/Models
   view => ./app/Views
 
-doc => ./docs
+docs => ./docs
   arch :: architecture documentation
   caps :: changes at UPPERCASE files
   code :: code documentation
