@@ -164,7 +164,14 @@
 
 * If single-quotes works like double-quotes, single-quotes must never be used.
 
-* Add space after commas.
+* If supported, always add one space after commas.
+
+* Do not put space characters between `(` and `)`.
+
+* If supported and recommended by the language standard, always put `=` between two spaces; or prefix it with
+  one space when the next character is `\n`.
+
+* If supported, always put one space after `:`.
 
 * Put attribute, math, and boolean operators between spaces.
 
