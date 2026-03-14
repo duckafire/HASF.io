@@ -10,7 +10,7 @@ define("HTML_HELPER_EXTENDED", true);
 define("COLL_LUCIDE",    0);
 define("COLL_BOOTSTRAP", 1);
 
-function svg_icon(string $name, string $collection = COLL_LUCIDE): string
+function svg_icon(string $name, int $collection = COLL_LUCIDE): string
 {
 	$dir = match($collection)
 	{
