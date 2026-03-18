@@ -166,7 +166,7 @@
 
 * If supported, always add one space after commas.
 
-* Do not put space characters between `(` and `)`.
+* Do not put space characters inside `()`.
 
 * If supported and recommended by the language standard, always put `=` between two spaces; or prefix it with
   one space when the next character is `\n`.
