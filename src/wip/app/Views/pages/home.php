@@ -6,8 +6,6 @@
 	</main>
 
 	<?= \view("components/footer"); ?>
-
-	<script src="./assets/js/tboxes/core.js"></script>
 </body>
 </html>
 
