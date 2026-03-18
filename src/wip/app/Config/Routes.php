@@ -8,3 +8,5 @@ $routes->view("/conv/encoding", "conv/encoding");
 $routes->view("/conv/hash",     "conv/hash");
 $routes->view("/conv/number",   "conv/number");
 
+$routes->view("/licenses", "licenses");
+
