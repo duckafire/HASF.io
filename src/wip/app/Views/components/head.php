@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php
+
+echo '<?xml version="1.0" encoding="UTF-8"?>';
+
+\helper("html");
+
+?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html class="color-scheme-auto" lang="en-US" dir="ltr">
 <head>
 	<!--+===============================================+-->
@@ -24,13 +29,11 @@
 
 	<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="./assets/css/default.css"/>
+	<link rel="stylesheet" type="text/css" href=<?= asset("css/default.css"); ?>/>
 
-	<script src="./assets/js/default.js"></script>
+	<script src=<?= asset("js/default.js"); ?>></script>
 
 <?php
-
-\helper("html");
 
 if(!isset($head_tags))
 	goto END_OF_THIS_TAG;
