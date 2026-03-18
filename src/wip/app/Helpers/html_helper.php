@@ -94,7 +94,7 @@ function asset(string $relativeFilePath): string
 			throw new \RuntimeException($errorMessage); // invoke error page 500
 		}
 
-		return \base_url("{$globedFilePath[0]}");
+		return \base_url($globedFilePath[0]);
 	}
 
 	// start manifest variable
@@ -128,6 +128,6 @@ function asset(string $relativeFilePath): string
 	}
 
 	// normal return
-	return \base_url($manifest[$relativeFilePath]);
+	return \rtrim(\base_url($manifest["assets/$relativeFilePath"]), "/");
 }
 
