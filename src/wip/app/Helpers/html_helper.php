@@ -108,7 +108,16 @@ function asset(string $relativeFilePath): string
 			return \asset($relativeFilePath);
 		}
 
-		$manifest = \json_decode($manifest);
+		try
+		{
+			$manifest = \json_decode($manifest, true);
+		}
+		catch(\ValueError $ex)
+		{
+			$manifest = false;
+			\log_message("error", $ex.getMessage());
+			return \asset($relativeFilePath);
+		}
 
 		if($manifest === null)
 		{
