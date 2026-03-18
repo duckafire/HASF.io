@@ -29,9 +29,9 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 	<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href=<?= asset("css/default.css"); ?>/>
+	<link rel="stylesheet" type="text/css" href="<?= asset("css/default.css"); ?>"/>
 
-	<script src=<?= asset("js/default.js"); ?>></script>
+	<script src="<?= asset("js/default.js"); ?>"></script>
 
 <?php
 
