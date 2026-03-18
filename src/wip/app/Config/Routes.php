@@ -2,13 +2,13 @@
 
 use \CodeIgniter\Router\RouteCollection;
 
-$routes->view("/", "home");
+$routes->view("/", "pages/home");
 
-$routes->view("/licenses", "licenses");
+$routes->view("/licenses", "pages/licenses");
 
-$routes->view("/conv/base",     "conv/base");
-$routes->view("/conv/cipher",   "conv/cipher");
-$routes->view("/conv/encoding", "conv/encoding");
-$routes->view("/conv/hash",     "conv/hash");
-$routes->view("/conv/number",   "conv/number");
+$routes->view("/conv/base",     "pages/conv/base");
+$routes->view("/conv/cipher",   "pages/conv/cipher");
+$routes->view("/conv/encoding", "pages/conv/encoding");
+$routes->view("/conv/hash",     "pages/conv/hash");
+$routes->view("/conv/number",   "pages/conv/number");
 
