@@ -84,7 +84,7 @@ function asset(string $relativeFilePath): string
 		$filename = \pathinfo($relativeFilePath, \PATHINFO_FILENAME);
 		$extname  = \pathinfo($relativeFilePath, \PATHINFO_EXTENSION);
 
-		$hashedAbsoluteFilePath = \dirname($absoluteFilePath)."/$filename.*.$extname");
+		$hashedAbsoluteFilePath = \dirname($absoluteFilePath)."/$filename.*.$extname";
 		$globedFilePath         = \glob($hashedAbsoluteFilePath);
 
 		if($globedFilePath === false || \count($globedFilePath) === 0)
