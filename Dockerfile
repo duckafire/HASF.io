@@ -16,10 +16,13 @@ FROM shinsenter/phpfpm-apache:dev-php8.3-alpine
 RUN composer create-project 'codeigniter4/framework:4.6.3' ./wip \
  && find . -user root -exec chown www-data:www-data {} \;
 
-ADD --link --chmod=744 --chown=www-data https://raw.githubusercontent.com/vishnubob/wait-for-it/81b1373f17855a4dc21156cfe1694c31d7d1792e/wait-for-it.sh .
 
-COPY --from=download_deps --chown=www-data /repos/lucide-0.265.0/icons ./wip/public/assets/images/icons/lucide-v0.265.0
-COPY --from=download_deps --chown=www-data /repos/icons-1.13.1/icons   ./wip/public/assets/images/icons/bootstrap-v1.13.1
+USER www-data:www-data
+
+ADD --link --chmod=744 https://raw.githubusercontent.com/vishnubob/wait-for-it/81b1373f17855a4dc21156cfe1694c31d7d1792e/wait-for-it.sh .
+
+COPY --chown=www-data --from=download_deps /repos/lucide-0.265.0/icons ./wip/public/assets/images/icons/lucide-v0.265.0
+COPY --chown=www-data --from=download_deps /repos/icons-1.13.1/icons   ./wip/public/assets/images/icons/bootstrap-v1.13.1
 
 COPY --chown=www-data ./scripts/preprocessing.sh .
 
@@ -30,4 +33,7 @@ COPY --chown=www-data ./src/wip/app      ./wip/app
 COPY --chown=www-data ./src/wip/public   ./wip/public
 
 RUN ./preprocessing.sh "true"
+
+# Container image requires root.
+USER root
 
