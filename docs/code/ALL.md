@@ -4,7 +4,7 @@
 
 # Generic Programming Conventions
 
-###### Last changes: 14 March 2026
+###### Last changes: 18 March 2026
 
 ### Concepts
 
@@ -141,39 +141,43 @@
 
 #### Structure
 
-* *Block opener* (like `{`, from C, and `then` from Lua) must always go on the next line after their *owner*.
+* Conditions-like:
+  * If ternary operations are supported, they must be used only to attribute, or return a value.
 
-* *Block closer* (like `}`, from C, and `end` from Lua) must always go on the next line after the *block body*.
+  * If ternary operations are supported, they must not be nested in other ternaries.
 
-* If ternary operations are supported, they must be used only to attribute, or return a value.
+  * Use *guard condition* to avoid nested conditions in functions, methods, and similar.
 
-* If ternary operations are supported, they must not be nested in other ternaries.
+* Delimiters
+  * *Block opener* (like `{`, from C, and `then` from Lua) must always go on the next line after their *owner*.
 
-* Use *guard condition* to avoid nested conditions in functions, methods, and similar.
+  * *Block closer* (like `}`, from C, and `end` from Lua) must always go on the next line after the *block body*.
 
-* If possible, *if-condition*, loops, and other types of *blocks* which content of formed by **one** *snippet*
-  of code must not have *block delimiters* (but their content must always be indented).
+  * If possible, *if-condition*, loops, and other types of *blocks* which content of formed by **one** *snippet*
+    of code must not have *block delimiters* (but their content must always be indented).
 
-* *Things* must not be declared in loops, except *for-loop* variables.
+  * If semicolon is supported, and optional it must always be used.
 
-* Always avoid global *things*.
+  * If supported, always put a comma after the last item of an array, object, or similar.
 
-* If semicolon is supported, and optional it must always be used.
+  * If single-quotes works like double-quotes, single-quotes must never be used.
 
-* If supported, always put a comma after the last item of an array, object, or similar.
+* Scope:
+  * *Things* must not be declared in loops, except *for-loop* variables.
 
-* If single-quotes works like double-quotes, single-quotes must never be used.
+  * Always avoid global *things*.
 
-* If supported, always add one space after commas.
+* White-spaces:
+  * If supported, always add one space after commas.
 
-* Do not put space characters inside `()`.
+  * Do not put space characters inside `()`.
 
-* If supported and recommended by the language standard, always put `=` between two spaces; or prefix it with
-  one space when the next character is `\n`.
+  * If supported and recommended by the language standard, always put `=` between two spaces; or prefix it with
+    one space when the next character is `\n`.
 
-* If supported, always put one space after `:`.
+  * If supported, always put one space after `:`.
 
-* Put attribute, math, and boolean operators between spaces.
+  * Put attribute, math, and boolean operators between spaces.
 
 #### Behavior
 
