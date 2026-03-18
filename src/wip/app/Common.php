@@ -2,5 +2,5 @@
 
 declare(strict_types=1);
 
-define(\DEF_HASH_ALGO, "sha256");
+define("DEF_HASH_ALGO", "sha256");
 
