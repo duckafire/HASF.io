@@ -18,8 +18,8 @@ STR_TRUE="true"
 STR_FALSE="false"
 
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
-SRC_DIR="$SCRIPT_DIR/src/wip"
-PROD_DIR="$SCRIPT_DIR/src/prod"
+SRC_DIR="$SCRIPT_DIR/wip"
+PROD_DIR="$SCRIPT_DIR/prod"
 PROD_TESTS_DIR="$PROD_DIR/tests"
 PROD_ASSETS_DIR="$PROD_DIR/public/assets"
 PROD_ASSETS_MANIFEST_PATH="$PROD_DIR/assets-manifest.json"
@@ -27,8 +27,8 @@ PROD_ASSETS_MANIFEST_PATH="$PROD_DIR/assets-manifest.json"
 if [ $# -ge 1 ]
 then
 	case "$1" in
-		STR_TRUE)  DEL_SRC_DIR=$TRUE  ;;
-		STR_FALSE) DEL_SRC_DIR=$FALSE ;;
+		"$STR_TRUE")  DEL_SRC_DIR=$TRUE  ;;
+		"$STR_FALSE") DEL_SRC_DIR=$FALSE ;;
 		*) fatal_error "first argument (del_src_dir)" "false or true"
 	esac
 else
@@ -38,8 +38,8 @@ fi
 if [ $# -ge 2 ]
 then
 	case "$2" in
-		STR_TRUE)  IS_TEST=$TRUE  ;;
-		STR_FALSE) IS_TEST=$FALSE ;;
+		"$STR_TRUE")  IS_TEST=$TRUE  ;;
+		"$STR_FALSE") IS_TEST=$FALSE ;;
 		*) fatal_error "second argument (is_test)" "false or true"
 	esac
 else
@@ -72,10 +72,10 @@ fi
 
 assetsManifestJSONContent="{"
 
-for originalAbsFilePath in $(find "$PROD_ASSETS_DIR" -type f \( -name '*.css' -o -name '*.js' -o -name '*.svg' \))
+for originalAbsFilePath in $(find "$PROD_ASSETS_DIR" -type f \( -name '*.css' -o -name '*.js' \))
 do
-	# /home/foo/hasf.io/src/wip/public/assets/js/bar.js
-	# /app/src/wip/public/assets/js -> assets/js
+	# /home/foo/hasf.io/wip/public/assets/js/bar.js
+	# /app/wip/public/assets/js -> assets/js
 	originalAbsDirPath="$(dirname "$originalAbsFilePath")"
 	originalRelDirPath="assets/${originalAbsDirPath##*/public/assets/}"
 
@@ -101,5 +101,4 @@ done
 assetsManifestJSONContent="${assetsManifestJSONContent%?}}"
 
 echo "$assetsManifestJSONContent" > "$PROD_ASSETS_MANIFEST_PATH"
-echo "$assetsManifestJSONContent" | jq
 
