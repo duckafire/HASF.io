@@ -65,7 +65,7 @@ cicd :: build process and related
   sh__ :: changes related with SH scripts
   misc :: no-subcontent changes
 
-read :: ./readable
+read :: ./readonly
   json :: changes at JSON file(s)
   yaml :: changes at YAML/YML file(s)
   xml_ :: changes at XML file(s)
