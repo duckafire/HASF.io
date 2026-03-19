@@ -28,6 +28,7 @@ COPY --chown=www-data ./scripts/preprocessing.sh .
 
 COPY --chown=www-data ./src/.htaccess    ./
 COPY --chown=www-data ./src/wip/writable ./wip/writable
+COPY --chown=www-data ./src/wip/readable ./wip/readable
 COPY --chown=www-data ./src/wip/tests    ./wip/tests
 COPY --chown=www-data ./src/wip/app      ./wip/app
 COPY --chown=www-data ./src/wip/public   ./wip/public
