@@ -65,6 +65,13 @@ cicd :: build process and related
   sh__ :: changes related with SH scripts
   misc :: no-subcontent changes
 
+read :: ./readable
+  json :: changes at JSON file(s)
+  yaml :: changes at YAML/YML file(s)
+  xml_ :: changes at XML file(s)
+  txt_ :: changes at TXT file(s)
+  misc :: changes at other types of files
+
 misc :: no-context changes
   arch :: changes at project architecture
   code :: changes at code general structure
