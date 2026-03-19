@@ -100,7 +100,7 @@ function asset(string $relativeFilePath): string
 	// start manifest variable
 	if($manifest === null)
 	{
-		$manifest = \file_get_contents(\ROOTPATH."/assets-manifest.json");
+		$manifest = \file_get_contents(\ROOTPATH."/readonly/assets-manifest.json");
 
 		if($manifest === false)
 		{

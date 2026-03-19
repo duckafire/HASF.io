@@ -22,7 +22,7 @@ SRC_DIR="$SCRIPT_DIR/wip"
 PROD_DIR="$SCRIPT_DIR/prod"
 PROD_TESTS_DIR="$PROD_DIR/tests"
 PROD_ASSETS_DIR="$PROD_DIR/public/assets"
-PROD_ASSETS_MANIFEST_PATH="$PROD_DIR/assets-manifest.json"
+PROD_ASSETS_MANIFEST_PATH="$PROD_DIR/readonly/assets-manifest.json"
 
 if [ $# -ge 1 ]
 then
