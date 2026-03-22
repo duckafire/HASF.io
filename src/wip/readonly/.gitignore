@@ -1,2 +1,8 @@
 *
 !.gitignore
+!*.json
+!*.yaml
+!*.yml
+!*.xml
+!*.txt
+
