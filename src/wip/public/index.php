@@ -4,6 +4,7 @@ use \CodeIgniter\Boot;
 use \Config\Paths;
 
 \define("FCPATH", __DIR__."/");
+\define("READONLY_PATH", __DIR__."/../readonly/");
 
 if(\getcwd()."/" !== \FCPATH)
 	\chdir(\FCPATH);
