@@ -21,7 +21,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 	<link rel="icon" href="favicon.svg?v=1.0.0" type="image/svg+xml"/>
 
 	<meta property="og:title"       content="HASF.io"/>
-	<meta property="og:image"       content="https://hasf.io/favicon.svg"/>
+	<meta property="og:image"       content="http://hasf.io/favicon.svg"/>
 	<meta property="og:description" content="Light, private, fast, and FREE (forever)!"/>
 
 	<meta charset="utf-8"/>
