@@ -7,15 +7,17 @@ if(\defined("HTML_HELPER_EXTENDED"))
 
 \define("HTML_HELPER_EXTENDED", true);
 
-define("COLL_LUCIDE",    0);
-define("COLL_BOOTSTRAP", 1);
+\define("COLL_LUCIDE",          0);
+\define("COLL_BOOTSTRAP",       1);
+\define("COLL_SIMPLE_ICON",     2);
 
 function svg_icon(string $name, int $collection = \COLL_LUCIDE): string
 {
 	$dir = match($collection)
 	{
-		\COLL_LUCIDE    => "lucide-v0.265.0",
-		\COLL_BOOTSTRAP => "bootstrap-v1.13.1",
+		\COLL_LUCIDE          => "lucide-v0.265.0",
+		\COLL_BOOTSTRAP       => "bootstrap-v1.13.1",
+		\COLL_SIMPLE_ICON     => "simple-icons-v16.14.0",
 	};
 
 	$content  = \file_get_contents("../public/assets/images/icons/$dir/$name.svg");

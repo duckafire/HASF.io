@@ -4,9 +4,11 @@ WORKDIR /repos
 
 RUN wget -qO ./lucide.zip     https://github.com/lucide-icons/lucide/archive/refs/tags/v0.265.0.zip \
  && wget -qO ./bootstrap.zip  https://github.com/twbs/icons/archive/refs/tags/v1.13.1.zip \
+ && wget -qO ./simple-icons.zip https://github.com/simple-icons/simple-icons/archive/refs/tags/16.14.0.zip \
  && wget -qO ./symfony-yaml.zip https://github.com/symfony/yaml/archive/refs/tags/v8.0.6.zip \
  && unzip -q ./lucide.zip \
  && unzip -q ./bootstrap.zip \
+ && unzip -q ./simple-icons.zip \
  && unzip -q ./symfony-yaml.zip
 
 
@@ -25,6 +27,7 @@ ADD --link --chmod=744 https://raw.githubusercontent.com/vishnubob/wait-for-it/8
 
 COPY --chown=www-data --from=download_deps /repos/lucide-0.265.0/icons ./wip/public/assets/images/icons/lucide-v0.265.0
 COPY --chown=www-data --from=download_deps /repos/icons-1.13.1/icons   ./wip/public/assets/images/icons/bootstrap-v1.13.1
+COPY --chown=www-data --from=download_deps /repos/simple-icons-16.14.0/icons ./wip/public/assets/images/icons/simple-icons-v16.14.0
 COPY --chown=www-data --from=download_deps /repos/yaml-8.0.6           ./wip/app/ThirdParty/SymfonyYAML-v8.0.6
 
 COPY --chown=www-data ./scripts/preprocessing.sh .
