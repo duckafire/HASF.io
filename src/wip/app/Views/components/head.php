@@ -58,7 +58,7 @@ foreach(ORIGIN_FIELDS as &$origin)
 			if($field === TYPE_FIELDS[0])
 				echo \link_tag("./assets/$fileName.css");
 			else
-				echo \link_tag("./assets/$fileName.js");
+				echo \script_tag("./assets/$fileName.js");
 		}
 	}
 }
