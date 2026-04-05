@@ -125,3 +125,12 @@ function asset(string $relativeFilePath): string
 	return \rtrim(\base_url($manifest["assets/$relativeFilePath"]), "/");
 }
 
+function default_components(array? $data = [])
+{
+	return [
+		"head"       => (isset($data["head"]) ? view("components/default/head", $data["head"]) : view("components/default/head")),
+		"nav"        => view("components/default/nav"),
+		"footer"     => view("components/default/footer"),
+	];
+}
+
