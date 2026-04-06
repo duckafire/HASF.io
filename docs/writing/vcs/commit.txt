@@ -1,7 +1,3 @@
-Commit conventions (started on 5th March 2026)
-
-
-
 SYNOPSIS
 
 <context>(<subcontext>): <SHORT_description> [=>
