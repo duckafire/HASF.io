@@ -1,0 +1,55 @@
+query-strings: # also know as QS.
+  types:
+    array: >
+      Comma-separated list of strings (they cannot contain commas). Bad placed
+      commas are removed — ",,,foo,,bar," -> "foo,bar".
+      In PHP, it is converted to array — index-value.
+
+    boolean: >
+      Defined is equal to true; undefined is equal to false. Its value always
+      will be ignored.
+      In PHP, it is converted to bool.
+
+    dict: >
+      Key-value comma-separated list of pairs of string (they cannot contain
+      commas). Hyphen are used to separate keys and value, so they cannot contain
+      it. Bad placed commas are removed — follow the `array` algorithm. Keys no
+      value will receive an empty string.
+      In PHP, it is converted to array — key-value.
+
+    number: >
+      Only decimal based; interger and floating-point numbers are allow.
+      In PHP, it is converted to int.
+
+    strings:
+      Sequences of characters that does not contains commas and is not a valid
+      number.
+      In PHP, it is converted to string.
+
+  rules:
+    - All QS are optional (so they require a default value).
+    - Empty values always are invalid (except to booleans).
+    - If a QS value does not follow its type, default values must be used.
+    - QS cannot cause error messages or similar.
+
+  available:
+    encoding(string): >
+      Override the default encoding of the input and output elements. It can created
+      more elements, whether necessary.
+
+    from(string): >
+      Override default option of the input element.
+
+    input(string): >
+      Text content that will be given to the input element.
+
+    options(dict): >
+      Variable options required by a specific tool option.
+
+    run(boolean): >
+      If given, it will automatically run the tool algorithm after to load it.
+
+    to(string|array): >
+      Override default option of the output element(s). It can created more output
+      elements, whether necessary.
+
