@@ -1,0 +1,34 @@
+uri: # (Uniform Resource Identifier)
+  informative:
+    "/":
+      description:   Presentation of the HASF.io, together with a link-tree to all its tools.
+    "/licenses":
+      description:   List of licenses, of this project and of its third-party dependences.
+
+  tools:
+    converters:
+      "/convert/cipher":
+        description:   Convert ciphers to Latin/Roman Alphabet.
+        query-strings: [ encoding, from, input, run, to ]
+
+      "/convert/code":
+        description:   Convert comunication codes (e.g. Morse Code) to Latin/Roman Alphabet.
+        query-strings: [ from, input, run, to ]
+
+      "/convert/encoding":
+        description:   Convert a character to their numeric code; in different formats.
+        query-strings: [ encoding, input, run ]
+
+      "/convert/number-base":
+        description:   Convert numbers formatation; e.g., from decimal to binary.
+        query-strings: [ from, input, run, to ]
+
+      "/convert/number-glysh":
+        description:   Convert numbers glysh; e.g., from Roman to Chinese.
+        query-strings: [ from, input, run, to ]
+
+    creators:
+      "/create/hash":
+        description:   Create a hash code, from a given data, with a specific hash algorithm.
+        query-strings: [ encoding, input, options, run, to ]
+
