@@ -29,9 +29,9 @@ echo '<?xml version="1.0" encoding="UTF-8"?>';
 
 	<script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="<?= asset("css/default.css"); ?>"/>
+	<link rel="stylesheet" type="text/css" href="<?= asset("common/default.css"); ?>"/>
 
-	<script src="<?= asset("js/default.js"); ?>"></script>
+	<script src="<?= asset("common/default.js"); ?>"></script>
 
 <?php
 
@@ -56,9 +56,9 @@ foreach(ORIGIN_FIELDS as &$origin)
 		foreach($ref[$field] as &$fileName)
 		{
 			if($field === TYPE_FIELDS[0])
-				echo \link_tag("./assets/$fileName.css");
+				echo \link_tag(\asset("$fileName.css"));
 			else
-				echo \script_tag("./assets/$fileName.js");
+				echo \script_tag(\asset("$fileName.js"));
 		}
 	}
 }
