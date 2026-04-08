@@ -6,7 +6,7 @@ declare(strict_types=1);
 
 class HTTPCode500Exception extends \Exception
 {
-	__construct(string $level, string $description)
+	function __construct(string $level, string $description)
 	{
 		\log_message($level, $description);
 		parent::__construct();
