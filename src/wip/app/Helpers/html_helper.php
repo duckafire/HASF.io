@@ -125,7 +125,7 @@ function asset(string $relativeFilePath): string
 	return \rtrim(\base_url($manifest["assets/$relativeFilePath"]), "/");
 }
 
-function default_templates(array? $data = [])
+function default_templates(?array $data = [])
 {
 	return [
 		"head"       => (isset($data["head"]) ? view("templates/default/head", $data["head"]) : view("templates/default/head")),
