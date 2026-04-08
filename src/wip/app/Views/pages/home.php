@@ -1,11 +1,18 @@
-<?= \view("components/head"); ?>
+<?php
+
+declare(strict_types=1);
+
+$defTemplates = \default_templates();
+
+?>
+<?= $defTemplates["head"] ?>
 <body class="page-content">
-	<?= \view("components/nav"); ?>
+	<?= $defTemplates["nav"] ?>
 
 	<main class="page-main">
 	</main>
 
-	<?= \view("components/footer"); ?>
+	<?= $defTemplates["footer"] ?>
 </body>
 </html>
 
