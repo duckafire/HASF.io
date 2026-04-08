@@ -77,7 +77,7 @@ function asset(string $relativeFilePath): string
 		$absoluteFilePath = \realpath($relativeFilePath);
 
 		if($absoluteFilePath === false)
-			throw new \HTTPCode500Exception(\LOG_ALERT, "Impossible to get real path of: $relativeFilePath");
+			throw new \HTTPCode500Exception("alert", "Impossible to get real path of: $relativeFilePath");
 
 		$filename = \pathinfo($relativeFilePath, \PATHINFO_FILENAME);
 		$extname  = \pathinfo($relativeFilePath, \PATHINFO_EXTENSION);
@@ -86,7 +86,7 @@ function asset(string $relativeFilePath): string
 		$globedFilePath         = \glob($hashedAbsoluteFilePath);
 
 		if($globedFilePath === false || \count($globedFilePath) === 0)
-			throw new \HTTPCode500Exception(\LOG_ALERT, "Impossible to apply GLOB algorithm to: $hashedAbsoluteFilePath");
+			throw new \HTTPCode500Exception("alert", "Impossible to apply GLOB algorithm to: $hashedAbsoluteFilePath");
 
 		return \base_url($globedFilePath[0]);
 	}
