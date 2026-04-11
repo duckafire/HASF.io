@@ -1,0 +1,11 @@
+{
+	"project": [ "HASF.io", "1.0.0", "agpl3", "AGPL3 License", "hasf.io" ],
+	"vendor": [
+		["CodeIgniter4",      "4.6.3",      "mit",     "MIT License",         "codeigniter.com"],
+		["BootStrap Icons",   "1.13.1",     "mit",     "MIT License",         "icons.getbootstrap.com"],
+		["Lucide",            "0.265.0",    "isc",     "ISC License",         "lucide.dev"],
+		["JQuery",            "3.7.1",      "mit",     "MIT License",         "jquery.com"],
+		["Symfony YAML",      "8.0.6",      "mit",     "MIT License",         "github.com/symfony/yaml/tree/v8.0.6"],
+		["Simple Icons",      "2.17.1",     "cc0",     "CCO 1.0 Universal",   "simpleicons.org"]
+	]
+}

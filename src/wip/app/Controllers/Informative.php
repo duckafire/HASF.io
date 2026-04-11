@@ -11,4 +11,10 @@ class Informative extends BaseController
 		helper("html");
 		return view("pages/home");
 	}
+
+	public function licenses(): string
+	{
+		helper("html");
+		return view("pages/licenses");
+	}
 }
