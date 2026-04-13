@@ -12,7 +12,7 @@ agpl3: |2
   GNU Affero General Public License for more details.
 
   You should have received a copy of the GNU Affero General Public License
-  along with this program.  If not, see <https://www.gnu.org/licenses/agpl-3.0.en.html>.
+  along with this program.  If not, see <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">&lt;https://www.gnu.org/licenses/agpl-3.0.en.html&gt;</a>.
 cc0: |2
   Statement of Purpose
 
@@ -95,7 +95,7 @@ cc0: |2
      iv. Affirmer understands and acknowledges that Creative Commons is not a party to this document and
          has no duty or obligation with respect to this CC0 or use of the Work.
 
-  For more information, please see <https://creativecommons.org/publicdomain/zero/1.0>.
+  For more information, please see <a href="https://creativecommons.org/publicdomain/zero/1.0">&lt;https://creativecommons.org/publicdomain/zero/1.0&gt;</a>.
 isc: |2
   Permission to use, copy, modify, and/or distribute this software for any
   purpose with or without fee is hereby granted, provided that the above
