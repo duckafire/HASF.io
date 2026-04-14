@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-$defTemplates = \default_templates();
+$defTemplates = \default_templates(["head" => ["head_tags" => ["intern" => ["css" => ["pages/licenses"]]]]]);
 
 ?>
 <?= $defTemplates["head"]; ?>
@@ -44,20 +44,30 @@ $defTemplates = \default_templates();
 				$data["vendor"],
 			];
 
+			echo "<ul class=\"vendors-list\">";
+
+			$licCopSniOpen = "<span class=\"vendor-copyright-snippet\">";
+			$spanClose     = "</span>";
+
 			foreach($allData as &$curData)
 			{
 				foreach($curData as &$dep)
 				{
-					$name         = $dep[0];
-					$version      = "v{$dep[1]}";
+					$name         = "$licCopSniOpen{$dep[0]}$spanClose";
+					$version      = "{$licCopSniOpen}v{$dep[1]}$spanClose";
 					$licenseAlias = $dep[2];
-					$licenseName  = $dep[3];
+					$licenseName  = "$licCopSniOpen{$dep[3]}$spanClose";
 					$webSiteURL   = "https://{$dep[4]}";
 					$licenseText  = $licenses[$licenseAlias];
 
-					echo "<details><summary>$name | $version | $licenseName</summary><a href=\"$webSiteURL\">Visit it</a><p>$licenseText</p></details>";
+					echo "<li><details>" .
+					     "<summary class=\"vendor-copyright\">$name$version$licenseName</summary>" .
+					     "<a class=\"licenses-link\" href=\"$webSiteURL\">Visit it</a>" .
+					     "<p class=\"vendor-license\">$licenseText</p></details></li>";
 				}
 			}
+
+			echo "</ul>";
 		?>
 	</main>
 

@@ -7,6 +7,8 @@
 	--FG: #1f1f1f;
 	--BG: #e0e0e0;
 
+	--FG-LOW: #3f3f3f;
+
 	--FG-RGB:  31,  31,  31;
 	--BG-RGB: 224, 224, 224;
 
@@ -20,6 +22,8 @@
 		--FG: #1f1f1f;
 		--BG: #e0e0e0;
 
+		--FG-LOW: #3f3f3f;
+
 		--FG-RGB:  31,  31,  31;
 		--BG-RGB: 224, 224, 224;
 
@@ -31,6 +35,8 @@
 {
 	--FG: #e0e0e0;
 	--BG: #1f1f1f;
+
+	--FG-LOW: #c0c0c0;
 
 	--FG-RGB: 224, 224, 224;
 	--BG-RGB:  31,  31,  31;
@@ -44,6 +50,8 @@
 	{
 		--FG: #e0e0e0;
 		--BG: #1f1f1f;
+
+		--FG-LOW: #c0c0c0;
 
 		--FG-RGB: 224, 224, 224;
 		--BG-RGB:  31,  31,  31;
@@ -124,6 +132,11 @@ i svg
 	width: 1em;
 	height: 1em;
 	color: inherit;
+}
+
+summary:hover
+{
+	cursor: pointer;
 }
 
 .slt-container

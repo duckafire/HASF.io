@@ -1,0 +1,35 @@
+.vendors-list
+{
+	padding: 0.75rem 1.5rem;
+	gap: 0.75rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.vendor-copyright-snippet + .vendor-copyright-snippet::before
+{
+	content: "|";
+	font-size: 0.75rem;
+	padding-inline: 1.25em;
+}
+
+.vendor-copyright-snippet + .vendor-copyright-snippet::before,
+.vendor-license
+{
+	color: var(--FG-DARK);
+}
+
+.vendor-copyright
+{
+	font-size: 1.25rem;
+}
+
+.vendor-license
+{
+	font-size: 1.1rem;
+	color: var(--FG-DARK);
+	padding: 0.5em 1em;
+	max-height: 20em;
+	overflow-y: auto;
+}
+
