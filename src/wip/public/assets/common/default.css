@@ -139,55 +139,6 @@ summary:hover
 	cursor: pointer;
 }
 
-.slt-container
-{
-	--asize: var(--arrow-size, 0.325em);
-	position: relative;
-	width: min-content;
-}
-
-.slt-container select
-{
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	width: 100%;
-	padding-right: calc(var(--asize) * 3) !important;
-}
-
-.slt-container::before
-{
-	content: " ";
-	top: calc(50% - (var(--asize) / 2));
-	right: var(--asize);
-	position: absolute;
-	pointer-events: none;
-
-	/* Draw an arrow pointing to down: */
-	border-top:   var(--asize) solid var(--FG);
-	border-left:  var(--asize) solid transparent;
-	border-right: var(--asize) solid transparent;
-}
-
-
-/* ACCESSIBILITY */
-
-.access-outline:focus-visible
-{
-	outline: 0.0625rem solid var(--TAB_FOCUS);
-}
-
-
-/* TEXT FORMATATION (span) */
-
-.code
-{
-	font-family: courier new, monospace;
-	background-color: rgba(0, 0, 0, 0.35);
-	border-radius: 0.0625rem;
-}
-
-
 /* OTHER ONES */
 
 /* .body-content* is used to guarantee
