@@ -18,7 +18,7 @@ CONTEXT
   SUBCONTEXT
 
 publ => ./public
-  ass_ :: all files from ./public/assets, except *.css; *.js
+  asse :: all files from ./public/assets, except *.css; *.js
   css_ => ./public/assets/**/*.css
   fc__ => ./public/*
   js__ => ./public/assets/**/*.js
