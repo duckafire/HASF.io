@@ -139,6 +139,12 @@ summary:hover
 	cursor: pointer;
 }
 
+.ol-parent .ol-child
+{
+	list-style-type: lower-roman;
+	padding-left: 1em;
+}
+
 /* OTHER ONES */
 
 /* .body-content* is used to guarantee
