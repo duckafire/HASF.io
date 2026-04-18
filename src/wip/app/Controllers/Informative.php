@@ -14,7 +14,7 @@ class Informative extends BaseController
 
 	public function licenses(): string
 	{
-		helper("html");
+		helper(["html", "readfiles"]);
 		return view("pages/licenses");
 	}
 }
