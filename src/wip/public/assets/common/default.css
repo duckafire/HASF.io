@@ -139,10 +139,15 @@ summary:hover
 	cursor: pointer;
 }
 
+.cascated-separated-text-list li + li
+{
+	padding-top: 1rem;
+}
+
 .ol-parent .ol-child
 {
 	list-style-type: lower-roman;
-	padding-left: 1em;
+	padding-left: 1.5em;
 }
 
 /* OTHER ONES */
