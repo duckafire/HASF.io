@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-if(\defined("HTML_HELPER_EXTENDED"))
+if(\defined("HTML_HELPER"))
 	return;
 
-\define("HTML_HELPER_EXTENDED", true);
+\define("HTML_HELPER", true);
 
 \define("COLL_LUCIDE",          0);
 \define("COLL_BOOTSTRAP",       1);
