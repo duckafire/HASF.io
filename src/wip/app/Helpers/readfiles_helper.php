@@ -39,16 +39,23 @@ function jsonToArray(string $filePath): ?array
 	return $content;
 }
 
-function xmlToDOMDocument(string $filePath): ?\DOMDocument
+function parseXMLFile(string $filePath): ?\SimpleXMLElement
 {
-	$xmlString = \extractFileContent($filePath);
+	$xmlContent = \extractFileContent($filePath);
 
-	if($xmlString === null)
+	if($xmlContent === null)
 		return null;
 
-	$document = new \DOMDocument();
-	$document->loadXML($xmlString);
+	try
+	{
+		$xmlObject = new \SimpleXMLElement($xmlContent);
+	}
+	catch(\Exception $ex)
+	{
+		\log_message("alert", "Impossible to interpreter information from XML file: $filePath");
+		return null;
+	}
 
-	return $document;
+	return $xmlObject;
 }
 
