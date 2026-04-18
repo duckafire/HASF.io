@@ -24,7 +24,7 @@ function extractFileContent(string $filePath): ?string
 	return \file_get_contents($filePath);
 }
 
-function jsonToArray(string $filePath): ?string
+function jsonToArray(string $filePath): ?array
 {
 	$content = \extractFileContent($filePath);
 
