@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <licenses-texts>
 	<agpl3>
-		<div>
-			<p>
+		<div class="vendor-license-text-container">
+			<p class="vendor-license-text">
 				<span>HASF.io Copyright (C) 2025-2026 DuckAfire</span>
 				<br/>
 				<br/>
@@ -27,8 +27,8 @@
 		</div>
 	</agpl3>
 	<cc0>
-		<div>
-			<p>
+		<div class="vendor-license-text-container">
+			<p class="vendor-license-text">
 				<span>Statement of Purpose</span>
 				<br/>
 				<br/>
@@ -61,7 +61,7 @@
 				</span>
 			</p>
 			<br/>
-			<ol class="vendor-license-sublist ol-parent cascated-separated-text-list">
+			<ol class="vendor-license-text vendor-license-sublist ol-parent cascated-separated-text-list">
 				<li>
 					<span>
 						Copyright and Related Rights. A Work made available under CC0 may be protected by copyright and
@@ -124,14 +124,14 @@
 				</li>
 			</ol>
 			<br/>
-			<p>
+			<p class="vendor-license-text">
 				<span>For more information, please see &lt;</span><a href="https://creativecommons.org/publicdomain/zero/1.0">https://creativecommons.org/publicdomain/zero/1.0</a><span>&gt;.</span>
 			</p>
 		</div>
 	</cc0>
 	<isc>
-		<div>
-			<p>
+		<div class="vendor-license-text-container">
+			<p class="vendor-license-text">
 				<span>
 					Permission to use, copy, modify, and/or distribute this software for any
 					purpose with or without fee is hereby granted, provided that the above
@@ -152,8 +152,8 @@
 		</div>
 	</isc>
 	<mit>
-		<div>
-			<p>
+		<div class="vendor-license-text-container">
+			<p class="vendor-license-text">
 				<span>
 					Permission is hereby granted, free of charge, to any person obtaining a copy
 					of this software and associated documentation files (the "Software"), to deal

@@ -36,10 +36,10 @@ $defTemplates = \default_templates(["head" => ["head_tags" => ["intern" => ["css
 
 					?>
 						<li>
-							<details>
+							<details class="vendor-license-container">
 								<summary class="vendor-copyright"><?= $name, $version, $licenseName; ?></summary>
 								<a class="licenses-link" href="<?= $webSiteURL; ?>">Visit it</a>
-								<p class="vendor-license"><?= $licenseText; ?></p>
+								<?= $licenseText; ?>
 							</details>
 						</li>
 					<?php
