@@ -13,7 +13,7 @@
 	<!--| https://gitlab.com/duckafire/HASF.io ~~~~~~~~ |-->
 	<!--+===============================================+-->
 	<title class="notranslate" translate="no">HASF.io</title>
-	<link rel="icon" href="favicon.svg?v=1.0.0" type="image/svg+xml"/>
+	<link rel="icon" href="favicon.svg?v=2.0.0" type="image/svg+xml"/>
 
 	<meta property="og:title"       content="HASF.io"/>
 	<meta property="og:image"       content="http://hasf.io/favicon.svg"/>
