@@ -1,104 +1,64 @@
 #!/usr/bin/env sh
 
-# preprocessing [del_src_dir=false] [is_test=true]
-
-set -euo pipefail
-
-fatal_error()
-{
-	echo "Invalid value to $1. Expecting \"$2\"."
-	echo
-	exit 1
-}
-
-
-TRUE=0
-FALSE=1
-STR_TRUE="true"
-STR_FALSE="false"
+# Get full path of an asset:
+#   /foo/bar/prod/wip/public/assets/foo.bar
+#
+# Get relative path of that file:
+#   ./wip/public/assets/foo.bar
+#
+# Digest its content using sha256sum:
+#   4ed7e4005933675db2a285b9c42ee50bcd535cc4d936a32a42bd3927819a6d18
+#
+# Rename it and include the digested string:
+#   ./wip/public/assets/foo.4ed7e4005933675db2a285b9c42ee50bcd535cc4d936a32a42bd3927819a6d18.bar
+#
+# (After to do this with ALL non-ignored assets)
+# create a manifest file (JSON), to allow that
+# the PHP can find the renamed files.
 
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
-SRC_DIR="$SCRIPT_DIR/wip"
-PROD_DIR="$SCRIPT_DIR/prod"
-PROD_TESTS_DIR="$PROD_DIR/tests"
-PROD_ASSETS_DIR="$PROD_DIR/public/assets"
-PROD_ASSETS_MANIFEST_PATH="$PROD_DIR/readonly/assets-manifest.json"
+WIP_ASSETS_DIR="$SCRIPT_DIR/wip/public/assets"
+PROD_ASSETS_DIR="$SCRIPT_DIR/prod/public/assets"
+MANIFEST_FILE_PATH="$SCRIPT_DIR/prod/readonly/manifests/assets.json"
 
-if [ $# -ge 1 ]
-then
-	case "$1" in
-		"$STR_TRUE")  DEL_SRC_DIR=$TRUE  ;;
-		"$STR_FALSE") DEL_SRC_DIR=$FALSE ;;
-		*) fatal_error "first argument (del_src_dir)" "false or true"
-	esac
-else
-	DEL_SRC_DIR=$FALSE
-fi
+IGNORE_DIR=$(cat <<- EOF
+$WIP_ASSETS_DIR/images/icons
+$WIP_ASSETS_DIR/fallback
+EOF
+)
 
-if [ $# -ge 2 ]
-then
-	case "$2" in
-		"$STR_TRUE")  IS_TEST=$TRUE  ;;
-		"$STR_FALSE") IS_TEST=$FALSE ;;
-		*) fatal_error "second argument (is_test)" "false or true"
-	esac
-else
-	IS_TEST=$TRUE
-fi
+# Start JSON object:
+manifestFileContent="{"
 
-if [ $# -ge 3 ]
-then
-	echo "Ignoring arguments >=3rd."
-fi
-
-
-if [ -d "$PROD_DIR" ]
-then
-	rm -rf "$PROD_DIR"
-fi
-
-cp -r "$SRC_DIR" "$PROD_DIR"
-
-if [ $DEL_SRC_DIR -eq $TRUE ]
-then
-	rm -rf "$SRC_DIR"
-fi
-
-if [ $IS_TEST -eq $FALSE ]
-then
-	rm -rf "$PROD_TESTS_DIR"
-fi
-
-
-assetsManifestJSONContent="{"
-
-for originalAbsFilePath in $(find "$PROD_ASSETS_DIR" -type f \( -name '*.css' -o -name '*.js' \))
+for dir in $(find "$WIP_ASSETS_DIR" -type d)
 do
-	# /home/foo/hasf.io/wip/public/assets/js/bar.js
-	# /app/wip/public/assets/js -> assets/js
-	originalAbsDirPath="$(dirname "$originalAbsFilePath")"
-	originalRelDirPath="assets/${originalAbsDirPath##*/public/assets/}"
+	for ignore in $(ls "$dir")
+	do
+		if [ "$dir" = "$ignore" ]
+		then
+			continue 2
+		fi
+	done
 
-	originalFileBaseName="$(basename "$originalAbsFilePath")"
-	bufFileName="${originalFileBaseName%.*}"
-	bufHashCode="$(sha256sum "$originalAbsFilePath" | awk '{print $1}')"
-	bufExtName="${originalFileBaseName##*.}"
-	hashedFileBaseName="$bufFileName.$bufHashCode.$bufExtName"
+	for fileName in $(ls -p "$dir" | grep -v /)
+	do
+		path="${fileName%/*}"
+		path="${path#$WIP_ASSETS_DIR/}"
 
-	#originalAbsFilePath (from for-loop)
-	originalRelFilePath="$originalRelDirPath/$originalFileBaseName"
+		name="${fileName##*/}"
+		ext="${fileName##*.}"
 
-	hashedAbsFilePath="$originalAbsDirPath/$hashedFileBaseName"
-	hashedRelFilePath="$originalRelDirPath/$hashedFileBaseName"
+		code="$(sha256sum "$fileName" | awk '{print $1}')"
 
-	assetsManifestJSONContent="$assetsManifestJSONContent\"$originalRelFilePath\":\"$hashedRelFilePath\","
+		newFileName="$PROD_ASSETS_DIR/$path/$name.$code.$ext"
 
-	cp "$originalAbsFilePath" "$hashedAbsFilePath"
-	rm "$originalAbsFilePath"
+		mv "$fileName" "$newFileName"
+		manifestFileContent="$manifestFileContent\"$fileName\":\"$newFileName\";"
+	done
 done
 
-# Remove last comma, and close JSON.
-assetsManifestJSONContent="${assetsManifestJSONContent%?}}"
+# Remove last semi-colon of the JSON
+# object and close it:
+manifestFileContent="${manifestFileContent%?}}"
 
-echo "$assetsManifestJSONContent" > "$PROD_ASSETS_MANIFEST_PATH"
-
+echo "$manifestFileContent" > "$MANIFEST_FILE_NAME"
