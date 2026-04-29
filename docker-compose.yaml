@@ -8,8 +8,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '0.15'
-          memory: 100M
+          cpus: "0.15"
+          memory: "100M"
     environment:
       CI_ENVIRONMENT: development
 
