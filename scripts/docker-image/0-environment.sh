@@ -1,111 +1,79 @@
 #!/usr/bin/env sh
 
+# (8.3.z) Used to download PHP and its extensions
+# using the Linux distribution package manager:
+PHP_VERSION="83"
+
 APACHE_CONFIG_FILE='/etc/apache2/httpd.conf'
-PHP_COMMON_EXT='php83-common php83-mysqli php83-pgsql php83-sqlite3 php83-gd php83-curl php83-intl php83-mbstring php83-openssl php83-xml php83-zip php83-bcmath php83-soap php83-pcntl php83-posix php83-session php83-ctype php83-dom php83-fileinfo php83-gettext php83-iconv php83-json php83-opcache php83-pdo php83-pdo_mysql php83-pdo_pgsql php83-pdo_sqlite php83-phar php83-simplexml php83-tokenizer php83-xmlreader php83-xmlwriter'
+PHP_COMMON_EXT="php$PHP_VERSION-common php$PHP_VERSION-mysqli php$PHP_VERSION-pgsql php$PHP_VERSION-sqlite3 php$PHP_VERSION-gd php$PHP_VERSION-curl php$PHP_VERSION-intl php$PHP_VERSION-mbstring php$PHP_VERSION-openssl php$PHP_VERSION-xml php$PHP_VERSION-zip php$PHP_VERSION-bcmath php$PHP_VERSION-soap php$PHP_VERSION-pcntl php$PHP_VERSION-posix php$PHP_VERSION-session php$PHP_VERSION-ctype php$PHP_VERSION-dom php$PHP_VERSION-fileinfo php$PHP_VERSION-gettext php$PHP_VERSION-iconv php$PHP_VERSION-json php$PHP_VERSION-opcache php$PHP_VERSION-pdo php$PHP_VERSION-pdo_mysql php$PHP_VERSION-pdo_pgsql php$PHP_VERSION-pdo_sqlite php$PHP_VERSION-phar php$PHP_VERSION-simplexml php$PHP_VERSION-tokenizer php$PHP_VERSION-xmlreader php$PHP_VERSION-xmlwriter"
+
+BIN_DIR="/mybin"
+PHP_INI_DIR="/usr/local/etc/php"
+HTTPD_DIR="/etc/apache2"
+PHP_EXT_INI_DIR="/usr/local/etc/php/conf.d"
+
+# Main#Fallback
+BIN_URL_LIST='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/mybin/tp#https://gitlab.com/duckafire/duckafire/-/raw/main/config/apache2/httpd.conf.template?ref_type=heads'
+
+PHP_INI_URL='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/apache2/httpd.conf.template#https://gitlab.com/duckafire/duckafire/-/raw/main/mybin/tp'
+HTTPD_CONF_URL='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/php.template.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/php.template.ini?ref_type=heads'
+
+PHP_EXT_INI_URL_LIST='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/0-system.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/0-system.ini
+https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/1-data-processing.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/1-data-processing.ini
+https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/2-net.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/2-net.ini
+https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/3-math.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/3-math.ini
+https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/4-data-bank.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/4-data-bank.ini
+https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/5-xml.inig#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/5-xml.ini'
 
 apk update --quiet
-echo $PHP_COMNON_EXT
-apk add --quiet --no-cache apache2 php83-apache2 composer $PHP_COMMON_EXT
+apk add --quiet --no-cache apache2 "php$PHP_VERSION-apache2" composer $PHP_COMMON_EXT
 
-mkdir --parent "${APACHE_CONFIG_FILE%/*}"
+download()
+{
+	# /abs/dir/path
+	dirPath="$1"
 
-# Just a configuration script:
-cat << 'APACHE_MAIN_CONF_FILE' > "$APACHE_CONFIG_FILE"
-ServerTokens Prod
-ServerRoot /app
-Listen 80
-#ServerAdmin you@example.com
-ServerSignature Off
-DocumentRoot "/app/prod"
-ErrorLog /app/apache/logs/error.log
-LogLevel warn
-IncludeOptional /etc/apache2/conf.d/*.conf
+	# To add execution permission:
+	isBin="$2"
 
+	shift 2
 
-LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-LoadModule authn_file_module modules/mod_authn_file.so
-LoadModule authn_core_module modules/mod_authn_core.so
-LoadModule authz_host_module modules/mod_authz_host.so
-LoadModule authz_groupfile_module modules/mod_authz_groupfile.so
-LoadModule authz_user_module modules/mod_authz_user.so
-LoadModule authz_core_module modules/mod_authz_core.so
-LoadModule access_compat_module modules/mod_access_compat.so
-LoadModule auth_basic_module modules/mod_auth_basic.so
-LoadModule reqtimeout_module modules/mod_reqtimeout.so
-LoadModule filter_module modules/mod_filter.so
-LoadModule mime_module modules/mod_mime.so
-LoadModule log_config_module modules/mod_log_config.so
-LoadModule env_module modules/mod_env.so
-LoadModule headers_module modules/mod_headers.so
-LoadModule setenvif_module modules/mod_setenvif.so
-LoadModule version_module modules/mod_version.so
-LoadModule unixd_module modules/mod_unixd.so
-LoadModule status_module modules/mod_status.so
-LoadModule autoindex_module modules/mod_autoindex.so
-LoadModule dir_module modules/mod_dir.so
-LoadModule alias_module modules/mod_alias.so
-LoadModule negotiation_module modules/mod_negotiation.so
-LoadModule php_module modules/mod_php83.so
+	# url://domain.sub/file.name
+	urlList="$@"
 
+	mkdir -p "$dirPath"
 
-<FilesMatch \.php$>
-   SetHandler application/x-httpd-php
-</FilesMatch>
+	for bothURL in $urlList
+	do
+		# Separate URLs:
+		mainURL="${bothURL%#*}"
+		fallbackURL="${bothURL#*#}"
 
+		# Remove URL path and query strings:
+		fileName="${mainURL##*/}"
+		fileName="${fileName%\?*}"
+		filePath="$dirPath/$fileName"
 
-<IfModule unixd_module>
-	User apache
-	Group apache
-</IfModule>
+		# Download from main URL; if a failure
+		# occur, try the fallback URL:
+		for url in "$mainURL" "$fallbackURL"
+		do
+			wget -qO "$filePath" "$url"
 
-<IfModule dir_module>
-    DirectoryIndex index.php
-</IfModule>
+			if [ $? -eq 0 ]
+			then
+				test "$isBin" -eq 0 && chmod 700 "$filePath"
+				continue 2
+			fi
+		done
 
-<IfModule log_config_module>
-    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" combined
-    LogFormat "%h %l %u %t \"%r\" %>s %b" common
+		echo "Impossible to download \"$fileName\"." 1>&2
+		exit 1
+	done
+}
 
-    <IfModule logio_module>
-      LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %I %O" combinedio
-    </IfModule>
-
-    CustomLog logs/access.log combined
-</IfModule>
-
-<IfModule alias_module>
-    ScriptAlias /cgi-bin/ "/app/apache/cgi-bin
-</IfModule>
-
-<IfModule headers_module>
-    RequestHeader unset Proxy early
-</IfModule>
-
-<IfModule mime_module>
-    TypesConfig /etc/apache2/mime.types
-    AddType application/x-compress .Z
-    AddType application/x-gzip .gz .tgz
-</IfModule>
-
-<IfModule mime_magic_module>
-    MIMEMagicFile /etc/apache2/magic
-</IfModule>
-
-
-<Directory />
-    AllowOverride None
-    Require All denied
-</Directory>
-
-<Directory "/app/prod">
-	Require All granted
-	AllowOverride All
-</Directory>
-
-<Directory "/app/apache/cgi-bin">
-    AllowOverride None
-    Options None
-    Require all granted
-</Directory>
-APACHE_MAIN_CONF_FILE
+download "$BIN_DIR"         0 $BIN_URL_LIST
+download "$PHP_INI_DIR"     1 $PHP_INI_URL
+download "$HTTPD_DIR"       1 $HTTPD_CONF_URL
+download "$PHP_EXT_INI_DIR" 1 $PHP_EXT_INI_URL_LIST
 
