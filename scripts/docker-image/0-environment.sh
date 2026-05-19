@@ -96,29 +96,32 @@ download "$PHP_EXT_INI_DIR" 1 $PHP_EXT_INI_URL_LIST
 httpdConfTemplate="$HTTPD_DIR/$(extractFileName "$HTTPD_CONF_URL")"
 phpIniTemplate="$PHP_INI_DIR/$(extractFileName "$PHP_INI_URL")"
 
-echo "$(tp "$httpdConfTemplate" \
-	SERVER_ROOT="\/app"              \
+echo "$(tp "$httpdConfTemplate"     \
+	SERVER_ROOT="\/app"             \
 	SERVER_TOKENS="Prod"            \
 	SERVER_SIGNATURE="Off"          \
-	DOCUMENT_ROOT="\/app\/dev"        \
+	DOCUMENT_ROOT="\/app\/dev"      \
 	LISTEN_PORT="80"                \
 	LOG_LEVEL="error"               \
-	LOGS_DIR="\/app\/apache2\/logs"    \
-	CGI_BIN_DIR="")" > "$HTTPD_DIR/httpd.conf"
+	LOGS_DIR="\/app\/apache2\/logs" \
+	CGI_BIN_DIR="")"                \
+	> "$HTTPD_DIR/httpd.conf"
 
-echo "$(tp "$phpIniTemplate" \
-	OUTPUT_BUFFERING="1024" \
-	OUTPUT_HANDLER="" \
-	URL_REWRITER_TAGS="" \
-	URL_REWRITER_HOSTS="" \
-	ZLIB_OUTPUT_COMPRESSION="On" \
-	ZLIB_OUTPUT_COMPRESSION_LEVEL="-1" \
-	ZLIB_OUTPUT_HANDLER="" \
-	OPEN_BASEDIR="" \
-	ZEND_EXCEPTION_IGNORE_ARGS="Off" \
-	ERROR_REPORTING="E_ALL \& \~E_NOTICE \& \~E_STRICT" \
-	ERROR_LOG="\/app\/php\/logs\/error.log" \
-	FILE_UPLOADS="Off")" > "$PHP_INI_DIR/php.ini"
+echo "$(tp "$phpIniTemplate"                                \
+	OUTPUT_BUFFERING="1024"                                 \
+	OUTPUT_HANDLER=""                                       \
+	URL_REWRITER_TAGS=""                                    \
+	URL_REWRITER_HOSTS=""                                   \
+	ZLIB_OUTPUT_COMPRESSION="On"                            \
+	ZLIB_OUTPUT_COMPRESSION_LEVEL="-1"                      \
+	ZLIB_OUTPUT_HANDLER=""                                  \
+	OPEN_BASEDIR=""                                         \
+	ZEND_EXCEPTION_IGNORE_ARGS="Off"                        \
+	ERROR_REPORTING="E_ALL \& \~E_NOTICE \& \~E_STRICT"     \
+	ERROR_LOG="\/app\/php\/logs\/error.log"                 \
+	FILE_UPLOADS="Off"                                      \
+	EXTENSIONS_DIR="\/usr\/lib\/php$PHP_VERSION\/modules")" \
+	> "$PHP_INI_DIR/php.ini"
 
 rm "$httpdConfTemplate" "$phpIniTemplate"
 
