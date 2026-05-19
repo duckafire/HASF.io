@@ -39,10 +39,9 @@ unpackArchive()
 	test $? -ne 0 && abort "Impossible to unpack archive: $archivePath"
 }
 
-#TODO: php extension error
-#composer create-project 'codeigniter4/framework:4.6.3' "$APP_DIR"
+composer create-project 'codeigniter4/framework:4.6.3' "$APP_DIR"
 
-mkdir -p "$UNPACKED_ARCHIVES_DIR" "$APP_DIR" "$SVG_ICONS_DIR"
+mkdir -p "$UNPACKED_ARCHIVES_DIR" "$SVG_ICONS_DIR"
 
 for item in $DEP_LIST
 do

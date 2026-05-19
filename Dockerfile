@@ -13,3 +13,11 @@ RUN echo "PREPARING ENVIRONMENT..." \
  && 0-environment.sh \
  && 1-dependences.sh
 
+COPY ./src/.htaccess          ./
+
+COPY ./src/wip/writable       ./wip/writable
+COPY ./src/wip/readonly       ./wip/readonly
+COPY ./src/wip/tests          ./wip/tests
+COPY ./src/wip/public         ./wip/public
+COPY ./src/wip/app            ./wip/app
+
