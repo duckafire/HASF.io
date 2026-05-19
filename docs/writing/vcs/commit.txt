@@ -22,6 +22,7 @@ publ => ./public
   css_ => ./public/assets/**/*.css
   fc__ => ./public/*
   js__ => ./public/assets/**/*.js
+  scss => ./public/assets/**/*.scss
   set_ => ./public/assets/sets/**/*.css
        +> ./public/assets/sets/**/*.js
   **** :: changes that affect all subcontext of this context.
