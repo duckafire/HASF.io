@@ -3,17 +3,12 @@
 ## Download essential binaries, configuration files, ...,
 ## to run PHP with Apache.
 
-# (8.3.z) Used to download PHP and its extensions
-# using the Linux distribution package manager:
-PHP_VERSION="83"
-
-APACHE_CONFIG_FILE='/etc/apache2/httpd.conf'
-PHP_COMMON_EXT="php$PHP_VERSION-common php$PHP_VERSION-mysqli php$PHP_VERSION-pgsql php$PHP_VERSION-sqlite3 php$PHP_VERSION-gd php$PHP_VERSION-curl php$PHP_VERSION-intl php$PHP_VERSION-mbstring php$PHP_VERSION-openssl php$PHP_VERSION-xml php$PHP_VERSION-zip php$PHP_VERSION-bcmath php$PHP_VERSION-soap php$PHP_VERSION-pcntl php$PHP_VERSION-posix php$PHP_VERSION-session php$PHP_VERSION-ctype php$PHP_VERSION-dom php$PHP_VERSION-fileinfo php$PHP_VERSION-gettext php$PHP_VERSION-iconv php$PHP_VERSION-opcache php$PHP_VERSION-pdo php$PHP_VERSION-pdo_mysql php$PHP_VERSION-pdo_pgsql php$PHP_VERSION-pdo_sqlite php$PHP_VERSION-phar php$PHP_VERSION-simplexml php$PHP_VERSION-tokenizer php$PHP_VERSION-xmlreader php$PHP_VERSION-xmlwriter php$PHP_VERSION-shmop php$PHP_VERSION-ffi php$PHP_VERSION-exif php$PHP_VERSION-json php$PHP_VERSION-ftp php$PHP_VERSION-snmp php$PHP_VERSION-sockets php$PHP_VERSION-sodium php$PHP_VERSION-imap php$PHP_VERSION-tidy php$PHP_VERSION-gmp php$PHP_VERSION-pdo_mysql php$PHP_VERSION-pdo_odbc php$PHP_VERSION-mysqli php$PHP_VERSION-odbc"
+PHP_COMMON_EXT="php$PHPV-common php$PHPV-mysqli php$PHPV-pgsql php$PHPV-sqlite3 php$PHPV-gd php$PHPV-curl php$PHPV-intl php$PHPV-mbstring php$PHPV-openssl php$PHPV-xml php$PHPV-zip php$PHPV-bcmath php$PHPV-soap php$PHPV-pcntl php$PHPV-posix php$PHPV-session php$PHPV-ctype php$PHPV-dom php$PHPV-fileinfo php$PHPV-gettext php$PHPV-iconv php$PHPV-opcache php$PHPV-pdo php$PHPV-pdo_mysql php$PHPV-pdo_pgsql php$PHPV-pdo_sqlite php$PHPV-phar php$PHPV-simplexml php$PHPV-tokenizer php$PHPV-xmlreader php$PHPV-xmlwriter php$PHPV-shmop php$PHPV-ffi php$PHPV-exif php$PHPV-json php$PHPV-ftp php$PHPV-snmp php$PHPV-sockets php$PHPV-sodium php$PHPV-imap php$PHPV-tidy php$PHPV-gmp php$PHPV-pdo_mysql php$PHPV-pdo_odbc php$PHPV-mysqli php$PHPV-odbc"
 
 BIN_DIR="/app/mybin"
-PHP_INI_DIR="/etc/php$PHP_VERSION"
+PHP_INI_DIR="${PHPRC%/*}"
 HTTPD_DIR="/etc/apache2"
-PHP_EXT_INI_DIR="$PHP_INI_DIR/conf.d"
+PHP_EXT_INI_DIR="${PHP_INI_SCAN_DIR%/*}"
 
 # Main#Fallback
 BIN_URL_LIST='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/mybin/tp#https://gitlab.com/duckafire/duckafire/-/raw/main/config/apache2/httpd.conf.template?ref_type=heads'
@@ -83,7 +78,7 @@ extractFileName()
 }
 
 apk update --quiet
-apk add --quiet --no-cache apache2 "php$PHP_VERSION-apache2" composer $PHP_COMMON_EXT
+apk add --quiet --no-cache apache2 "php$PHPV-apache2" composer $PHP_COMMON_EXT
 
 # Remove default configurations files:
 rm -rf /etc/php*
@@ -120,7 +115,7 @@ echo "$(tp "$phpIniTemplate"                                \
 	ERROR_REPORTING="E_ALL \& \~E_NOTICE \& \~E_STRICT"     \
 	ERROR_LOG="\/app\/php\/logs\/error.log"                 \
 	FILE_UPLOADS="Off"                                      \
-	EXTENSIONS_DIR="\/usr\/lib\/php$PHP_VERSION\/modules")" \
+	EXTENSIONS_DIR="\/usr\/lib\/php$PHPV\/modules")" \
 	> "$PHP_INI_DIR/php.ini"
 
 rm "$httpdConfTemplate" "$phpIniTemplate"
