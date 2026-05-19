@@ -9,7 +9,7 @@ services:
       resources:
         limits:
           cpus: "0.15"
-          memory: "100M"
+          memory: "128M"
     environment:
       CI_ENVIRONMENT: development
 
