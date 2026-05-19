@@ -19,7 +19,7 @@ https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php
 https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/2-net.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/2-net.ini
 https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/3-math.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/3-math.ini
 https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/4-data-bank.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/4-data-bank.ini
-https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/5-xml.inig#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/5-xml.ini'
+https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/5-xml.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/5-xml.ini'
 
 download()
 {
