@@ -3,7 +3,7 @@
 ## Download essential binaries, configuration files, ...,
 ## to run PHP with Apache.
 
-PHP_COMMON_EXT="php$PHPV-common php$PHPV-mysqli php$PHPV-pgsql php$PHPV-sqlite3 php$PHPV-gd php$PHPV-curl php$PHPV-intl php$PHPV-mbstring php$PHPV-openssl php$PHPV-xml php$PHPV-zip php$PHPV-bcmath php$PHPV-soap php$PHPV-pcntl php$PHPV-posix php$PHPV-session php$PHPV-ctype php$PHPV-dom php$PHPV-fileinfo php$PHPV-gettext php$PHPV-iconv php$PHPV-opcache php$PHPV-pdo php$PHPV-pdo_mysql php$PHPV-pdo_pgsql php$PHPV-pdo_sqlite php$PHPV-phar php$PHPV-simplexml php$PHPV-tokenizer php$PHPV-xmlreader php$PHPV-xmlwriter php$PHPV-shmop php$PHPV-ffi php$PHPV-exif php$PHPV-json php$PHPV-ftp php$PHPV-snmp php$PHPV-sockets php$PHPV-sodium php$PHPV-imap php$PHPV-tidy php$PHPV-gmp php$PHPV-pdo_mysql php$PHPV-pdo_odbc php$PHPV-mysqli php$PHPV-odbc"
+PHP_COMMON_EXT="php$PHPV-common php$PHPV-mysqli php$PHPV-pgsql php$PHPV-sqlite3 php$PHPV-gd php$PHPV-curl php$PHPV-intl php$PHPV-mbstring php$PHPV-openssl php$PHPV-xml php$PHPV-zip php$PHPV-bcmath php$PHPV-soap php$PHPV-pcntl php$PHPV-posix php$PHPV-session php$PHPV-ctype php$PHPV-dom php$PHPV-fileinfo php$PHPV-gettext php$PHPV-iconv php$PHPV-opcache php$PHPV-pdo php$PHPV-pdo_mysql php$PHPV-pdo_pgsql php$PHPV-pdo_sqlite php$PHPV-phar php$PHPV-simplexml php$PHPV-tokenizer php$PHPV-xmlreader php$PHPV-xmlwriter php$PHPV-shmop php$PHPV-ffi php$PHPV-exif php$PHPV-ftp php$PHPV-snmp php$PHPV-sockets php$PHPV-sodium php$PHPV-imap php$PHPV-tidy php$PHPV-gmp php$PHPV-pdo_mysql php$PHPV-pdo_odbc php$PHPV-mysqli php$PHPV-odbc"
 
 BIN_DIR="/app/mybin"
 HTTPD_DIR="/etc/apache2"
