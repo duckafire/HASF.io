@@ -6,9 +6,7 @@
 PHP_COMMON_EXT="php$PHPV-common php$PHPV-mysqli php$PHPV-pgsql php$PHPV-sqlite3 php$PHPV-gd php$PHPV-curl php$PHPV-intl php$PHPV-mbstring php$PHPV-openssl php$PHPV-xml php$PHPV-zip php$PHPV-bcmath php$PHPV-soap php$PHPV-pcntl php$PHPV-posix php$PHPV-session php$PHPV-ctype php$PHPV-dom php$PHPV-fileinfo php$PHPV-gettext php$PHPV-iconv php$PHPV-opcache php$PHPV-pdo php$PHPV-pdo_mysql php$PHPV-pdo_pgsql php$PHPV-pdo_sqlite php$PHPV-phar php$PHPV-simplexml php$PHPV-tokenizer php$PHPV-xmlreader php$PHPV-xmlwriter php$PHPV-shmop php$PHPV-ffi php$PHPV-exif php$PHPV-json php$PHPV-ftp php$PHPV-snmp php$PHPV-sockets php$PHPV-sodium php$PHPV-imap php$PHPV-tidy php$PHPV-gmp php$PHPV-pdo_mysql php$PHPV-pdo_odbc php$PHPV-mysqli php$PHPV-odbc"
 
 BIN_DIR="/app/mybin"
-PHP_INI_DIR="${PHPRC%/*}"
 HTTPD_DIR="/etc/apache2"
-PHP_EXT_INI_DIR="${PHP_INI_SCAN_DIR%/*}"
 
 # Main#Fallback
 BIN_URL_LIST='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/mybin/tp#https://gitlab.com/duckafire/duckafire/-/raw/main/config/apache2/httpd.conf.template?ref_type=heads'
@@ -84,12 +82,12 @@ apk add --quiet --no-cache apache2 "php$PHPV-apache2" composer $PHP_COMMON_EXT
 rm -rf /etc/php*
 
 download "$BIN_DIR"         0 $BIN_URL_LIST
-download "$PHP_INI_DIR"     1 $PHP_INI_URL
+download "$PHPRC"     1 $PHP_INI_URL
 download "$HTTPD_DIR"       1 $HTTPD_CONF_URL
-download "$PHP_EXT_INI_DIR" 1 $PHP_EXT_INI_URL_LIST
+download "$PHP_INI_SCAN_DIR" 1 $PHP_EXT_INI_URL_LIST
 
 httpdConfTemplate="$HTTPD_DIR/$(extractFileName "$HTTPD_CONF_URL")"
-phpIniTemplate="$PHP_INI_DIR/$(extractFileName "$PHP_INI_URL")"
+phpIniTemplate="$PHPRC/$(extractFileName "$PHP_INI_URL")"
 
 echo "$(tp "$httpdConfTemplate"     \
 	SERVER_ROOT="\/app"             \
@@ -116,7 +114,7 @@ echo "$(tp "$phpIniTemplate"                                \
 	ERROR_LOG="\/app\/php\/logs\/error.log"                 \
 	FILE_UPLOADS="Off"                                      \
 	EXTENSIONS_DIR="\/usr\/lib\/php$PHPV\/modules")" \
-	> "$PHP_INI_DIR/php.ini"
+	> "$PHPRC/php.ini"
 
 rm "$httpdConfTemplate" "$phpIniTemplate"
 
