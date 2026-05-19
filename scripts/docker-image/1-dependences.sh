@@ -8,6 +8,8 @@ UNPACKED_ARCHIVES_DIR="$ARCHIVES_DIR/unpacked"
 WIP_DIR="$WORK_DIR/wip"
 SVG_ICONS_DIR="$WIP_DIR/public/assets/images/icons"
 
+BUN_GLOBAL_PACKAGES="sass@1.97.3"
+
 # Download URL#Repository target#Destine directory
 DEP_LIST=$(cat << EOF
 https://github.com/lucide-icons/lucide/archive/refs/tags/v0.265.0.zip#lucide-0.265.0/icons#$SVG_ICONS_DIR/lucide-v0.265.0
@@ -66,4 +68,6 @@ do
 done
 
 rm -r "$ARCHIVES_DIR"
+
+bun add --global --silent $BUN_GLOBAL_PACKAGES
 
