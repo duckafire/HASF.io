@@ -125,7 +125,3 @@ echo "$(tp "$phpIniTemplate"                                \
 
 rm "$httpdConfTemplate" "$phpIniTemplate"
 
-#TODO
-#export PHPRC="$PHP_INI_DIR"
-#export PHP_INI_SCAN_DIR="$PHP_EXT_INI_DIR"
-
