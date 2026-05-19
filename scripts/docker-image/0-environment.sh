@@ -21,6 +21,9 @@ https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php
 https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/4-data-bank.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/4-data-bank.ini
 https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/5-xml.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/5-xml.ini'
 
+BUN_ZIP_NAME="bun-linux-x64-musl-baseline"
+BUN_DOWNLOAD_URL='https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip'
+
 download()
 {
 	# /abs/dir/path
@@ -117,4 +120,9 @@ echo "$(tp "$phpIniTemplate"                                \
 	> "$PHPRC/php.ini"
 
 rm "$httpdConfTemplate" "$phpIniTemplate"
+
+wget -q "$BUN_DOWNLOAD_URL"
+unzip -q "$BUN_ZIP_NAME.zip"
+mv "$BUN_ZIP_NAME/bun" "$BIN_DIR"
+rm -rf "$BUN_ZIP_NAME" "$BUN_ZIP_NAME.zip"
 

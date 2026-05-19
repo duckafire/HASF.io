@@ -5,9 +5,10 @@ WORKDIR /app
 ENV WORK_DIR="/app"
 ENV PHPV="83"
 
-ENV PATH="$PATH:/app/mybin:/app/mybin/docker-image"
+ENV PATH="$PATH:$WORK_DIR/mybin:$WORK_DIR/mybin/docker-image:$WORK_DIR/bun-global-packages/.bin"
 ENV PHPRC="/etc/php$PHPV"
 ENV PHP_INI_SCAN_DIR="$PHPRC/conf.d"
+ENV BUN_INSTALL_GLOBAL_DIR="$WORK_DIR/bun-global-packages"
 
 COPY ./scripts/docker-image                      ./mybin/docker-image
 COPY ./scripts/preprocess-source-files           ./
