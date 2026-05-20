@@ -2,16 +2,18 @@ FROM alpine:3.20.10
 
 WORKDIR /app
 
+####################################################################################################
+
 ENV WORK_DIR="/app"
 ENV PHPV="83"
+ENV MYBIN_DIR="$WORK_DIR/mybin"
 
-ENV PATH="$PATH:$WORK_DIR/mybin:$WORK_DIR/mybin/docker-image:$WORK_DIR/bun-global-packages/.bin"
 ENV PHPRC="/etc/php$PHPV"
 ENV PHP_INI_SCAN_DIR="$PHPRC/conf.d"
-ENV BUN_INSTALL_GLOBAL_DIR="$WORK_DIR/bun-global-packages"
+ENV BUN_INSTALL_GLOBAL_DIR="$MYBIN_DIR/bun-global-packages"
+ENV PATH="$PATH:$MYBIN_DIR/bin:$MYBIN_DIR/scripts/preprocess-source-files:$MYBIN_DIR/scripts/docker-image:$BUN_INSTALL_GLOBAL_PACKAGES/.bin"
 
-COPY ./scripts/docker-image                      ./mybin/docker-image
-COPY ./scripts/preprocess-source-files           ./
+COPY ./scripts/docker-image                      ./mybin/scripts/docker-image
 
 RUN echo "PREPARING ENVIRONMENT..." \
  && 0-environment.sh \

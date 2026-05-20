@@ -5,7 +5,6 @@
 
 PHP_COMMON_EXT="php$PHPV-common php$PHPV-mysqli php$PHPV-pgsql php$PHPV-sqlite3 php$PHPV-gd php$PHPV-curl php$PHPV-intl php$PHPV-mbstring php$PHPV-openssl php$PHPV-xml php$PHPV-zip php$PHPV-bcmath php$PHPV-soap php$PHPV-pcntl php$PHPV-posix php$PHPV-session php$PHPV-ctype php$PHPV-dom php$PHPV-fileinfo php$PHPV-gettext php$PHPV-iconv php$PHPV-opcache php$PHPV-pdo php$PHPV-pdo_mysql php$PHPV-pdo_pgsql php$PHPV-pdo_sqlite php$PHPV-phar php$PHPV-simplexml php$PHPV-tokenizer php$PHPV-xmlreader php$PHPV-xmlwriter php$PHPV-shmop php$PHPV-ffi php$PHPV-exif php$PHPV-ftp php$PHPV-snmp php$PHPV-sockets php$PHPV-sodium php$PHPV-imap php$PHPV-tidy php$PHPV-gmp php$PHPV-pdo_mysql php$PHPV-pdo_odbc php$PHPV-mysqli php$PHPV-odbc"
 
-BIN_DIR="/app/mybin"
 HTTPD_DIR="/etc/apache2"
 
 # Main#Fallback
@@ -84,10 +83,10 @@ apk add --quiet --no-cache apache2 "php$PHPV-apache2" composer $PHP_COMMON_EXT
 # Remove default configurations files:
 rm -rf /etc/php*
 
-download "$BIN_DIR"         0 $BIN_URL_LIST
-download "$PHPRC"     1 $PHP_INI_URL
-download "$HTTPD_DIR"       1 $HTTPD_CONF_URL
-download "$PHP_INI_SCAN_DIR" 1 $PHP_EXT_INI_URL_LIST
+download "$MYBIN_DIR/bin"      0 $BIN_URL_LIST
+download "$PHPRC"              1 $PHP_INI_URL
+download "$HTTPD_DIR"          1 $HTTPD_CONF_URL
+download "$PHP_INI_SCAN_DIR"   1 $PHP_EXT_INI_URL_LIST
 
 httpdConfTemplate="$HTTPD_DIR/$(extractFileName "$HTTPD_CONF_URL")"
 phpIniTemplate="$PHPRC/$(extractFileName "$PHP_INI_URL")"
@@ -100,7 +99,7 @@ echo "$(tp "$httpdConfTemplate"     \
 	LISTEN_PORT="80"                \
 	LOG_LEVEL="error"               \
 	LOGS_DIR="\/app\/apache2\/logs" \
-	CGI_BIN_DIR="")"                \
+	CGI_MYBIN_DIR="")"                \
 	> "$HTTPD_DIR/httpd.conf"
 
 echo "$(tp "$phpIniTemplate"                                \
