@@ -9,9 +9,9 @@ BIN_DIR="/app/mybin"
 HTTPD_DIR="/etc/apache2"
 
 # Main#Fallback
-BIN_URL_LIST='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/mybin/tp#https://gitlab.com/duckafire/duckafire/-/raw/main/config/apache2/httpd.conf.template?ref_type=heads'
+BIN_URL_LIST='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/mybin/tp#https://gitlab.com/duckafire/duckafire/-/raw/main/mybin/tp'
 
-HTTPD_CONF_URL='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/apache2/httpd.conf.template#https://gitlab.com/duckafire/duckafire/-/raw/main/mybin/tp'
+HTTPD_CONF_URL='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/apache2/httpd.conf.template#https://gitlab.com/duckafire/duckafire/-/raw/main/config/apache2/httpd.conf.template?ref_type=heads'
 PHP_INI_URL='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/php.template.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/php.template.ini?ref_type=heads'
 
 PHP_EXT_INI_URL_LIST='https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/0-system.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/0-system.ini
