@@ -19,6 +19,25 @@ RUN echo "PREPARING ENVIRONMENT..." \
  && 0-environment.sh \
  && 1-dependences.sh
 
+####################################################################################################
+
+ENV HASF_IO_ROOT_DIR="$WORK_DIR"
+
+COPY ./scripts/preprocess-source-files           ./mybin/scripts/preprocess-source-files
+
+# Use `eval` to export environment variables
+# declared and exported by the stage 0 to
+# all other scritps (because Docker executes
+# commands from scripts of RUN in dedicated
+# subshells, what it does not allow to share
+# their exported environment variables).
+RUN echo "PROCESSING SOURCE FILES..." \
+ && eval "$(cat "$MYBIN_DIR/scripts/preprocess-source-files/0-up-preprocessing-environment.sh")" \
+ && 1-compile-files.sh \
+ && 2-rename-assets.sh
+
+####################################################################################################
+
 COPY ./src/.htaccess          ./
 
 COPY ./src/wip/writable       ./wip/writable
