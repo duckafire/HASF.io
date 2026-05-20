@@ -21,6 +21,8 @@ https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php
 https://raw.githubusercontent.com/duckafire/duckafire/refs/heads/main/config/php/conf.d/5-xml.ini#https://gitlab.com/duckafire/duckafire/-/raw/main/config/php/conf.d/5-xml.ini'
 
 BUN_ZIP_NAME="bun-linux-x64-musl-baseline"
+BUN_BIN_ORIG_PATH="$BUN_ZIP_NAME/bun" # `bun` binary is inside of `bun/`.
+BUN_BIN_DEST_PATH="$MYBIN_DIR/bin/bun"
 BUN_DOWNLOAD_URL='https://github.com/oven-sh/bun/releases/download/bun-v1.3.14/bun-linux-x64-musl-baseline.zip'
 
 download()
@@ -120,8 +122,10 @@ echo "$(tp "$phpIniTemplate"                                \
 
 rm "$httpdConfTemplate" "$phpIniTemplate"
 
+mkdir -p "${BUN_BIN_DEST_PATH%/*}"
 wget -q "$BUN_DOWNLOAD_URL"
 unzip -q "$BUN_ZIP_NAME.zip"
-mv "$BUN_ZIP_NAME/bun" "$BIN_DIR"
+mv "$BUN_BIN_ORIG_PATH" "$BUN_BIN_DEST_PATH"
 rm -rf "$BUN_ZIP_NAME" "$BUN_ZIP_NAME.zip"
+chmod 700 "$BUN_BIN_DEST_PATH"
 
