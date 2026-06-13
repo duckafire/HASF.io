@@ -82,11 +82,9 @@ COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/public         .
 COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/app            .
 
 ####################################################################################################
+# Entrypoint configurations:
 
-WORKDIR ${WORK_DIR}
-
-####################################################################################################
-
-ENTRYPOINT [ "/bin/sh", "-c" ]
+COPY --chmod=555 ./scripts/docker-image-build/z-entrypoint.sh /dib/
+ENTRYPOINT [ "/dib/z-entrypoint.sh" ]
 
 ####################################################################################################
