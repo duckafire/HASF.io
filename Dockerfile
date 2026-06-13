@@ -73,13 +73,13 @@ RUN  /dib/7-dl-3party.sh
 
 WORKDIR ${DF_WIP_DIR}
 
-COPY ./src/.htaccess          ..
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/.htaccess          ..
 
-COPY ./src/wip/writable       .
-COPY ./src/wip/readonly       .
-COPY ./src/wip/tests          .
-COPY ./src/wip/public         .
-COPY ./src/wip/app            .
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/writable       .
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/readonly       .
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/tests          .
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/public         .
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/app            .
 
 ####################################################################################################
 
