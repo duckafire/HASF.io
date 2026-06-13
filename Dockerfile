@@ -1,48 +1,92 @@
+####################################################################################################
+# Docker image configurations:
+
 FROM alpine:3.20.10
 
-WORKDIR /app
+####################################################################################################
+# Global declarations:
+
+# (DockerFile.)
+ARG DF_WORK_DIR="/app"
+ARG DF_WIP_DIR="${DF_WORK_DIR}/wip"
+ARG DF_APACHE_USER="apache-php"
+ARG DF_BUILD_STEPS="scripts/docker-image/build-steps"
+
+WORKDIR ${DF_WORK_DIR}
+
+ENV WORK_DIR=${DF_WORK_DIR}
+
+####################################################################################################
+# Configure environment and download dependences:
+
+# ("dib" is a acronym to Docker Image Build.)
+
+ENV  APACHE_USER=${DF_APACHE_USER} \
+     WORK_DIR=${DF_WORK_DIR}
+COPY --chmod=555 ./scripts/docker-image-build/0-create-apache-user.sh /dib/
+RUN  /dib/0-create-apache-user.sh
+
+ENV  PHPV="83"
+COPY --chmod=555 ./scripts/docker-image-build/1-dl-php-c-ext.sh /dib/
+RUN  /dib/1-dl-php-c-ext.sh
+
+USER ${DF_APACHE_USER}
+ENV  CODE_IGNITER_V="4.6.3" \
+     WIP_DIR=${DF_WIP_DIR}
+COPY --chmod=555 --chown=${DF_APACHE_USER} ./scripts/docker-image-build/2-dl-ci.sh /dib/
+RUN  /dib/2-dl-ci.sh
+
+# Separated ENV because variables
+# depend each other.
+ENV  MYBIN_DIR="$WORK_DIR/mybin"
+ENV  BUN_INSTALL="$WORK_DIR/bun"
+ENV  PATH="$PATH:$MYBIN_DIR:$BUN_INSTALL:$BUN_INSTALL/bin"
+COPY --chmod=555 --chown=${DF_APACHE_USER} ./scripts/docker-image-build/3-dl-npm-pack.sh /dib/
+RUN  /dib/3-dl-npm-pack.sh
+
+USER root
+COPY --chmod=555 ./scripts/docker-image-build/4-dl-php-apache.sh /dib/
+RUN  /dib/4-dl-php-apache.sh
+
+USER ${DF_APACHE_USER}
+COPY --chmod=555 --chown=${DF_APACHE_USER} ./scripts/docker-image-build/5-dl-useful-tools.sh /dib/
+RUN  /dib/5-dl-useful-tools.sh
+
+# (Root is used here to allow that
+# the owner of the directories that
+# stores these configuration files
+# can be changed, from root to Apache
+# User.)
+USER root
+ENV  PHPRC="/etc/php$PHPV"            \
+     PHP_INI_SCAN_DIR="$PHPRC/conf.d" \
+     HTTPD_DIR="/etc/apache2"
+COPY --chmod=555 ./scripts/docker-image-build/6-dl-conf-files.sh /dib/
+RUN  /dib/6-dl-conf-files.sh
+
+USER ${DF_APACHE_USER}
+COPY --chmod=555 ./scripts/docker-image-build/7-dl-3party.sh /dib/
+RUN  /dib/7-dl-3party.sh
+
+####################################################################################################
+# Copy source code into image:
+
+WORKDIR ${DF_WIP_DIR}
+
+COPY ./src/.htaccess          ..
+
+COPY ./src/wip/writable       .
+COPY ./src/wip/readonly       .
+COPY ./src/wip/tests          .
+COPY ./src/wip/public         .
+COPY ./src/wip/app            .
 
 ####################################################################################################
 
-ENV WORK_DIR="/app"
-ENV PHPV="83"
-ENV MYBIN_DIR="$WORK_DIR/mybin"
-
-ENV PHPRC="/etc/php$PHPV"
-ENV PHP_INI_SCAN_DIR="$PHPRC/conf.d"
-ENV BUN_INSTALL_GLOBAL_DIR="$MYBIN_DIR/bun-global-packages"
-ENV PATH="$PATH:$MYBIN_DIR/bin:$MYBIN_DIR/scripts/preprocess-source-files:$MYBIN_DIR/scripts/docker-image:$BUN_INSTALL_GLOBAL_PACKAGES/.bin"
-
-COPY ./scripts/docker-image                      ./mybin/scripts/docker-image
-
-RUN echo "PREPARING ENVIRONMENT..." \
- && 0-environment.sh \
- && 1-dependences.sh
+WORKDIR ${WORK_DIR}
 
 ####################################################################################################
 
-ENV HASF_IO_ROOT_DIR="$WORK_DIR"
-
-COPY ./scripts/preprocess-source-files           ./mybin/scripts/preprocess-source-files
-
-# Use `eval` to export environment variables
-# declared and exported by the stage 0 to
-# all other scritps (because Docker executes
-# commands from scripts of RUN in dedicated
-# subshells, what it does not allow to share
-# their exported environment variables).
-RUN echo "PROCESSING SOURCE FILES..." \
- && eval "$(cat "$MYBIN_DIR/scripts/preprocess-source-files/0-up-preprocessing-environment.sh")" \
- && 1-compile-files.sh \
- && 2-rename-assets.sh
+ENTRYPOINT [ "/bin/sh", "-c" ]
 
 ####################################################################################################
-
-COPY ./src/.htaccess          ./
-
-COPY ./src/wip/writable       ./wip/writable
-COPY ./src/wip/readonly       ./wip/readonly
-COPY ./src/wip/tests          ./wip/tests
-COPY ./src/wip/public         ./wip/public
-COPY ./src/wip/app            ./wip/app
-
