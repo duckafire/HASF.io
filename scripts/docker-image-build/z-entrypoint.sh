@@ -24,5 +24,5 @@ done
 # this, Apache never will catch SIGTERMs.
 #
 # (Send errors to stderr; and run at foreground.)
-exec httpd -E /dev/stderr -D FOREGROUND
+exec httpd -D FOREGROUND
 

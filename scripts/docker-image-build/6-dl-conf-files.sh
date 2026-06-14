@@ -26,9 +26,9 @@ TEMPLATES=$(cat << EOF
  FILE_UPLOADS=Off,
  EXTENSIONS_DIR=\\/usr\\/lib\\/php$PHPV\\/modules,
 ;;
- https://raw.githubusercontent.com/duckafire/duckafire/3cc35cfed44e0961ee6db4e5c34262298473a45c/config/apache2/httpd.conf.template
-#https://gitlab.com/duckafire/duckafire/-/raw/3cc35cfed44e0961ee6db4e5c34262298473a45c/config/apache2/httpd.conf.template
-#95c14c64c3201240ded2875eaeac92cc629668100f843dd77b55fb3b86e0be44
+ https://raw.githubusercontent.com/duckafire/duckafire/b7d656fe64bc5e4b90dc532f9b8037f515d3a5b4/config/apache2/httpd.conf.template
+#https://gitlab.com/duckafire/duckafire/-/raw/b7d656fe64bc5e4b90dc532f9b8037f515d3a5b4/config/apache2/httpd.conf.template
+#fc9ee0c519f877245dafc3178a7611e12d781843c92e66f10d637664a14dc279
 #$HTTPD_DIR/httpd.conf
 #SERVER_NAME=localhost,
  SERVER_ROOT=\\/app,
@@ -40,7 +40,9 @@ TEMPLATES=$(cat << EOF
  CGI_BIN_DIR=\\/app\\/cgi-bin,
  USER_NAME=$APACHE_USER,
  USER_GROUP=$APACHE_USER,
- LOGS_DIR=.,
+ LOGS_DIR=logs,
+ LOGS_OUT_FILE=\\/dev\\/stdout,
+ LOGS_ERR_FILE=\\/dev\\/stderr,
 ;;
 EOF
 )
