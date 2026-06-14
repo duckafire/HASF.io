@@ -24,5 +24,5 @@ done
 # this, Apache never will catch SIGTERMs.
 #
 # (Send errors to stderr; and run at foreground.)
-exec httpd -D FOREGROUND
+exec httpd -D FOREGROUND -D HASF_IO_DEBUG
 

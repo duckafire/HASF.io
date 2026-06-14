@@ -1,13 +1,10 @@
-# TODO (before server deploy):
-# [1] Uncomment lines linked.
-# [2] Comment lines linked.
-# [3] Update VERSION (placeholder).
+# TODO: replace VERSION macro.
 
 php_value display_errors Off
 php_value mbstring.http_input auto
 php_value date.timezone America/Sao_Paulo
 
-<IfModule mod_headers.c>
+<IfModule mod_headers>
 	# It says to browser use only
 	# HTTPS in future visits.
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
@@ -20,40 +17,45 @@ php_value date.timezone America/Sao_Paulo
 	Header append Permissions-Policy "ch-prefers-color-scheme=(self)"
 </IfModule>
 
-<IfModule mod_rewrite.c>
+<IfModule mod_rewrite>
 	RewriteEngine On
 
 	# Malformed requests
 	RewriteCond %{THE_REQUEST} !^(GET|POST)\ [a-zA-Z0-9\.\+_/\-\?\=\&]+\ HTTP/ [NC]
 	RewriteRule ^ - [F,NS,L]
 
-	# [1]
-	## Remove www.
-	#RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-	#RewriteRule ^ https://%1%{REQUEST_URI} [QSA,L,R=301]
-	#
-	## http -> https
-	#RewriteCond %{HTTPS} off
-	#RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
-	#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L,R=301]
+	<IfDefine !HASF_IO_DEBUG>
+		# Remove www.
+		RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+		RewriteRule ^ https://%1%{REQUEST_URI} [QSA,L,R=301]
+
+		# http -> https
+		RewriteCond %{HTTPS} off
+		RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+		RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L,R=301]
+	</IfDefine>
 
 	# Avoid reread loops;
 	# Move all requests to ./public
 	RewriteCond %{REQUEST_URI} !^/public/
 
-	# [2]
-	RewriteRule (.*) /debug/public/$1 [QSA,L]
+	<IfDefine HASF_IO_DEBUG>
+		RewriteRule (.*) /debug/public/$1 [QSA,L]
+	</IfDefine>
 
-	# [1, 3]
-	#RewriteRule (.*) /VERSION/public/$1 [QSA,L]
+	<IfDefine !HASF_IO_DEBUG>
+		RewriteRule (.*) /${VERSION}/public/$1 [QSA,L]
+	</IfDefine>
 </IfModule>
 
 <IfModule !mod_rewrite>
 	# Simple fallback;
 
-	# [2]
-	ErrorDocument 404 /debug/public/index.php [QSA,L]
+	<IfDefine HASF_IO_DEBUG>
+		ErrorDocument 404 /debug/public/index.php
+	</IfDefine>
 
-	# [1, 3]
-	#ErrorDocument 404 /VERSION/public/index.php [QSA, L]
+	<IfDefine !HASF_IO_DEBUG>
+		ErrorDocument 404 /${VERSION}/public/index.php
+	</IfDefine>
 </IfModule>
