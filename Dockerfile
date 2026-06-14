@@ -75,11 +75,11 @@ WORKDIR ${DF_WIP_DIR}
 
 COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/.htaccess          ..
 
-COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/writable       .
-COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/readonly       .
-COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/tests          .
-COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/public         .
-COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/app            .
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/writable       ./writable
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/readonly       ./readonly
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/tests          ./tests
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/public         ./public
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/app            ./app
 
 ####################################################################################################
 # Entrypoint configurations:
