@@ -74,6 +74,7 @@ read :: ./readonly
 cicd :: build process and related.
   dock :: changes related with Docker things.
   sh__ :: changes related with SH scripts.
+  apac :: changes related with Apache files.
   misc :: no-subcontent changes.
 
 misc :: no-context changes.
