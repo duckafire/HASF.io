@@ -44,7 +44,8 @@ docs => ./docs
   arch :: architecture documentation.
   caps :: changes at UPPERCASE files.
   code :: code documentation.
-  new_ :: create a new documentation file..
+  desi :: changes related with the design of things.
+  new_ :: create a new documentation file.
   misc :: no-subcontext documentation changes.
   **** :: changes that affect all subcontext of this context.
 
@@ -72,9 +73,9 @@ read :: ./readonly
   **** :: changes that affect all subcontext of this context.
 
 cicd :: build process and related.
+  apac :: changes related with Apache files.
   dock :: changes related with Docker things.
   sh__ :: changes related with SH scripts.
-  apac :: changes related with Apache files.
   misc :: no-subcontent changes.
 
 misc :: no-context changes.
