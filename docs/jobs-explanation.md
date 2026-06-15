@@ -1,4 +1,4 @@
-### Docker image build
+### Docker image build steps
 
 > #### IMPORTANT
 > * All files that require a specific directory always must try to create them, with `mkdir -p
@@ -8,7 +8,7 @@
    it also will be used by Docker, during image build, to run specific executable scripts.
 
 0. **Download PHP's Core Extensions**: downloads all PHP's Core Extensions\* made available by the
-   package repositories of the chosen Linux Distributions; through of its package manager.
+   package repositories of the chosen Linux Distribution; through of its package manager.
 
 0. **Download CodeIgniter**: downloads the project framework (directory structure and dependences)
    using the Composer.
@@ -26,6 +26,9 @@
 
 0. **Download assets**: downloads icons, images, text fonts, libraries, and other types of assets
    required by the front-end pages; in addition to PHP libraries.
+
+0. **Download deploy packages**: downloads CLIs, made available by the package repositories of the
+  chosen Linux Distribution, to process the source code. **This always must be the last step.**
 
 > * Because of security reasons, Apache does not allow the use of the Root User as its
 administrator (user responsible for execute its process); unless it was compiled with the flag
