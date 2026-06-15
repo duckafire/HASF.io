@@ -7,7 +7,7 @@ BUN_EXPECTED_HASH_CODE='56a7d6806cf155536c0178f0ea5fbd098e684fa509ebdb4fc0a7e19f
 
 BUN_ZIP_FILE_NAME="${BUN_DOWNLOAD_URL##*/}"
 
-NPM_PACKAGES='sass@1.97.3'
+NPM_PACKAGES='sass@1.97.3 terser@5.45.0 clean-css-cli@5.6.3'
 
 mkdir -p "$BUN_INSTALL"
 cd "$BUN_INSTALL"
