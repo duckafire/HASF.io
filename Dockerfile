@@ -68,9 +68,14 @@ USER ${DF_APACHE_USER}
 COPY --chmod=555 ./scripts/docker-image/build-steps/7-dl-3party.sh /dibs/
 RUN  /dibs/7-dl-3party.sh
 
+USER root
+COPY --chmod=555 ./scripts/docker-image/build-steps/z-dl-deploy-pack.sh /dibs/
+RUN  /dibs/z-dl-deploy-pack.sh
+
 ####################################################################################################
 # Copy source code into image:
 
+USER ${DF_APACHE_USER}
 WORKDIR ${DF_WIP_DIR}
 
 COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/.htaccess          ..
