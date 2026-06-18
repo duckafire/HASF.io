@@ -40,7 +40,7 @@ php_value date.timezone America/Sao_Paulo
 	RewriteCond %{REQUEST_URI} !^/public/
 
 	<IfDefine HASF_IO_DEBUG>
-		RewriteRule (.*) /debug/public/$1 [QSA,L]
+		RewriteRule (.*) /local/public/$1 [QSA,L]
 	</IfDefine>
 
 	<IfDefine !HASF_IO_DEBUG>
@@ -52,7 +52,7 @@ php_value date.timezone America/Sao_Paulo
 	# Simple fallback;
 
 	<IfDefine HASF_IO_DEBUG>
-		ErrorDocument 404 /debug/public/index.php
+		ErrorDocument 404 /local/public/index.php
 	</IfDefine>
 
 	<IfDefine !HASF_IO_DEBUG>
