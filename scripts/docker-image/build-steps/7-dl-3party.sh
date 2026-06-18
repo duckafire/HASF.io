@@ -75,3 +75,6 @@ processData()
 processData "$ICONS_DIR"    $ICONS_PACKAGES
 processData "$PHP_LIBS_DIR" $PHP_LIBS
 
+# Remove icons metadata:
+rm -f $(find "$ICONS_DIR" -name '*.json' -type f)
+
