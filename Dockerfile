@@ -87,6 +87,25 @@ COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/public         ./publ
 COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/app            ./app
 
 ####################################################################################################
+# Process source files:
+
+# ("dp" is an acronym to Deploy Pipeline.)
+
+ENV HASF_IO_ROOT_DIR="$WORK_DIR"
+
+COPY --chmod=555 --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./scripts/deploy-pipeline/0-preprocessing/0-public-env.sh /dp/0/
+RUN  /dp/0/0-public-env.sh
+
+COPY --chmod=555 ./scripts/deploy-pipeline/0-preprocessing/1-create-build-dir.sh /dp/0/
+RUN  /dp/0/1-create-build-dir.sh
+
+COPY --chmod=555 ./scripts/deploy-pipeline/0-preprocessing/2-compile-files.sh /dp/0/
+RUN  /dp/0/2-compile-files.sh
+
+COPY --chmod=555 ./scripts/deploy-pipeline/0-preprocessing/3-compress-files.sh /dp/0/
+RUN  /dp/0/3-compress-files.sh
+
+####################################################################################################
 # Entrypoint configurations:
 
 COPY --chmod=555 ./scripts/docker-image/entrypoint.sh /
