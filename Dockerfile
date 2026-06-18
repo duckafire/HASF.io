@@ -19,7 +19,7 @@ ENV WORK_DIR=${DF_WORK_DIR}
 ####################################################################################################
 # Configure environment and download dependences:
 
-# ("dibs" is a acronym to Docker Image Build Steps.)
+# ("dibs" is an acronym to Docker Image Build Steps.)
 
 ENV  APACHE_USER=${DF_APACHE_USER} \
      WORK_DIR=${DF_WORK_DIR}
@@ -33,7 +33,7 @@ RUN  /dibs/1-dl-php-c-ext.sh
 USER ${DF_APACHE_USER}
 ENV  CODE_IGNITER_V="4.6.3" \
      WIP_DIR=${DF_WIP_DIR}
-COPY --chmod=555 --chown=${DF_APACHE_USER} ./scripts/docker-image/build-steps/2-dl-ci.sh /dibs/
+COPY --chmod=555 ./scripts/docker-image/build-steps/2-dl-ci.sh /dibs/
 RUN  /dibs/2-dl-ci.sh
 
 # Separated ENV because variables
@@ -41,7 +41,7 @@ RUN  /dibs/2-dl-ci.sh
 ENV  MYBIN_DIR="$WORK_DIR/mybin"
 ENV  BUN_INSTALL="$WORK_DIR/bun"
 ENV  PATH="$PATH:$MYBIN_DIR:$BUN_INSTALL:$BUN_INSTALL/bin"
-COPY --chmod=555 --chown=${DF_APACHE_USER} ./scripts/docker-image/build-steps/3-dl-npm-pack.sh /dibs/
+COPY --chmod=555 ./scripts/docker-image/build-steps/3-dl-npm-pack.sh /dibs/
 RUN  /dibs/3-dl-npm-pack.sh
 
 USER root
@@ -49,7 +49,7 @@ COPY --chmod=555 ./scripts/docker-image/build-steps/4-dl-php-apache.sh /dibs/
 RUN  /dibs/4-dl-php-apache.sh
 
 USER ${DF_APACHE_USER}
-COPY --chmod=555 --chown=${DF_APACHE_USER} ./scripts/docker-image/build-steps/5-dl-useful-tools.sh /dibs/
+COPY --chmod=555 ./scripts/docker-image/build-steps/5-dl-useful-tools.sh /dibs/
 RUN  /dibs/5-dl-useful-tools.sh
 
 # (Root is used here to allow that
