@@ -5,6 +5,7 @@ set -euo pipefail
 ASSETS_DIR="$WIP_DIR/public/assets"
 ICONS_DIR="$ASSETS_DIR/images/icons"
 PHP_LIBS_DIR="$WIP_DIR/app/ThirdParty/"
+FALLBACK_FRONT_END_DIR="$ASSETS_DIR/fallback"
 
 # Download URL;
 # integrity hash code;
@@ -18,6 +19,10 @@ https://github.com/simple-icons/simple-icons/archive/refs/tags/16.14.0.zip#7a2e3
 
 PHP_LIBS='
 https://github.com/symfony/yaml/archive/refs/tags/v8.0.6.zip#c177f20d62321075c984e9890b71b5055f44be50cb12a84976c2c7262cde3740#.#SymfonyYAML-v8.0.6
+'
+
+FALLBACK_FRONT_END_LIBS='
+https://code.jquery.com/jquery-3.7.1.slim.min.js
 '
 
 processData()
@@ -77,4 +82,16 @@ processData "$PHP_LIBS_DIR" $PHP_LIBS
 
 # Remove icons metadata:
 rm -f $(find "$ICONS_DIR" -name '*.json' -type f)
+
+# (All they are just minified JavaScript files.)
+cd "$FALLBACK_FRONT_END_DIR"
+
+for url in $FALLBACK_FRONT_END_LIBS
+do
+	if ! wget -q "$url"
+	then
+		echo "Impossible to download fallback front end library from: $url" 1>&2
+		exit 1
+	fi
+done
 
