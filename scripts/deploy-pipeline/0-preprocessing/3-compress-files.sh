@@ -4,12 +4,23 @@ set -euo pipefail
 . /dp/export-deploy-env-variables
 
 # List Files
+# (Code from `/dp/0/2*`.)
 lf()
 {
 	dir="$1"
 	ext="$2"
 
-	find "$dir" -name "*.$ext" -type f
+	files="$(find "$dir" -name "*.$ext" -type f)"
+
+	# Remove files that are in directories
+	# that must to be ignored.
+	for dir in "fallback images"
+	do
+		# (^|\S*/)dir/\S*
+		files="$(echo "$files" | sed 's/\(^\|\S*\/\)'"$dir"'\/\S*//g')"
+	done
+
+	echo "$files"
 }
 
 for file in $(lf "$HASF_IO_BUILD_PUBLIC_DIR" "js")
