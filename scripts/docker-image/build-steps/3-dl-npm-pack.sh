@@ -32,6 +32,5 @@ mv "$(find . -name bun -type f)" .
 chmod 555 ./bun
 rm -rf "${BUN_ZIP_FILE_NAME%.*}*"
 
-echo "$PATH"
 bun add --global --silent $NPM_PACKAGES
 
