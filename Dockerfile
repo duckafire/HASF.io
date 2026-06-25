@@ -59,8 +59,8 @@ RUN  /dibs/5-dl-useful-tools.sh
 # User.)
 USER root
 ENV  PHPRC="/etc/php$PHPV"            \
-     PHP_INI_SCAN_DIR="$PHPRC/conf.d" \
      HTTPD_DIR="/etc/apache2"
+ENV  PHP_INI_SCAN_DIR="$PHPRC/conf.d"
 COPY --chmod=555 ./scripts/docker-image/build-steps/6-dl-conf-files.sh /dibs/
 RUN  /dibs/6-dl-conf-files.sh
 
