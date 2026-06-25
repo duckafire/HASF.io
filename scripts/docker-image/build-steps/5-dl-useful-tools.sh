@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-DATA='https://raw.githubusercontent.com/duckafire/duckafire/82215077c9a2bf7a9c52e59f96b7da1349e7ba3f/mybin/tp#536b193ba9672a1f7c941308eeed15b46d411d9d7a58f0cd1280e272341024ec'
+# TODO fallback url
+DATA='https://raw.githubusercontent.com/duckafire/duckafire/4318cef55d9b02dfceea7c36300e23ea622a0bf7/mybin/tp#0f2971435208f133c49551b2b4b6d013f0c06cadd643ceeb81d0443c25791a95'
 
 mkdir -p "$MYBIN_DIR"
 cd "$MYBIN_DIR"

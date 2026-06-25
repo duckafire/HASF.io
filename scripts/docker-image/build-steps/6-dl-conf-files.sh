@@ -26,9 +26,9 @@ TEMPLATES=$(cat << EOF
  FILE_UPLOADS=Off,
  EXTENSIONS_DIR=\\/usr\\/lib\\/php$PHPV\\/modules,
 ;;
- https://raw.githubusercontent.com/duckafire/duckafire/e4d96aa71f864485aee38bd6ceefc2ef40c4b11e/config/apache2/httpd.conf.template
-#https://gitlab.com/duckafire/duckafire/-/raw/e4d96aa71f864485aee38bd6ceefc2ef40c4b11e/config/apache2/httpd.conf.template
-#eb230e448a6c2a41c21dd67e7cadbacf8e1572a3c440676eec6796ce7af6c66d
+ https://raw.githubusercontent.com/duckafire/duckafire/5653c1281a44d8907097a07278dea3a50ff95451/config/apache2/httpd.conf.template
+#https://gitlab.com/duckafire/duckafire/-/raw/5653c1281a44d8907097a07278dea3a50ff95451/config/apache2/httpd.conf.template
+#e7aed83c7a2b8f715123b1d336148b1a18cd8da4d59a962dbd136830d19783f1
 #$HTTPD_DIR/httpd.conf
 #SERVER_NAME=localhost,
  SERVER_ROOT=\\/app,
