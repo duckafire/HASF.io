@@ -80,6 +80,7 @@ WORKDIR ${DF_WIP_DIR}
 
 COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/.htaccess          ..
 COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/index.php          ..
+COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/.env.debug     .env
 
 COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/writable       ./writable
 COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/readonly       ./readonly
@@ -111,5 +112,10 @@ RUN  /dp/0/3-compress-files.sh
 
 COPY --chmod=555 ./scripts/docker-image/entrypoint.sh /
 ENTRYPOINT [ "/entrypoint.sh" ]
+
+####################################################################################################
+# Other few important configurations:
+
+EXPOSE 8080
 
 ####################################################################################################

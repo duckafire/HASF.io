@@ -2,6 +2,7 @@
 .env
 .env.*
 !.env.backup
+!.env.debug
 
 # Processed application:
 src/prod/
