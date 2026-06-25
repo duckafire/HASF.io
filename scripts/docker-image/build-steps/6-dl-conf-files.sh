@@ -154,6 +154,9 @@ processData()
 	done
 }
 
+rm -rf "$PHP_INI_SCAN_DIR"
+mkdir -p "$PHP_INI_SCAN_DIR"
+
 processData "true"  "$TEMPLATES"
 processData "false" "$FILES"
 
