@@ -2,6 +2,8 @@
 
 set -euo pipefail
 
+FORMATED_WORK_DIR="$(echo $WORK_DIR | sed 's/\//\\\//g')"
+
 # Download URL;
 # fallback download URL;
 # integrity hash code;
@@ -31,10 +33,10 @@ TEMPLATES=$(cat << EOF
 #e7aed83c7a2b8f715123b1d336148b1a18cd8da4d59a962dbd136830d19783f1
 #$HTTPD_DIR/httpd.conf
 #SERVER_NAME=localhost,
- SERVER_ROOT=\\/app,
+ SERVER_ROOT=$FORMATED_WORK_DIR,
  SERVER_TOKENS=Prod,
  SERVER_SIGNATURE=Off,
- DOCUMENT_ROOT=$(echo $WORK_DIR | sed 's/\//\\\//g'),
+ DOCUMENT_ROOT=$FORMATED_WORK_DIR,
  LISTEN_PORT=80,
  LOG_LEVEL=error,
  CGI_BIN_DIR=\\/app\\/cgi-bin,
