@@ -1,61 +1,33 @@
-# TODO: replace VERSION macro.
+# TODO: update value of URI_ROOT.
 
-php_value display_errors Off
-php_value mbstring.http_input auto
-php_value date.timezone America/Sao_Paulo
+DirectoryIndex index.php
+Options -Indexes
 
-<IfModule mod_headers>
-	# It says to browser use only
-	# HTTPS in future visits.
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+ServerSignature off
 
-	# Require, to browser, prefer color scheme of user.
-	# This information is used ONLY to set color scheme
-	# of the site at server side.
-	Header append Accept-CH "Sec-CH-Prefers-Color-Scheme"
-	Header append Vary "Sec-CH-Prefers-Color-Scheme"
-	Header append Permissions-Policy "ch-prefers-color-scheme=(self)"
-</IfModule>
-
-<IfModule mod_rewrite>
+<IfModule rewrite_module>
+	# Redirect and apply changes to
+	# request data:
 	RewriteEngine On
 
-	# Malformed requests
+	# Do not accept malformed requests
 	RewriteCond %{THE_REQUEST} !^(GET|POST)\ [a-zA-Z0-9\.\+_/\-\?\=\&]+\ HTTP/ [NC]
 	RewriteRule ^ - [F,NS,L]
 
 	<IfDefine !HASF_IO_DEBUG>
-		# Remove www.
+		# Remove: www.
 		RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
 		RewriteRule ^ https://%1%{REQUEST_URI} [QSA,L,R=301]
 
-		# http -> https
+		# Use HTTPS instead of HTTP.
 		RewriteCond %{HTTPS} off
 		RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
 		RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L,R=301]
 	</IfDefine>
 
-	# Avoid reread loops;
-	# Move all requests to ./public
-	RewriteCond %{REQUEST_URI} !^/public/
-
-	<IfDefine HASF_IO_DEBUG>
-		RewriteRule (.*) /local/public/$1 [QSA,L]
-	</IfDefine>
-
-	<IfDefine !HASF_IO_DEBUG>
-		RewriteRule (.*) /${VERSION}/public/$1 [QSA,L]
-	</IfDefine>
+	# Redirect to public directory, if
+	# it is not included in the URI.
+	RewriteCond %{REQUEST_URI} !^/${URI_ROOT}/public/
+	RewriteRule (.*) /${URI_ROOT}/public/$1 [QSA,L]
 </IfModule>
 
-<IfModule !mod_rewrite>
-	# Simple fallback;
-
-	<IfDefine HASF_IO_DEBUG>
-		ErrorDocument 404 /local/public/index.php
-	</IfDefine>
-
-	<IfDefine !HASF_IO_DEBUG>
-		ErrorDocument 404 /${VERSION}/public/index.php
-	</IfDefine>
-</IfModule>

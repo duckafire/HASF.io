@@ -1,22 +1,7 @@
 DirectoryIndex index.php
 Options -Indexes
 
-<IfModule mod_rewrite.c>
-	RewriteEngine On
-
-	# Redirect to "front controller"
-	RewriteCond %{REQUEST_FILENAME} !-d
-	RewriteCond %{REQUEST_FILENAME} !-f
-	RewriteRule ^ index.php [QSA,L]
-</IfModule>
-
-<IfModule !mod_rewrite.c>
-	# Simple fallback
-	ErrorDocument 404 /index.php
-</IfModule>
-
 ServerSignature off
 
-# Cache of 30 minutes
-ExpiresActive On
-ExpiresDefault "access plus 30 minutes"
+FallbackResource index.php
+
