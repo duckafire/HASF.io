@@ -145,7 +145,7 @@ processData()
 		if [ "$isTemplate" = "false" ]
 		then
 			mv "$fileName" "$destFilePath"
-			return
+			continue
 		fi
 
 		templateMacros="$(echo "$templateMacros" | sed 's/,/ /g')"
