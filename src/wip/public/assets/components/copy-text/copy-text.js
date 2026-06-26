@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () =>
 
 	class ClipboardAPIError extends Error
 	{
-		constructor("Impossible copy text. An internal error occur.", isMainAPI = true)
+		constructor(msg = "Impossible copy text. An internal error occur.", isMainAPI = true)
 		{
 			super(`${isMainAPI ? "Main" : "Fallback"} Clipboard API: ${msg}.`);
 		}
@@ -34,7 +34,7 @@ window.addEventListener("DOMContentLoaded", () =>
 		catch(ex)
 		{
 			console.error(ex);
-			throw new ClipboardAPIError("an error occur during manipulation of the \"bridge element\"", false).
+			throw new ClipboardAPIError("an error occur during manipulation of the \"bridge element\"", false);
 		}
 
 		if(!document.execCommand)
@@ -49,7 +49,7 @@ window.addEventListener("DOMContentLoaded", () =>
 		if(!navigator.clipboard || !navigator.clipboard.writeText)
 			return ClipboardAPIError("impossible found API");
 
-		navigator.clipboard.writeText(text);
+		navigator.clipboard.writeText(text)
 			.then(() =>
 			{
 				if(window.createNotifToast !== undefined)
