@@ -10,10 +10,10 @@ cd "$MYBIN_DIR"
 
 for data in $TOOLS_LIST
 do
-	url="${data%#*}"
+	url="${data%%#*}"
 	data="${data#*#}"
 
-	fallbackURL="${data%#*}"
+	fallbackURL="${data%%#*}"
 	expectedHashCode="${data#*#}"
 
 	execFileName="${url##*/}"
