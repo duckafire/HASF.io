@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # (Main URL; fallback URL; and expected hash code.)
-TOOLS_LIST='https://raw.githubusercontent.com/duckafire/duckafire/4318cef55d9b02dfceea7c36300e23ea622a0bf7/mybin/tp#https://gitlab.com/duckafire/duckafire/-/raw/main/mybin/tp?ref_type=heads#0f2971435208f133c49551b2b4b6d013f0c06cadd643ceeb81d0443c25791a95'
+TOOLS_LIST='https://raw.githubusercontent.com/duckafire/duckafire/4318cef55d9b02dfceea7c36300e23ea622a0bf7/mybin/tp#https://gitlab.com/duckafire/duckafire/-/raw/4318cef55d9b02dfceea7c36300e23ea622a0bf7/mybin/tp#0f2971435208f133c49551b2b4b6d013f0c06cadd643ceeb81d0443c25791a95'
 
 mkdir -p "$MYBIN_DIR"
 cd "$MYBIN_DIR"
