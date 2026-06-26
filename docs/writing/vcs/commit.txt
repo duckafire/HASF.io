@@ -25,7 +25,7 @@ publ => ./public
   scss => ./public/assets/**/*.scss
   set_ => ./public/assets/sets/**/*.css
        +> ./public/assets/sets/**/*.js
-  **** :: changes that affect all subcontext of this context.
+  **** :: changes that affect multiple subcontext of this context.
 
 appl => ./app
   3p__ => ./app/ThirdParty
@@ -38,7 +38,7 @@ appl => ./app
   lang => ./app/Language
   mod_ => ./app/Models
   view => ./app/Views
-  **** :: changes that affect all subcontext of this context.
+  **** :: changes that affect multiple subcontext of this context.
 
 docs => ./docs
   arch :: architecture documentation.
@@ -47,14 +47,14 @@ docs => ./docs
   desi :: changes related with the design of things.
   new_ :: create a new documentation file.
   misc :: no-subcontext documentation changes.
-  **** :: changes that affect all subcontext of this context.
+  **** :: changes that affect multiple subcontext of this context.
 
 test => ./tests
   db__ => ./tests/database
   ses_ => ./tests/session
   unit => ./tests/unit
   misc :: no-subcontext changes.
-  **** :: changes that affect all subcontext of this context.
+  **** :: changes that affect multiple subcontext of this context.
 
 writ => ./writable
   cach => ./writable/cache
@@ -62,7 +62,7 @@ writ => ./writable
   logs => ./writable/logs
   up__ => ./writable/uploads
   ses_ => ./writable/session
-  **** :: changes that affect all subcontext of this context.
+  **** :: changes that affect multiple subcontext of this context.
 
 read :: ./readonly
   json :: changes at JSON file(s).
@@ -70,7 +70,7 @@ read :: ./readonly
   xml_ :: changes at XML file(s).
   txt_ :: changes at TXT file(s).
   misc :: changes at other types of files.
-  **** :: changes that affect all subcontext of this context.
+  **** :: changes that affect multiple subcontext of this context.
 
 cicd :: build process and related.
   apac :: changes related with Apache files.
