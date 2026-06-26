@@ -94,7 +94,7 @@ function asset(string $relativeFilePath): string
 	// start manifest variable
 	if($manifest === null)
 	{
-		$manifest = \file_get_contents(\ROOTPATH."/readonly/assets-manifest.json");
+		$manifest = \file_get_contents(\ROOTPATH."/readonly/manifests/assets.json");
 
 		if($manifest === false)
 		{
@@ -122,7 +122,7 @@ function asset(string $relativeFilePath): string
 	}
 
 	// normal return
-	return \rtrim(\base_url($manifest["assets/$relativeFilePath"]), "/");
+	return \rtrim(\base_url("assets/".$manifest[$relativeFilePath]), "/");
 }
 
 function default_templates(?array $data = [])
