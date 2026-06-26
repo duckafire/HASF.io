@@ -95,6 +95,9 @@ COPY --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./src/wip/app            ./app
 
 ENV HASF_IO_ROOT_DIR="$WORK_DIR"
 
+# (chown is necessary here because this
+# rule will create `/dp`, that must be
+# accessible to Apache User.)
 COPY --chmod=555 --chown=${DF_APACHE_USER}:${DF_APACHE_USER} ./scripts/deploy-pipeline/0-preprocessing/0-public-env.sh /dp/0/
 RUN  /dp/0/0-public-env.sh
 
@@ -106,6 +109,9 @@ RUN  /dp/0/2-compile-files.sh
 
 COPY --chmod=555 ./scripts/deploy-pipeline/0-preprocessing/3-compress-files.sh /dp/0/
 RUN  /dp/0/3-compress-files.sh
+
+COPY --chmod=555 ./scripts/deploy-pipeline/1-create-manifests/0-assets.sh /dp/1/
+RUN  /dp/1/0-assets.sh
 
 ####################################################################################################
 # Entrypoint configurations:
