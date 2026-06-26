@@ -83,6 +83,7 @@ misc :: no-context changes.
   code :: changes at code general structure.
   conf :: changes at miscellaneous configurations.
   dir_ :: changes at directory structure.
+  file :: changes in files name, location, or integrity (whether it exists).
   env_ :: changes related with ENV files.
   git_ :: changes in Git configuration files.
   host :: host service files.
