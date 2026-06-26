@@ -124,4 +124,8 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 
 EXPOSE 8080
 
+# Few improvement in navigation
+# among files during debugging.
+WORKDIR ${DF_WORK_DIR}
+
 ####################################################################################################
