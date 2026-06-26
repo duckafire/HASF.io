@@ -16,7 +16,7 @@ cd "$HASF_IO_BUILD_ASSETS_DIR"
 # (List files; remove path prefix; and
 # remove files that are inside directories
 # that must be ignored.)
-for filePath in $(find . -type f | sed 's/^\.\///g' | grep -vE "^(fallback|images/icons)")
+for filePath in $(find . -type f | sed 's/^\.\///g' | grep -vE "^(fallback|images/icons)/")
 do
 	fileDir="${filePath%/*}"
 	fileName="${filePath##*/}"
