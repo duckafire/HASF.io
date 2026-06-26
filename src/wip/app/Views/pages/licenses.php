@@ -11,7 +11,7 @@ $defTemplates = \default_templates(["head" => ["head_tags" => ["intern" => ["css
 
 	<main class="page-main">
 		<?php
-			$data     = \jsonToArray(\READONLY_PATH."licenses/data.json");
+			$data     = \jsonToArray(\READONLY_PATH."licenses/metadata.json");
 			$licenses = \parseXMLFile(\READONLY_PATH."licenses/texts.xml");
 
 			if($data === null || $licenses === null)
