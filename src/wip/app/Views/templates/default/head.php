@@ -28,6 +28,9 @@
 
 	<script src="<?= asset("common/default.js"); ?>"></script>
 
+	<!-- path/to/0,Object0;path/to/1,Object1 -->
+	<script id="fallback" data-items="jquery-3.7.1.slim.min.js,jQuery" src="<?= asset("common/fallback.js") ?>"></script>
+
 <?php
 
 if(!isset($head_tags))
