@@ -1,5 +1,10 @@
 #!/usr/bin/env sh
 
+if [ -z "$HASF_IO_PRODUCTION" ]
+then
+	exit
+fi
+
 set -euo pipefail
 . /dp/export-deploy-env-variables
 
