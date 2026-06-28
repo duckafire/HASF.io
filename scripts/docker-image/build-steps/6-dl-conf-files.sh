@@ -10,9 +10,9 @@ FORMATED_WORK_DIR="$(echo $WORK_DIR | sed 's/\//\\\//g')"
 # destine path; and
 # macros and their values:
 TEMPLATES=$(cat << EOF
- https://raw.githubusercontent.com/duckafire/duckafire/82215077c9a2bf7a9c52e59f96b7da1349e7ba3f/config/php/php.template.ini
-#https://gitlab.com/duckafire/duckafire/-/raw/82215077c9a2bf7a9c52e59f96b7da1349e7ba3f/config/php/php.template.ini
-#b066c7d42b0ef4a3fa6120352e2b7f9b5798fdd22c414a672956fca302823bc7
+ https://raw.githubusercontent.com/duckafire/duckafire/1ab992b1acca241c1dd744b2f5f618e78fbaf2c9/config/php/php.template.ini
+#https://gitlab.com/duckafire/duckafire/-/raw/1ab992b1acca241c1dd744b2f5f618e78fbaf2c9/config/php/php.template.ini
+#96ecf87dd717324b4d3f1e7395d94b59a04681ffbb78034fc1c33934e178f679
 #$PHPRC/php.ini
 #OUTPUT_BUFFERING=1024,
  OUTPUT_HANDLER=,
@@ -27,9 +27,10 @@ TEMPLATES=$(cat << EOF
  ERROR_LOG=\\/app\\/php\\/logs\\/error.log,
  FILE_UPLOADS=Off,
  EXTENSIONS_DIR=\\/usr\\/lib\\/php$PHPV\\/modules,
+ DISPLAY_ERRORS=Off,
 ;;
- https://raw.githubusercontent.com/duckafire/duckafire/5653c1281a44d8907097a07278dea3a50ff95451/config/apache2/httpd.conf.template
-#https://gitlab.com/duckafire/duckafire/-/raw/5653c1281a44d8907097a07278dea3a50ff95451/config/apache2/httpd.conf.template
+ https://raw.githubusercontent.com/duckafire/duckafire/a2a3af2063195523b5a4a399ad17fb90418c9c9b/config/apache2/httpd.conf.template
+#https://gitlab.com/duckafire/duckafire/-/raw/a2a3af2063195523b5a4a399ad17fb90418c9c9b/config/apache2/httpd.conf.template
 #e7aed83c7a2b8f715123b1d336148b1a18cd8da4d59a962dbd136830d19783f1
 #$HTTPD_DIR/httpd.conf
 #SERVER_NAME=localhost,
