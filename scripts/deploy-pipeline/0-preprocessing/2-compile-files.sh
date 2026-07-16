@@ -16,7 +16,7 @@ lf()
 
 	# Remove files that are in directories
 	# that must to be ignored.
-	for dir in "fallback images"
+	for dir in "fallback images .lib"
 	do
 		# (^|\S*/)dir/\S*
 		files="$(echo "$files" | sed 's/\(^\|\S*\/\)'"$dir"'\/\S*//g')"
@@ -34,9 +34,27 @@ done
 
 if [ -n "$SCSS_FILES" ]
 then
+	SCSS_PARTIAL_SS_DIR="$HASF_IO_BUILD_ASSETS_DIR/.lib/sass"
+
+	mkdir -p "$SCSS_PARTIAL_SS_DIR"
+
+	SASS_OPTIONS=$(cat <<- EOF
+		--no-color
+		--no-unicode
+		--no-error-css
+
+		--stop-on-error
+		--update
+		--verbose
+
+		--style compressed
+		--load-path "$SCSS_PARTIAL_SS_DIR"
+	EOF
+	)
+
 	# This compressing is minimal.
-	bun x --silent sass --no-source-map --style compressed -- $SCSS_FILES
+	bun x --silent sass $SASS_OPTIONS -- $SCSS_FILES
 fi
 
-rm -f "$FILES_TO_REMOVE"
+rm -rf "$FILES_TO_REMOVE" "$(ls -a "$HASF_IO_BUILD_ASSETS_DIR" | grep -E '^\.[^.]+')"
 
