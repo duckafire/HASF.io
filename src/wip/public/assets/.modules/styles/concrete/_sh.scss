@@ -19,6 +19,7 @@
 /// @param string $rules-prefix
 @mixin _scale($width, $height, $rules-prefix)
 {
+	/// @type {number}
 	$height-value: $height;
 
 	@if math.unit($width) == "vw" and $width == $height
