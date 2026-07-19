@@ -2,8 +2,8 @@
 
 @use "sass:math";
 
-@use "abstract/functions/convert" as conv;
-@use "abstract/functions/validate" as val;
+@use "abstract/convert" as conv;
+@use "abstract/validate" as val;
 
 /// @param {number} $value
 @mixin padgap($value)

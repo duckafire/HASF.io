@@ -1,7 +1,7 @@
 @use "sass:meta";
 @use "sass:list";
 
-@use "abstract/functions/util";
+@use "abstract/util";
 
 /// @param {list} $list
 /// @param {*}    $target

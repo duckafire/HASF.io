@@ -1,7 +1,7 @@
 @use "sass:map";
 
-@use "abstract/functions/extended-standard/xlist";
-@use "abstract/functions/util";
+@use "abstract/extended-standard/xlist";
+@use "abstract/util";
 
 /// @param {string[]} $parent-selector - Value of &.
 /// @return {string} - First selector, without its first character.
