@@ -17,10 +17,14 @@ old.*
 todo
 TODO
 
-# Fast test
+# Fast test:
 foo
 bar
-
 foo.*
 bar.*
+
+# Processed files:
+./src/wip/public/assets/.modules/behaviors/js/
+./src/wip/public/assets/pages/**/*.mjs
+./src/wip/public/assets/components/**/*.css
 
