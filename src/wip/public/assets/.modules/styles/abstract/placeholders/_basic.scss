@@ -1,0 +1,15 @@
+@use "concrete/sh";
+
+%unflex
+{
+	flex: 0 0 auto;
+}
+
+%text-block
+{
+	display: block;
+	@include sh.scale(max-content);
+	@include sh.max-scale(100%);
+	white-space: wrap;
+}
+
