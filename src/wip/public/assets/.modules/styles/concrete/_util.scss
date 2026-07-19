@@ -1,0 +1,62 @@
+@use "sass:map";
+
+@use "abstract/functions/extended-standard/xlist";
+@use "abstract/functions/util";
+
+/// @param {string[]} $parent-selector - Value of &.
+/// @return {string} - First selector, without its first character.
+@function _extract-namespace($parent-selector)
+{
+	util.val-arg-type("parent-selector", $parent-selector, "list");
+
+	@return string.slice(#{list.nth($parent-selector, 1)});
+}
+
+/// @param {string[]} $parent-selector - Value of &.
+/// @param {map}      $map
+/// @param {map}      $fallback [()]
+@mixin decl-css-var($parent-selector, $map, $fallback: ())
+{
+	/// @type {string}
+	$namespace: _extract-namespace($parent-selector);
+
+	util.val-arg-type("map",      $map);
+	util.val-arg-type("fallback", $fallback, "map");
+
+	$fallback-value: null;
+
+	@each $key, $value in $map
+	{
+		$fallback-value: map.get($fallback, $key);
+
+		@if $fallback-value != null
+		{
+			--#{$namespace}-fallback-#{$key}: #{$fallback-value};
+		}
+
+		--#{$namespace}-#{$key}: #{$value};
+	}
+}
+
+/// @param {string[]} $parent-selector - Value of &.
+/// @param {string[]} $rules-list
+/// @param {string[]} $fallback-rules-list [()]
+@mixin use-css-var($parent-selector, $rules-list, $fallback-rules-list: ())
+{
+	/// @type {string}
+	$namespace: _extract-namespace($parent-selector);
+
+	util.val-arg-type("rules-list",          $rules-list,          "list");
+	util.val-arg-type("fallback-rules-list", $fallback-rules-list, "list");
+
+	@each $rule in $rules-list
+	{
+		@if xlist.find($fallback-rules-list, $rule) != 0
+		{
+			#{$rule}: var(--#{$namespace}-fallback-#{$rule});
+		}
+
+		#{$rule}: var(--#{$namespace}-#{$rule});
+	}
+}
+

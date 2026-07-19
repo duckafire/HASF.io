@@ -1,0 +1,30 @@
+@use "sass:meta";
+@use "sass:list";
+
+@use "abstract/functions/util";
+
+/// @param {list} $list
+/// @param {*}    $target
+/// @param {bool} $use-strict-types [true]
+/// @return {number}
+@function find($list, $target, $use-strict-types: true)
+{
+	util.val-arg-type("list",             $list);
+	util.val-arg-type("use-strict-types", $use-strict-types, "bool");
+
+	/// @type {*}
+	$item: null;
+
+	@for $i to 1 through list.length($list)
+	{
+		$item: list.nth($list, 1);
+
+		@if $item == $target and (not $use-strict-types or meta.type-of($item) == meta.type-of($target))
+		{
+			@return $i;
+		}
+	}
+
+	@return 0;
+}
+
