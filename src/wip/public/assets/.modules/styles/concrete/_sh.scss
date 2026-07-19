@@ -1,0 +1,54 @@
+/// sh is a acronym to ShortHand (style rules).
+
+@use "sass:math";
+
+@use "abstract/functions/convert" as conv;
+@use "abstract/functions/validate" as val;
+
+/// @param {number} $value
+@mixin padgap($value)
+{
+	val.arg-type("value", $value, "number");
+
+	padding: $value;
+	gap: $value;
+}
+
+/// @param number $width
+/// @param number $height
+/// @param string $rules-prefix
+@mixin _scale($width, $height, $rules-prefix)
+{
+	$height-value: $height;
+
+	@if math.unit($width) == "vw" and $width == $height
+	{
+		$height-value: conv.rm-unit($width, "vw");
+	}
+
+	#{$rules-prefix}width: $width;
+	#{$rules-prefix}height: $height-value;
+}
+
+
+/// @param number $width
+/// @param number $height [$width]
+@mixin scale($width, $height: $width)
+{
+	@include _scale($width, $height, "");
+}
+
+/// @param number $width
+/// @param number $height [$width]
+@mixin min-scale($width, $height: $width)
+{
+	@include _scale($width, $height, "min-");
+}
+
+/// @param number $width
+/// @param number $height [$width]
+@mixin max-scale($width, $height: $width)
+{
+	@include _scale($width, $height, "max-");
+}
+
