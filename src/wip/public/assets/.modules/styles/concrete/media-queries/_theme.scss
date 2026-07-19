@@ -1,0 +1,18 @@
+/// @content
+@mixin light
+{
+	@media (prefers-color-scheme: light)
+	{
+		@content;
+	}
+}
+
+/// @content
+@mixin dark
+{
+	@media (prefers-color-scheme: dark)
+	{
+		@content;
+	}
+}
+
