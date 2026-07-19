@@ -1,7 +1,7 @@
 @use "sass:meta";
 @use "sass:list";
 
-@use "abstract/util";
+@use "abstract/autil";
 
 /// @param {list} $list
 /// @param {*}    $target
@@ -9,8 +9,8 @@
 /// @return {number}
 @function find($list, $target, $use-strict-types: true)
 {
-	util.val-arg-type("list",             $list);
-	util.val-arg-type("use-strict-types", $use-strict-types, "bool");
+	autil.val-arg-type("list",             $list);
+	autil.val-arg-type("use-strict-types", $use-strict-types, "bool");
 
 	/// @type {*}
 	$item: null;

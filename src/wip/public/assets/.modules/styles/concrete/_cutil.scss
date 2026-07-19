@@ -1,13 +1,13 @@
 @use "sass:map";
 
 @use "abstract/extended-standard/xlist";
-@use "abstract/util";
+@use "abstract/autil";
 
 /// @param {string[]} $parent-selector - Value of &.
 /// @return {string} - First selector, without its first character.
 @function _extract-namespace($parent-selector)
 {
-	util.val-arg-type("parent-selector", $parent-selector, "list");
+	autil.val-arg-type("parent-selector", $parent-selector, "list");
 
 	@return string.slice(#{list.nth($parent-selector, 1)});
 }
@@ -20,8 +20,8 @@
 	/// @type {string}
 	$namespace: _extract-namespace($parent-selector);
 
-	util.val-arg-type("map",      $map);
-	util.val-arg-type("fallback", $fallback, "map");
+	autil.val-arg-type("map",      $map);
+	autil.val-arg-type("fallback", $fallback, "map");
 
 	$fallback-value: null;
 
@@ -46,8 +46,8 @@
 	/// @type {string}
 	$namespace: _extract-namespace($parent-selector);
 
-	util.val-arg-type("rules-list",          $rules-list,          "list");
-	util.val-arg-type("fallback-rules-list", $fallback-rules-list, "list");
+	autil.val-arg-type("rules-list",          $rules-list,          "list");
+	autil.val-arg-type("fallback-rules-list", $fallback-rules-list, "list");
 
 	@each $rule in $rules-list
 	{
