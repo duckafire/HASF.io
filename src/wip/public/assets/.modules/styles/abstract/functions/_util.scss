@@ -1,0 +1,28 @@
+@use "sass:meta";
+@use "sass:string";
+
+/// @param {string} $name
+/// @param {*}      $value
+/// @param {string} $exp-type [$number] - Many times, argument name is equal to the expected type.
+/// @return {null}
+/// @thrown If argument type is invalid
+@function val-arg-type($name, $value, $exp-type: $name)
+{
+	arg-type("name",     $name,     "string");
+	arg-type("exp-type", $exp-type, "string");
+
+	@if meta.type-of($value) != $exp-type
+	{
+		@error "Invalid argument to $"                           +
+				meta.inspect(string.quote($name))                +
+				"; expecting "                                   +
+				meta.inspect(string.quote($exp-type))            +
+				" instead of "                                   +
+				meta.inspect(string.quote(meta.type-of($value))) +
+				".";
+	}
+
+	// (Mandatory return.)
+	@return null;
+}
+
