@@ -1,0 +1,29 @@
+@use "abstract/readonly/vwidth";
+
+/// @content
+@mixin mobile
+{
+	@media screen and (min-width: vwidth.$MIN_MOBILE) and (max-width: vwidth.$MAX_MOBILE)
+	{
+		@content;
+	}
+}
+
+/// @content
+@mixin tablet
+{
+	@media screen and (min-width: vwidth.$MIN_TABLET) and (max-width: vwidth.$MAX_TABLET)
+	{
+		@content;
+	}
+}
+
+/// @content
+@mixin desktop
+{
+	@media screen and (min-width: vwidth.$MIN_DESKTOP)
+	{
+		@content;
+	}
+}
+
