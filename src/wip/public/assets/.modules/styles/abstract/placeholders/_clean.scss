@@ -1,9 +1,9 @@
-%bg
+%clean-bg
 {
 	background: none;
 }
 
-%cursor
+%clean-cursor
 {
 	@at-root
 	{
@@ -15,7 +15,7 @@
 	}
 }
 
-%font
+%clean-font
 {
 	color: inherit;
 
@@ -27,14 +27,14 @@
 	};
 }
 
-%list
+%clean-list
 {
 	list: {
 		style: none;
 	}
 }
 
-%box-model
+%clean-box-model
 {
 	margin: 0;
 	padding: 0;
@@ -43,7 +43,7 @@
 	};
 }
 
-%link
+%clean-link
 {
 	@at-root
 	{
@@ -59,7 +59,7 @@
 
 // This only must be used if the element will
 // gain an alternative accessibility solution.
-%accessibility
+%clean-accessibility
 {
 	@at-root
 	{

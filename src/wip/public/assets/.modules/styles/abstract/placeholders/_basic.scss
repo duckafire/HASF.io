@@ -1,11 +1,11 @@
 @use "concrete/sh";
 
-%unflex
+%basic-unflex
 {
 	flex: 0 0 auto;
 }
 
-%text-block
+%basic-text-block
 {
 	display: block;
 	@include sh.scale(max-content);
