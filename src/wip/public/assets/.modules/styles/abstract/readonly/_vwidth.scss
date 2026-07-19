@@ -1,0 +1,12 @@
+// Assuming default value of 1rem (16px).
+
+$MIN_SUPPORTED_SCREEN_WIDTH: 20rem; // 320px;
+
+$MIN_MOBILE:  30rem; // 480px
+$MIN_TABLET:  48rem; // 768px
+$MIN_DESKTOP: 64rem; // 1024px
+
+$MAX_SMALL_SCREEN:    calc($MIN_MOBILE  - 1px);
+$MAX_MOBILE:          calc($MIN_TABLET  - 1px);
+$MAX_TABLET:          calc($MIN_DESKTOP - 1px);
+
