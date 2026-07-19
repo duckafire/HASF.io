@@ -1,7 +1,15 @@
 #!/usr/bin/env sh
 
-# (Less `-u`.)
 set -eo pipefail
+
+if [ -n "$HASF_IO_PRODUCTION" ]
+then
+	HASF_IO_PRODUCTION="true" # Truthy (because it is not empty).
+else
+	HASF_IO_PRODUCTION="" # Falsy (because it is empty).
+fi
+
+set -u
 
 # Expected environment variables:
 #
@@ -127,6 +135,7 @@ HASF_IO_BUILD_ASSETS_DIR="$HASF_IO_BUILD_PUBLIC_DIR/assets"
 HASF_IO_BUILD_MANIFESTS_DIR="$HASF_IO_BUILD_READONLY_DIR/manifests"
 
 VAR_LIST=$(cat << EOF
+HASF_IO_PRODUCTION
 HASF_IO_WORK_DIR
 HASF_IO_BUILD_WIP_DIR
 HASF_IO_BUILD_ROOT_DIR
@@ -150,7 +159,7 @@ done
 echo "$(cat << EOF
 #!/usr/bin/env sh
 
-set -eo pipefail
+set -euo pipefail
 
 $envFileDeclarations
 

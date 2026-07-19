@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-set -eo pipefail
+set -euo pipefail
 . /dp/export-deploy-env-variables
 
 MANIFEST_PATH="$HASF_IO_BUILD_MANIFESTS_DIR/assets.json"
