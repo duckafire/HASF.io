@@ -36,7 +36,7 @@ compressFiles()
 
 	files=""
 
-	for dir in $SRC_DIR_FILES
+	for dir in $SRC_DIRS_LIST
 	do
 		files="$(find "$dir" -name "*.$inExt" -type f)"
 	done
