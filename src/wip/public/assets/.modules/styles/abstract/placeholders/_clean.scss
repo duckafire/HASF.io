@@ -1,0 +1,76 @@
+%bg
+{
+	background: none;
+}
+
+%cursor
+{
+	@at-root
+	{
+		&,
+		&:hover
+		{
+			cursor: default;
+		}
+	}
+}
+
+%font
+{
+	color: inherit;
+
+	font: {
+		size: 1em;
+		family: inherit;
+		style: none;
+		weight: default;
+	};
+}
+
+%list
+{
+	list: {
+		style: none;
+	}
+}
+
+%box-model
+{
+	margin: 0;
+	padding: 0;
+	border: {
+		width: 0;
+	};
+}
+
+%link
+{
+	@at-root
+	{
+		&,
+		&:link,
+		&:visited
+		{
+			color: inherit;
+			text-decoration: none;
+		}
+	}
+}
+
+// This only must be used if the element will
+// gain an alternative accessibility solution.
+%accessibility
+{
+	@at-root
+	{
+		&,
+		&:focus,
+		&:focus-visible,
+		&:focus-within,
+		&:active
+		{
+			outline: none;
+		}
+	}
+}
+
