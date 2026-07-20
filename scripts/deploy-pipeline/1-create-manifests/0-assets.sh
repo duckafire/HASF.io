@@ -16,13 +16,26 @@ cd "$HASF_IO_BUILD_ASSETS_DIR"
 # (List files; remove path prefix; and
 # remove files that are inside directories
 # that must be ignored.)
-for filePath in $(find . -type f | sed 's/^\.\///g' | grep -vE "^(fallback|images/icons)/")
+for filePath in $(find . -type f | sed 's/^\.\///g' | grep -vE '^(.modules|fallback|images/icons)/')
 do
+	filePathRootDir="${filePath#./}"
+	filePathRootDir="${filePathRootDir%%/*}"
+
 	fileDir="${filePath%/*}"
 	fileName="${filePath##*/}"
 
-	fileOnlyName="${fileName%.*}"
-	fileExt="${fileName##*.}"
+	case "$filePathRootDir" in
+		"standalone"|"pages"|"components")
+			if ! echo "$fileName" | grep -E "\.min\."
+			then
+				continue
+			fi
+		;;
+		*) ;;
+	esac
+
+	fileOnlyName="${fileName%.min.*}"
+	fileExt="min.${fileName##*.min.}"
 
 	hashCode="$(xxh128sum "$filePath")"
 	hashCode="${hashCode%% *}"
