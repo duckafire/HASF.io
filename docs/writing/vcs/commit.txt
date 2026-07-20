@@ -22,6 +22,9 @@ publ => ./public
   css_ => ./public/assets/**/*.css
   fc__ => ./public/*
   js__ => ./public/assets/**/*.js
+  ts__ => ./public/assets/**/*.ts
+  mjs_ => ./public/assets/**/*.mjs
+  mts_ => ./public/assets/**/*.mts
   scss => ./public/assets/**/*.scss
   set_ => ./public/assets/sets/**/*.css
        +> ./public/assets/sets/**/*.js
