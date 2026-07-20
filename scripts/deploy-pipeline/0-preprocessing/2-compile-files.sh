@@ -70,8 +70,11 @@ catchFiles()
 
 	for srcDir in $SRC_DIRS_LIST
 	do
-		caughtFiles="$caughtFiles $(find "$srcDir" -name "*.$ext" -type f)"
-		sourceFiles="$sourceFiles $caughtFiles"
+		if [ -d "$srcDir" ]
+		then
+			caughtFiles="$caughtFiles $(find "$srcDir" -name "*.$ext" -type f)"
+			sourceFiles="$sourceFiles $caughtFiles"
+		fi
 	done
 
 	if [ "$ext" = "scss" ]

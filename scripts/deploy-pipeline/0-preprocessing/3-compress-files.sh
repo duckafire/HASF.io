@@ -38,7 +38,10 @@ compressFiles()
 
 	for dir in $SRC_DIRS_LIST
 	do
-		files="$(find "$dir" -name "*.$inExt" -type f)"
+		if [ -d "$dir" ]
+		then
+			files="$(find "$dir" -name "*.$inExt" -type f)"
+		fi
 	done
 
 	for file in $files
