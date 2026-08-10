@@ -10,7 +10,7 @@
 
 
 # Builded application:
-src/prod/
+./src/prod/
 
 
 # Text editor/IDE conf. file:
@@ -36,7 +36,9 @@ foo.*
 bar.*
 
 # Processed files:
-./src/wip/public/assets/.modules/behaviors/js/
-./src/wip/public/assets/pages/**/*.mjs
-./src/wip/public/assets/components/**/*.css
+./**/public/assets/.modules/behaviors/js/
+./**/public/assets/pages/**/*.cjs
+./**/public/assets/pages/**/*.mjs
+./**/public/assets/pages/**/*.js
+./**/public/assets/components/**/*.css
 
