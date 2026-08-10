@@ -1,23 +1,35 @@
-# Secret:
+# Secret data files:
 .env
 .env.*
+
+# (This contains only required fields.)
 !.env.backup
+
+# (This contains data related with test environment.)
 !.env.debug
 
-# Processed application:
+
+# Builded application:
 src/prod/
+
 
 # Text editor/IDE conf. file:
 s.vim
 
+
 # Temp. backup:
 old.*
 
-# Temp. doc.:
+# Temp. to do lists:
+
+# (Low priority.)
 todo
+
+# (High priority.)
 TODO
 
-# Fast test:
+
+# Files to fast tests:
 foo
 bar
 foo.*
