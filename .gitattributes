@@ -1,0 +1,7 @@
+favicon.* binary
+**/icons/**/*.svg binary
+
+
+
+* text=auto eol=lf
+
