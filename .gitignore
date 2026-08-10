@@ -19,6 +19,14 @@ s.vim
 
 # Temp. backup:
 old.*
+*.backup
+
+
+# Lockfiles:
+
+*.lock
+*-lock.json
+
 
 # Temp. to do lists:
 
@@ -32,8 +40,14 @@ TODO
 # Files to fast tests:
 foo
 bar
+stuff
 foo.*
 bar.*
+stuff.*
+*.foo
+*.bar
+*.stuff
+
 
 # Processed files:
 ./**/public/assets/.modules/behaviors/js/
